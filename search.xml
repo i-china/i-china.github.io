@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F08%2F07%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[现在是2019-08-08 01:52:30]]></title>
+    <url>%2F2019%2F08%2F08%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[生活是美好的～]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Time</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[article]]></title>
+    <url>%2F2019%2F08%2F08%2Farticle%2F</url>
+    <content type="text"><![CDATA[记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！ 以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！]]></content>
+      <categories>
+        <category>PHP</category>
+        <category>Laravel</category>
+        <category>IT</category>
+      </categories>
   </entry>
 </search>
