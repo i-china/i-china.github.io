@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-07T17:51:39.143Z</updated>
+  <updated>2019-08-07T18:13:32.664Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>点这个，看细节！</title>
+    <link href="http://yoursite.com/2019/08/08/article/"/>
+    <id>http://yoursite.com/2019/08/08/article/</id>
+    <published>2019-08-07T18:15:28.000Z</published>
+    <updated>2019-08-07T18:13:32.664Z</updated>
+    
+    <content type="html"><![CDATA[<p>记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。<br>然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！</p><p>以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。&lt;br&gt;然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！&lt;/p&gt;
+&lt;p&gt;以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+      <category term="Laravel" scheme="http://yoursite.com/categories/PHP/Laravel/"/>
+    
+    
+      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>现在是2019-08-08 01:52:30</title>
@@ -39,34 +67,6 @@
     
     
       <category term="Time" scheme="http://yoursite.com/tags/Time/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>article</title>
-    <link href="http://yoursite.com/2019/08/08/article/"/>
-    <id>http://yoursite.com/2019/08/08/article/</id>
-    <published>2019-08-07T17:47:24.000Z</published>
-    <updated>2019-08-07T17:57:21.579Z</updated>
-    
-    <content type="html"><![CDATA[<p>记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。<br>然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！</p><p>以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。&lt;br&gt;然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！&lt;/p&gt;
-&lt;p&gt;以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！&lt;/p&gt;
-      
-    
-    </summary>
-    
-      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
-    
-      <category term="Laravel" scheme="http://yoursite.com/categories/PHP/Laravel/"/>
-    
-      <category term="IT" scheme="http://yoursite.com/categories/PHP/Laravel/IT/"/>
-    
     
   </entry>
   
