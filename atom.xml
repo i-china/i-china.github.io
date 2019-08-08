@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-07T18:15:48.619Z</updated>
+  <updated>2019-08-08T12:41:08.644Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2019/08/08/article/"/>
     <id>http://yoursite.com/2019/08/08/article/</id>
     <published>2019-08-07T18:15:28.000Z</published>
-    <updated>2019-08-07T18:15:48.619Z</updated>
+    <updated>2019-08-08T12:41:08.644Z</updated>
     
-    <content type="html"><![CDATA[<p>记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。<br>然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！</p><p>以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！</p>]]></content>
+    <content type="html"><![CDATA[<p>记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。<br>然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！</p><p>以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！</p><p>vim docker linux </p>]]></content>
     
     <summary type="html">
     
