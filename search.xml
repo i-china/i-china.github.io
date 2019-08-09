@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Golang Note]]></title>
+    <url>%2F2019%2F08%2F09%2FGolang-Note%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Python Note]]></title>
+    <url>%2F2019%2F08%2F09%2FPython-Note%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux Note]]></title>
+    <url>%2F2019%2F08%2F09%2FLinux-Note%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[PHP Note]]></title>
+    <url>%2F2019%2F08%2F09%2FPHP-Note%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Vim Note]]></title>
+    <url>%2F2019%2F08%2F09%2FVim-Note%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Git Note]]></title>
+    <url>%2F2019%2F08%2F09%2FGit-Note%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[现在是2019-08-08 01:52:30]]></title>
     <url>%2F2019%2F08%2F08%2Fhello-world%2F</url>
     <content type="text"><![CDATA[生活是美好的～]]></content>
