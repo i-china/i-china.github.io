@@ -43,11 +43,11 @@
   </entry>
   
   <entry>
-    <title>Nginx-Note</title>
+    <title>Nginx</title>
     <link href="http://yoursite.com/2019/08/11/Nginx-Note/"/>
     <id>http://yoursite.com/2019/08/11/Nginx-Note/</id>
     <published>2019-08-11T02:14:23.000Z</published>
-    <updated>2019-08-11T02:14:46.919Z</updated>
+    <updated>2019-08-11T02:20:12.839Z</updated>
     
     <content type="html"><![CDATA[<p>Nginx</p>]]></content>
     
@@ -95,11 +95,11 @@
   </entry>
   
   <entry>
-    <title>Docker-Note</title>
+    <title>Docker</title>
     <link href="http://yoursite.com/2019/08/11/Docker-Note/"/>
     <id>http://yoursite.com/2019/08/11/Docker-Note/</id>
     <published>2019-08-11T02:04:45.000Z</published>
-    <updated>2019-08-11T02:05:38.996Z</updated>
+    <updated>2019-08-11T02:21:18.724Z</updated>
     
     <content type="html"><![CDATA[<p>Docker Technology</p>]]></content>
     
@@ -119,11 +119,11 @@
   </entry>
   
   <entry>
-    <title>Golang Note</title>
+    <title>Golang</title>
     <link href="http://yoursite.com/2019/08/09/Golang-Note/"/>
     <id>http://yoursite.com/2019/08/09/Golang-Note/</id>
     <published>2019-08-09T10:59:22.000Z</published>
-    <updated>2019-08-10T14:16:40.259Z</updated>
+    <updated>2019-08-11T02:20:19.563Z</updated>
     
     <content type="html"><![CDATA[<p>Golang </p>]]></content>
     
@@ -145,11 +145,11 @@
   </entry>
   
   <entry>
-    <title>Python Note</title>
+    <title>Python</title>
     <link href="http://yoursite.com/2019/08/09/Python-Note/"/>
     <id>http://yoursite.com/2019/08/09/Python-Note/</id>
     <published>2019-08-09T10:59:15.000Z</published>
-    <updated>2019-08-10T14:19:01.987Z</updated>
+    <updated>2019-08-11T02:21:03.609Z</updated>
     
     <content type="html"><![CDATA[<p>Python Note</p>]]></content>
     
@@ -173,11 +173,11 @@
   </entry>
   
   <entry>
-    <title>Linux Note</title>
+    <title>Linux</title>
     <link href="http://yoursite.com/2019/08/09/Linux-Note/"/>
     <id>http://yoursite.com/2019/08/09/Linux-Note/</id>
     <published>2019-08-09T10:59:08.000Z</published>
-    <updated>2019-08-11T02:13:56.816Z</updated>
+    <updated>2019-08-11T02:21:37.284Z</updated>
     
     <summary type="html">
     
@@ -195,11 +195,11 @@
   </entry>
   
   <entry>
-    <title>PHP Note</title>
+    <title>PHP</title>
     <link href="http://yoursite.com/2019/08/09/PHP-Note/"/>
     <id>http://yoursite.com/2019/08/09/PHP-Note/</id>
     <published>2019-08-09T10:58:59.000Z</published>
-    <updated>2019-08-10T14:17:56.531Z</updated>
+    <updated>2019-08-11T02:20:37.402Z</updated>
     
     <content type="html"><![CDATA[<p>I want to study Three Framework</p>]]></content>
     
@@ -227,11 +227,11 @@
   </entry>
   
   <entry>
-    <title>Vim Note</title>
+    <title>Vim</title>
     <link href="http://yoursite.com/2019/08/09/Vim-Note/"/>
     <id>http://yoursite.com/2019/08/09/Vim-Note/</id>
     <published>2019-08-09T10:58:51.000Z</published>
-    <updated>2019-08-10T14:19:22.556Z</updated>
+    <updated>2019-08-11T02:20:28.635Z</updated>
     
     <content type="html"><![CDATA[<p>Vim Note</p>]]></content>
     
@@ -253,11 +253,11 @@
   </entry>
   
   <entry>
-    <title>Git Note</title>
+    <title>Git</title>
     <link href="http://yoursite.com/2019/08/09/Git-Note/"/>
     <id>http://yoursite.com/2019/08/09/Git-Note/</id>
     <published>2019-08-09T10:58:44.000Z</published>
-    <updated>2019-08-11T02:03:58.117Z</updated>
+    <updated>2019-08-11T02:21:45.588Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>git config –local<br>git config –global<br>git config –system</p>]]></content>
     
@@ -279,11 +279,11 @@
   </entry>
   
   <entry>
-    <title>点这个，嘿嘿</title>
+    <title>生活日记</title>
     <link href="http://yoursite.com/2019/08/08/article/"/>
     <id>http://yoursite.com/2019/08/08/article/</id>
     <published>2019-08-07T18:15:28.000Z</published>
-    <updated>2019-08-11T02:16:06.703Z</updated>
+    <updated>2019-08-11T02:20:56.689Z</updated>
     
     <content type="html"><![CDATA[<p>记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。<br>然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！</p><p>以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！</p><p>vim docker linux </p>]]></content>
     
