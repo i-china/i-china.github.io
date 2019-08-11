@@ -1,5 +1,10 @@
 ---
-title: Python Note
+title: Python
 date: 2019-08-09 18:59:15
-tags:
+tags: Python
+categories:
+- Python
+- Django
 ---
+
+Python Note

@@ -1,12 +1,12 @@
 ---
-title: 点这个，嘿嘿 
+title: 生活日记 
 date: 2019-08-08 02:15:28
-tags: 生活
+tags: Life
 categories: 
-- PHP
-- Laravel 
+- Life
+- Day
 copyright: true
-top: 100
+
 ---
 
 记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。

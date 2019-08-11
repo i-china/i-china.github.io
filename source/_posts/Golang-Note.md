@@ -1,5 +1,11 @@
 ---
-title: Golang Note
+title: Golang 
 date: 2019-08-09 18:59:22
-tags:
+tags: Golang
+categories: Go
+
 ---
+
+Golang 
+
+

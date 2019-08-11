@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 我只想要变强!!! 
-subtitle: 文能提笔安天下，武能上马定乾坤。
-description: 上九天揽月，下五洋捉鳖。
-keywords: 
-author: Hale Lv
+title: iFaithFreedom 
+subtitle: 文能提笔安天下，武能上马定乾坤
+description: <center> 上九天揽月，下五洋捉鳖。</center> 
+keywords: Hale 
+author: <center> Hale Lv </center>
 language: zh-Hans
 timezone:
 
@@ -89,7 +89,6 @@ search:
   filed: post
   format: html
   limit: 10000
-
 
 
 
