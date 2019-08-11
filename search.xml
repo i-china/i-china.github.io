@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[NoSQL]]></title>
+    <url>%2F2019%2F08%2F11%2FNoSQL-Note%2F</url>
+    <content type="text"><![CDATA[NoSQL TODO ListRedis Memcached]]></content>
+      <categories>
+        <category>NoSQL</category>
+      </categories>
+      <tags>
+        <tag>NoSQL</tag>
+        <tag>Redis</tag>
+        <tag>Memcached</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[MySQL]]></title>
     <url>%2F2019%2F08%2F11%2FMySQL-Note%2F</url>
     <content type="text"><![CDATA[MySQL TODO LIST基本语法常见用法集群缓存主从复制双主热备分库分表分布式架构]]></content>
