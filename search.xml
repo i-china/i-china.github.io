@@ -6,11 +6,11 @@
     <content type="text"><![CDATA[NoSQL TODO ListRedis Memcached]]></content>
       <categories>
         <category>NoSQL</category>
+        <category>Redis</category>
+        <category>Memcached</category>
       </categories>
       <tags>
         <tag>NoSQL</tag>
-        <tag>Redis</tag>
-        <tag>Memcached</tag>
       </tags>
   </entry>
   <entry>
