@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo]]></title>
+    <url>%2F2019%2F08%2F11%2FHexo-Note%2F</url>
+    <content type="text"><![CDATA[Hexo 基础和语法 npm install -g hexo-clihexo init &lt;Folder&gt;npm installvim package.jsonhexo new [layout] &lt;title&gt;hexo generate = hexo ghexo publish [layout] &lt;filename&gt;hexo server -p xxxx -s --static -l --loghexo deploy = hexo dhexo render &lt;file1&gt; [file2] ... -o --outputhexo migratehexo clean = hexo chexo list &lt;type&gt;hexo versionhexo --safehexo --debughexo --silenthexo --config custom.ymlhexo --drafthexo --cwd /path/to/cwd npm install hexo-migrator-rss --savehexo migrate rss &lt;source&gt;npm install hexo-migrator-wordpress --savehexo migrate wordpress &lt;source&gt; Writehexo new [layout] &lt;title&gt;layout: post &gt; source/_posts page &gt; source draft &gt; source/_draftshexo new photo &quot;TEXT&quot; Front-Matter1234567891011121314151617181920212223242526272829title: TEXTdate: DATEupdated: UPDATE_TIMEcomments: truetags: TEXTcategories: TEXTpermalink: urlkeywords: TEXTcopyright: true Tag Plugins引用块&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125; content &#123;% endblockquote %&#125; 代码块&#123;% codeblock [title] [lang:language] [url] [link text] %&#125;code snippet&#123;% endcodeblock %&#125; 反引号代码块&#123;% pullquote [class] %&#125;content&#123;% endpullquote %&#125; SERVERnpm install hexo-server --savehexo server -p 5000hexo server -shexo server -i 192.168.1.1 MADE FILEShexo generatehexo generate --watchhexo generate --deployhexo deploy --generatehexo g -dhexo d -g DEPLOYnpm install hexo-deploy-git --savehexo deploydeploy: type: git repo: &lt;repository url&gt; branch: [branch_name] message: [message] SFTPnpm install hexo-deployed0-sftp --savevim _config.yml deploy: type: sftp host: &lt;host&gt; user: &lt;user&gt; pass: &lt;password&gt; remotePath: [remote path] port: [port] privateKey: [path/to/privateKey] passphrase: [passphrase] agent: [path/to/agent/socket] PERMALINKSvim _config.yml permalink_defaults: lang: en|zh-Hans THEMEgit clone git@github.com/&lt;username&gt;/xxx.git theme/xxx cd xxx npm install TEMPLATEindex 首页 post 文章 page 分页 archive 归档 category 分类 tag 标签 具体看官方APIHEXO-DOC]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JavaScript]]></title>
+    <url>%2F2019%2F08%2F11%2FJavaScript-Note%2F</url>
+    <content type="text"><![CDATA[JavaScript]]></content>
+      <categories>
+        <category>JavaScript</category>
+        <category>JQuery</category>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2019年]]></title>
     <url>%2F2019%2F08%2F11%2Fhello-world%2F</url>
     <content type="text"><![CDATA[生活是美好的～]]></content>
@@ -23,9 +47,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[MarkDown-Note]]></title>
+    <title><![CDATA[MarkDown]]></title>
     <url>%2F2019%2F08%2F11%2FMarkDown-Note%2F</url>
-    <content type="text"><![CDATA[MarkDown Note]]></content>
+    <content type="text"><![CDATA[MarkDown 基础、语法 斜体、粗体 *斜体* _斜体 _ **粗体** *** 加粗斜体 *** ~~ 删除线 ~~ 分级标题 # ## ## ### #### ##### ###### 超链接 TEXT[Your Message](https://i-china.github.io/) TExt[Your Text][https://i-china.win/ &quot;message&quot;] 锚点 Goto[Redirect](#TEXT) 列表 无序列表 * + - 有序列表 1. Text 2. Text 3. Text ... 代码缩进 * TEXT // * 后三空格 列表引用 &gt; TEXT &gt; TEXT 引用 列表嵌套 &gt;&gt;&gt; TEXT &gt;&gt; TEXT &gt; TEXT 其他要素 &gt; T1 &gt; T2 &gt; T3 &gt; T4 ... 插入图片 TEXT:![TEXT](URL &quot;TEXT&quot;) 内容目录 [TOC] 注脚 TEXT[^1] TEXT[^2] TEXT[^flag] [^1]: TEXT Comment [^2]: TEXT Comment [^flag]: TEXT FOR flag 公式$ 表示行内公式 $E=mc^2$$$ 整行公式 $$\sum_{i=1}^n a_i=0$$ 流程图st=&gt; start: START:&gt;url e=&gt;end: TEXT:&gt;url op1=&gt;operation: text|past // 有些复杂，不经常用，先不写了 表格居左：:---- 居中：:----:或者 ----- 居右：:----:TEXT|TEXT|TEXT-|-|-|TEXT|TEXT|TEXTTEXT|TEXT|TEXT-----------TEXT|TEXT-|-:TEXT TEXT | TEXT/TEXT 分割线* * *********- - ---------- 代码CODE()``` #include&lt;stdio.h&gt; ``` 换行行后 加两空格 文本&lt;center&gt; TEXT &lt;/center&gt;&lt;left&gt; TEXT &lt;/left&gt;&lt;right&gt; TEXT &lt;/right&gt;&lt;u&gt; TEXT &lt;/u&gt; 备注： 有些不清楚，需要随用随查！]]></content>
       <categories>
         <category>Markdown</category>
       </categories>
@@ -115,7 +139,7 @@
   </entry>
   <entry>
     <title><![CDATA[生活日记]]></title>
-    <url>%2F2019%2F08%2F08%2FArticle%2F</url>
+    <url>%2F2019%2F08%2F08%2Farticle%2F</url>
     <content type="text"><![CDATA[记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！ 以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！ vim docker linux]]></content>
       <categories>
         <category>Life</category>
