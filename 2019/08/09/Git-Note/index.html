@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="Gitgit config –localgit config –globalgit config –system">
+<meta name="description" content="Git">
 <meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git">
 <meta property="og:url" content="http://yoursite.com/2019/08/09/Git-Note/index.html">
 <meta property="og:site_name" content="iFaithFreedom">
-<meta property="og:description" content="Gitgit config –localgit config –globalgit config –system">
+<meta property="og:description" content="Git">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-11T02:21:45.588Z">
+<meta property="og:updated_time" content="2019-08-11T06:29:28.378Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
-<meta name="twitter:description" content="Gitgit config –localgit config –globalgit config –system">
+<meta name="twitter:description" content="Git">
 
 
 
@@ -320,6 +320,9 @@
     
       <header class="post-header">
 	
+		<i class="fa fa-thumb-tack"> </i>
+		<font color="7D26CD"> 置顶 </font>
+	
         
         
           <h1 class="post-title" itemprop="name headline">Git</h1>
@@ -388,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7
+                  925
                 </span>
               
 
@@ -404,7 +407,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -425,8 +428,41 @@
       
 
       
-        <h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>git config –local<br>git config –global<br>git config –system</p>
+        <center> Git </center>
 
+<a id="more"></a> 
+
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h3 id="建Git仓库"><a href="#建Git仓库" class="headerlink" title="建Git仓库"></a>建Git仓库</h3><p>两种场景：</p>
+<h4 id="1-把已有的项目代码纳入Git管理"><a href="#1-把已有的项目代码纳入Git管理" class="headerlink" title="1. 把已有的项目代码纳入Git管理"></a>1. 把已有的项目代码纳入Git管理</h4><p>cd 项目代码所在的文件夹<br>git init</p>
+<h4 id="2-新建的项目直接用Git管理"><a href="#2-新建的项目直接用Git管理" class="headerlink" title="2. 新建的项目直接用Git管理"></a>2. 新建的项目直接用Git管理</h4><p>cd 某个文件夹<br>git init your_project    # 会在当前路径下创建和项目名称同名的文件夹<br>cd your_project</p>
+<h3 id="Git-分离头指针"><a href="#Git-分离头指针" class="headerlink" title="Git 分离头指针"></a>Git 分离头指针</h3><pre><code>在没有绑定分支的情况下，git status 会显示 HEAD， 后面需要 git branch xxx head_id
+    如果没有保存，会被当作垃圾清理掉</code></pre><h3 id="HEAD-branch"><a href="#HEAD-branch" class="headerlink" title="HEAD  branch"></a>HEAD  branch</h3><pre><code>git checkout -b xxx yyy                 // 基于yyy 创建 xxx 分支
+HEAD 可脱离分支，独立存在</code></pre><p>git diff        // 比较两个commit 的不同        git diff HEAD HEAD^ | HEAD～n</p>
+<h3 id="查看不同提交的指定文件的差异"><a href="#查看不同提交的指定文件的差异" class="headerlink" title="查看不同提交的指定文件的差异"></a>查看不同提交的指定文件的差异</h3><pre><code>git diff 分支1 分支2 -- 文件            //      比较不同分支的差异
+git diff 分支指针1 分支指针2 -- 文件     // 用分支比较文件的差异</code></pre><h3 id="正确删除文件的方法"><a href="#正确删除文件的方法" class="headerlink" title="正确删除文件的方法"></a>正确删除文件的方法</h3><pre><code>git rm xxx                      //      删除xxx 文件</code></pre><h3 id="开发中临时加塞了紧急任务的处理方法"><a href="#开发中临时加塞了紧急任务的处理方法" class="headerlink" title="开发中临时加塞了紧急任务的处理方法"></a>开发中临时加塞了紧急任务的处理方法</h3><pre><code>git stash                       // 把现在做的工作任务存放到不影响接下来要做的工作环境中去
+git stash list          //      查看所有的stash 任务的列表
+git status
+git stash apply         //      弹出最新的stash， 不保留stash 的任务
+git stash pop           //      弹出最新的stash 工作，存放起来的任务还在</code></pre><h3 id="指定不需要Git管理的文件"><a href="#指定不需要Git管理的文件" class="headerlink" title="指定不需要Git管理的文件"></a>指定不需要Git管理的文件</h3><pre><code>.gitignore                      // 文件中添加不需要被提交的文件类型</code></pre><h3 id="将Git仓库备份到本地"><a href="#将Git仓库备份到本地" class="headerlink" title="将Git仓库备份到本地"></a>将Git仓库备份到本地</h3><pre><code>git clone --bare        // 不在工作区的仓库
+哑协议： git clone --bare 本地仓库.git  新建仓库name.git</code></pre><h3 id="添加公钥到Github-SSH-and-GPG-keys"><a href="#添加公钥到Github-SSH-and-GPG-keys" class="headerlink" title="添加公钥到Github SSH and GPG keys"></a>添加公钥到Github SSH and GPG keys</h3><h3 id="在Github-创建个人仓库"><a href="#在Github-创建个人仓库" class="headerlink" title="在Github 创建个人仓库"></a>在Github 创建个人仓库</h3><h3 id="把本地仓库同步到Github"><a href="#把本地仓库同步到Github" class="headerlink" title="把本地仓库同步到Github"></a>把本地仓库同步到Github</h3><pre><code>git remote add xxx git@github.com:aspire_8/xxx.git              // 新增远程Github仓库
+git remote remove xxx                           //      删除远程Github仓库
+git remote rename oldName newName                               // 更改远程Github仓库的名称
+git push xxx -all               // 提交本地所有分支到远端</code></pre><h4 id="一般出错的情况"><a href="#一般出错的情况" class="headerlink" title="一般出错的情况"></a>一般出错的情况</h4><pre><code>在推送前，需要先 拉取 远程仓库到本地
+git pull                //      拉取远程到本地并且合并，等同于 git fetch + git merge
+git fetch               // 仅仅把远端的拉到本地
+git merge 远端分支/本地分支(master)             // 合并分支</code></pre><h4 id="把不相干的两个分支合并"><a href="#把不相干的两个分支合并" class="headerlink" title="把不相干的两个分支合并"></a>把不相干的两个分支合并</h4><pre><code>git merge --allow-unrelater-histories 远端仓库/本地仓库</code></pre><h3 id="不同人修改了同文件的不同区域的处理方案"><a href="#不同人修改了同文件的不同区域的处理方案" class="headerlink" title="不同人修改了同文件的不同区域的处理方案"></a>不同人修改了同文件的不同区域的处理方案</h3><pre><code>git push</code></pre><h3 id="不同人修改了同文件的同一区域的处理方案"><a href="#不同人修改了同文件的同一区域的处理方案" class="headerlink" title="不同人修改了同文件的同一区域的处理方案"></a>不同人修改了同文件的同一区域的处理方案</h3><pre><code>global: git pull        vim xxx.xx              git push
+local : git pull        vim xxx.xx              git push
+会出错，local没办法提交，解决方案
+vim xxx.xx              //      把修改的同一地方，删除其中一个人的修改，删除git的提示信息
+git status              -&gt;              git commit -am &apos;解决冲突&apos;  -&gt;  git push</code></pre><h3 id="同时变更了文件名和文件内容的处理方案"><a href="#同时变更了文件名和文件内容的处理方案" class="headerlink" title="同时变更了文件名和文件内容的处理方案"></a>同时变更了文件名和文件内容的处理方案</h3><pre><code>global 在更改同一文件名和内容之后
+local  在本地修改文件内容， git pull 的时候，git会弹出界面提示修改的信息，同时也会在被更改</code></pre><p>文件中，添加local修改的内容</p>
+<h3 id="把同一文件改成不同文件名的处理方案"><a href="#把同一文件改成不同文件名的处理方案" class="headerlink" title="把同一文件改成不同文件名的处理方案"></a>把同一文件改成不同文件名的处理方案</h3><pre><code>global: 修改xxx.xx 为 xxxa.xx，local:  修改  xxx.xx 为 xxb.xx
+global: git push                local: git pull , git rm xxx.xx, git rm xxa.xx, git add xxb.xx, git commit -m &apos;delete xxx.xx xxa.xx&apos;      git push</code></pre><h3 id="禁止向集成分支执行push-f-操作"><a href="#禁止向集成分支执行push-f-操作" class="headerlink" title="禁止向集成分支执行push -f 操作"></a>禁止向集成分支执行push -f 操作</h3><pre><code>git push -f
+
+示例:
+        git log --oneline                               // 查看历史日志
+        git reset --hard commitID               // 在本地使用reset 恢复到 任意一个commit的历史，如</code></pre><p>果使用 -f 提交的话，远程仓库所有被提交的commit之前的改动都会被删除掉，很危险！！！</p>
+<h3 id="禁止向集成分支执行变更历史的操作"><a href="#禁止向集成分支执行变更历史的操作" class="headerlink" title="禁止向集成分支执行变更历史的操作"></a>禁止向集成分支执行变更历史的操作</h3>
       
     </div>
     
@@ -445,7 +481,7 @@
   <p><span>本文标题:</span><a href="/2019/08/09/Git-Note/">Git</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 <center> Hale Lv </center> 的个人博客"><center> Hale Lv </center></a></p>
   <p><span>发布时间:</span>2019年08月09日 - 18:08</p>
-  <p><span>最后更新:</span>2019年08月11日 - 10:08</p>
+  <p><span>最后更新:</span>2019年08月11日 - 14:08</p>
   <p><span>原始链接:</span><a href="/2019/08/09/Git-Note/" title="Git">http://yoursite.com/2019/08/09/Git-Note/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/09/Git-Note/" aria-label="复制成功！"></i></span>
   </p>
@@ -761,7 +797,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建Git仓库"><span class="nav-number">2.</span> <span class="nav-text">建Git仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-把已有的项目代码纳入Git管理"><span class="nav-number">2.1.</span> <span class="nav-text">1. 把已有的项目代码纳入Git管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-新建的项目直接用Git管理"><span class="nav-number">2.2.</span> <span class="nav-text">2. 新建的项目直接用Git管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-分离头指针"><span class="nav-number">3.</span> <span class="nav-text">Git 分离头指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HEAD-branch"><span class="nav-number">4.</span> <span class="nav-text">HEAD  branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看不同提交的指定文件的差异"><span class="nav-number">5.</span> <span class="nav-text">查看不同提交的指定文件的差异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确删除文件的方法"><span class="nav-number">6.</span> <span class="nav-text">正确删除文件的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发中临时加塞了紧急任务的处理方法"><span class="nav-number">7.</span> <span class="nav-text">开发中临时加塞了紧急任务的处理方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定不需要Git管理的文件"><span class="nav-number">8.</span> <span class="nav-text">指定不需要Git管理的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将Git仓库备份到本地"><span class="nav-number">9.</span> <span class="nav-text">将Git仓库备份到本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加公钥到Github-SSH-and-GPG-keys"><span class="nav-number">10.</span> <span class="nav-text">添加公钥到Github SSH and GPG keys</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Github-创建个人仓库"><span class="nav-number">11.</span> <span class="nav-text">在Github 创建个人仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把本地仓库同步到Github"><span class="nav-number">12.</span> <span class="nav-text">把本地仓库同步到Github</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一般出错的情况"><span class="nav-number">12.1.</span> <span class="nav-text">一般出错的情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#把不相干的两个分支合并"><span class="nav-number">12.2.</span> <span class="nav-text">把不相干的两个分支合并</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同人修改了同文件的不同区域的处理方案"><span class="nav-number">13.</span> <span class="nav-text">不同人修改了同文件的不同区域的处理方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同人修改了同文件的同一区域的处理方案"><span class="nav-number">14.</span> <span class="nav-text">不同人修改了同文件的同一区域的处理方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同时变更了文件名和文件内容的处理方案"><span class="nav-number">15.</span> <span class="nav-text">同时变更了文件名和文件内容的处理方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#把同一文件改成不同文件名的处理方案"><span class="nav-number">16.</span> <span class="nav-text">把同一文件改成不同文件名的处理方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#禁止向集成分支执行push-f-操作"><span class="nav-number">17.</span> <span class="nav-text">禁止向集成分支执行push -f 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#禁止向集成分支执行变更历史的操作"><span class="nav-number">18.</span> <span class="nav-text">禁止向集成分支执行变更历史的操作</span></a></li></ol></div>
             
 
           </div>
@@ -808,7 +844,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共787字</span>
+  <span class="post-count">博客全站共1.7k字</span>
 </div>
 
 
