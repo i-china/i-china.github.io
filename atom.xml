@@ -147,7 +147,7 @@
     <link href="http://yoursite.com/2019/08/11/Nginx-Note/"/>
     <id>http://yoursite.com/2019/08/11/Nginx-Note/</id>
     <published>2019-08-11T02:14:23.000Z</published>
-    <updated>2019-08-11T05:08:29.279Z</updated>
+    <updated>2019-08-11T05:42:09.729Z</updated>
     
     <content type="html"><![CDATA[<center> Nginx </center><a id="more"></a> <h3 id="TODO-LIST"><a href="#TODO-LIST" class="headerlink" title="TODO LIST"></a>TODO LIST</h3><p>基本语法<br>常见用法<br>虚拟主机<br>反向代理<br>缓存<br>负载均衡</p>]]></content>
     
