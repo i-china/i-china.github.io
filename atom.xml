@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-11T05:09:19.768Z</updated>
+  <updated>2019-08-11T06:58:17.195Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2019年</title>
+    <link href="http://yoursite.com/2019/08/11/hello-world/"/>
+    <id>http://yoursite.com/2019/08/11/hello-world/</id>
+    <published>2019-08-11T06:58:17.195Z</published>
+    <updated>2019-08-11T06:58:17.195Z</updated>
+    
+    <content type="html"><![CDATA[<center> At 2019 </center><a id="more"></a><p>我的野心，以及和挚友的约定！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt; At 2019 &lt;/center&gt;
+    
+    </summary>
+    
+      <category term="Life" scheme="http://yoursite.com/categories/Life/"/>
+    
+      <category term="Year" scheme="http://yoursite.com/categories/Life/Year/"/>
+    
+      <category term="Month" scheme="http://yoursite.com/categories/Life/Year/Month/"/>
+    
+      <category term="Day" scheme="http://yoursite.com/categories/Life/Year/Month/Day/"/>
+    
+    
+      <category term="Life" scheme="http://yoursite.com/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
     <title>NoSQL</title>
     <link href="http://yoursite.com/2019/08/11/NoSQL-Note/"/>
     <id>http://yoursite.com/2019/08/11/NoSQL-Note/</id>
     <published>2019-08-11T05:05:07.000Z</published>
-    <updated>2019-08-11T05:09:19.768Z</updated>
+    <updated>2019-08-11T06:36:42.943Z</updated>
     
     <content type="html"><![CDATA[<center> NoSQL </center><a id="more"></a><h3 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h3><p>Redis</p><p>Memcached</p>]]></content>
     
@@ -47,7 +75,7 @@
     <link href="http://yoursite.com/2019/08/11/MySQL-Note/"/>
     <id>http://yoursite.com/2019/08/11/MySQL-Note/</id>
     <published>2019-08-11T05:00:23.000Z</published>
-    <updated>2019-08-11T05:02:38.472Z</updated>
+    <updated>2019-08-11T06:37:06.419Z</updated>
     
     <content type="html"><![CDATA[<center> MySQL </center><a id="more"></a><h3 id="TODO-LIST"><a href="#TODO-LIST" class="headerlink" title="TODO LIST"></a>TODO LIST</h3><p>基本语法<br>常见用法<br>集群<br>缓存<br>主从复制<br>双主热备<br>分库分表<br>分布式架构</p>]]></content>
     
@@ -69,7 +97,7 @@
     <link href="http://yoursite.com/2019/08/11/Hexo-Note/"/>
     <id>http://yoursite.com/2019/08/11/Hexo-Note/</id>
     <published>2019-08-11T02:59:43.000Z</published>
-    <updated>2019-08-11T04:46:30.239Z</updated>
+    <updated>2019-08-11T06:34:10.082Z</updated>
     
     <content type="html"><![CDATA[<center> Hexo 基础和语法 </center><a id="more"></a> <p><code>npm install -g hexo-cli</code><br><code>hexo init &lt;Folder&gt;</code><br><code>npm install</code><br><code>vim package.json</code><br><code>hexo new [layout] &lt;title&gt;</code><br><code>hexo generate = hexo g</code><br><code>hexo publish [layout] &lt;filename&gt;</code><br><code>hexo server -p xxxx -s --static -l --log</code><br><code>hexo deploy = hexo d</code><br><code>hexo render &lt;file1&gt; [file2] ... -o --output</code><br><code>hexo migrate</code><br><code>hexo clean = hexo c</code><br><code>hexo list &lt;type&gt;</code><br><code>hexo version</code><br><code>hexo --safe</code><br><code>hexo --debug</code><br><code>hexo --silent</code><br><code>hexo --config custom.yml</code><br><code>hexo --draft</code><br><code>hexo --cwd /path/to/cwd</code></p><p><code>npm install hexo-migrator-rss --save</code><br><code>hexo migrate rss &lt;source&gt;</code><br><code>npm install hexo-migrator-wordpress --save</code><br><code>hexo migrate wordpress &lt;source&gt;</code>  </p><h3 id="Write"><a href="#Write" class="headerlink" title="Write"></a>Write</h3><p><code>hexo new [layout] &lt;title&gt;</code><br><code>layout:  post &gt; source/_posts    page  &gt; source     draft     &gt; source/_drafts</code><br><code>hexo new photo &quot;TEXT&quot;</code>  </p><h3 id="Front-Matter"><a href="#Front-Matter" class="headerlink" title="Front-Matter"></a>Front-Matter</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">title: TEXT</span><br><span class="line">date: DATE</span><br><span class="line">updated: UPDATE_TIME</span><br><span class="line">comments: true</span><br><span class="line">tags: TEXT</span><br><span class="line">categories: TEXT</span><br><span class="line">permalink: url</span><br><span class="line">keywords: TEXT</span><br><span class="line">copyright: true   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Tag Plugins</span><br><span class="line"></span><br><span class="line">引用块</span><br><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125; </span><br><span class="line">content </span><br><span class="line">&#123;% endblockquote %&#125; </span><br><span class="line"></span><br><span class="line">代码块</span><br><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125; </span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">反引号代码块</span><br><span class="line"></span><br><span class="line">&#123;% pullquote [class] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endpullquote %&#125;</span><br></pre></td></tr></table></figure><h3 id="SERVER"><a href="#SERVER" class="headerlink" title="SERVER"></a>SERVER</h3><p><code>npm install hexo-server --save</code><br><code>hexo server -p 5000</code><br><code>hexo server -s</code><br><code>hexo server -i 192.168.1.1</code> </p><h3 id="MADE-FILES"><a href="#MADE-FILES" class="headerlink" title="MADE FILES"></a>MADE FILES</h3><p><code>hexo generate</code><br><code>hexo generate --watch</code><br><code>hexo generate --deploy</code><br><code>hexo deploy --generate</code><br><code>hexo g -d</code><br><code>hexo d -g</code> </p><h3 id="DEPLOY"><a href="#DEPLOY" class="headerlink" title="DEPLOY"></a>DEPLOY</h3><p><code>npm install hexo-deploy-git --save</code><br><code>hexo deploy</code><br><code>deploy:     type: git    repo: &lt;repository url&gt;    branch: [branch_name]    message: [message]</code></p><h3 id="SFTP"><a href="#SFTP" class="headerlink" title="SFTP"></a>SFTP</h3><p><code>npm install hexo-deployed0-sftp --save</code><br><code>vim _config.ymldeploy:    type: sftp    host: &lt;host&gt;    user: &lt;user&gt;    pass: &lt;password&gt;     remotePath: [remote path]    port: [port]    privateKey: [path/to/privateKey]    passphrase: [passphrase]    agent: [path/to/agent/socket]</code></p><h3 id="PERMALINKS"><a href="#PERMALINKS" class="headerlink" title="PERMALINKS"></a>PERMALINKS</h3><p><code>vim _config.ymlpermalink_defaults:     lang: en|zh-Hans</code></p><h3 id="THEME"><a href="#THEME" class="headerlink" title="THEME"></a>THEME</h3><p><code>git clone git@github.com/&lt;username&gt;/xxx.git theme/xxxcd xxxnpm install</code></p><h3 id="TEMPLATE"><a href="#TEMPLATE" class="headerlink" title="TEMPLATE"></a>TEMPLATE</h3><p><code>index          首页post        文章page        分页    archive        归档category    分类tag        标签</code></p><h3 id="具体看官方API"><a href="#具体看官方API" class="headerlink" title="具体看官方API"></a>具体看官方API</h3><p><a href="https://hexo.io/zh-cn/docs/" title="HEXO_DOC" target="_blank" rel="noopener">HEXO-DOC</a></p>]]></content>
     
@@ -117,37 +145,11 @@
   </entry>
   
   <entry>
-    <title>2019年</title>
-    <link href="http://yoursite.com/2019/08/11/hello-world/"/>
-    <id>http://yoursite.com/2019/08/11/hello-world/</id>
-    <published>2019-08-11T02:17:32.590Z</published>
-    <updated>2019-08-11T02:17:32.590Z</updated>
-    
-    <content type="html"><![CDATA[<p>生活是美好的～</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;生活是美好的～&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="Life" scheme="http://yoursite.com/categories/Life/"/>
-    
-    
-      <category term="Life" scheme="http://yoursite.com/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Nginx</title>
     <link href="http://yoursite.com/2019/08/11/Nginx-Note/"/>
     <id>http://yoursite.com/2019/08/11/Nginx-Note/</id>
     <published>2019-08-11T02:14:23.000Z</published>
-    <updated>2019-08-11T05:42:09.729Z</updated>
+    <updated>2019-08-11T06:48:50.081Z</updated>
     
     <content type="html"><![CDATA[<center> Nginx </center><a id="more"></a> <h3 id="TODO-LIST"><a href="#TODO-LIST" class="headerlink" title="TODO LIST"></a>TODO LIST</h3><p>基本语法<br>常见用法<br>虚拟主机<br>反向代理<br>缓存<br>负载均衡</p>]]></content>
     
@@ -169,7 +171,7 @@
     <link href="http://yoursite.com/2019/08/11/MarkDown-Note/"/>
     <id>http://yoursite.com/2019/08/11/MarkDown-Note/</id>
     <published>2019-08-11T02:06:00.000Z</published>
-    <updated>2019-08-11T06:29:36.185Z</updated>
+    <updated>2019-08-11T06:33:55.175Z</updated>
     
     <content type="html"><![CDATA[<center> MarkDown 基础、语法 </center><a id="more"></a> <ol><li><p>斜体、粗体<br> <code>*斜体*  _斜体 _</code><br> <code>**粗体**</code><br> <code>*** 加粗斜体 ***</code><br> <code>~~ 删除线 ~~</code></p></li><li><p>分级标题<br> <code>#    ##    ##    ###    ####    #####    ######</code></p></li><li><p>超链接<br> <code>TEXT[Your Message](https://i-china.github.io/)</code><br> <code>TExt[Your Text][https://i-china.win/ &quot;message&quot;]</code></p></li><li><p>锚点<br> <code>Goto[Redirect](#TEXT)</code></p></li><li><p>列表<br> <code>无序列表    *    +     -</code><br> <code>有序列表    1. Text        2. Text        3. Text ...</code><br> <code>代码缩进    *   TEXT    // * 后三空格</code><br> <code>列表引用    &gt; TEXT         &gt; TEXT</code></p></li><li><p>引用<br> <code>列表嵌套    &gt;&gt;&gt; TEXT     &gt;&gt; TEXT     &gt; TEXT</code><br> <code>其他要素    &gt; T1    &gt; T2    &gt; T3    &gt; T4 ...</code></p></li><li><p>插入图片<br> <code>TEXT:![TEXT](URL &quot;TEXT&quot;)</code></p></li><li><p>内容目录<br> <code>[TOC]</code></p></li><li><p>注脚<br> <code>TEXT[^1] TEXT[^2]  TEXT[^flag]</code><br> <code>[^1]: TEXT Comment   [^2]: TEXT Comment  [^flag]: TEXT FOR flag</code></p></li><li><p>公式<br><code>$ 表示行内公式    $E=mc^2$</code><br><code>$$ 整行公式     $$\sum_{i=1}^n a_i=0$$</code></p></li><li><p>流程图<br><code>st=&gt; start: START:&gt;url   e=&gt;end: TEXT:&gt;url op1=&gt;operation: text|past // 有些复杂，不经常用，先不写了</code> </p></li><li><p>表格<br><code>居左：:----        居中：:----:或者 -----         居右：:----:</code><br><code>TEXT|TEXT|TEXT</code><br><code>-|-|-|</code><br><code>TEXT|TEXT|TEXT</code><br><code>TEXT|TEXT|TEXT</code><br><code>-----------</code><br><code>TEXT|TEXT</code><br><code>-|-:</code><br><code>TEXT TEXT | TEXT/TEXT</code></p></li><li><p>分割线<br><code>* * *</code><br><code>***</code><br><code>*****</code><br><code>- - -</code><br><code>---------</code></p></li><li><p>代码<br><code></code>CODE()<code></code><br><code>```  #include&lt;stdio.h&gt; ```</code></p></li><li><p>换行<br><code>行后 加两空格</code></p></li><li><p>文本<br><code>&lt;center&gt; TEXT &lt;/center&gt;</code><br><code>&lt;left&gt; TEXT &lt;/left&gt;</code><br><code>&lt;right&gt; TEXT &lt;/right&gt;</code><br><code>&lt;u&gt; TEXT &lt;/u&gt;</code></p></li></ol><h5 id="备注：-有些不清楚，需要随用随查！"><a href="#备注：-有些不清楚，需要随用随查！" class="headerlink" title="备注： 有些不清楚，需要随用随查！"></a>备注： 有些不清楚，需要随用随查！</h5>]]></content>
     
@@ -191,7 +193,7 @@
     <link href="http://yoursite.com/2019/08/11/Docker-Note/"/>
     <id>http://yoursite.com/2019/08/11/Docker-Note/</id>
     <published>2019-08-11T02:04:45.000Z</published>
-    <updated>2019-08-11T04:53:15.492Z</updated>
+    <updated>2019-08-11T06:37:48.862Z</updated>
     
     <content type="html"><![CDATA[<p>Docker Technology</p>]]></content>
     
@@ -215,7 +217,7 @@
     <link href="http://yoursite.com/2019/08/09/Golang-Note/"/>
     <id>http://yoursite.com/2019/08/09/Golang-Note/</id>
     <published>2019-08-09T10:59:22.000Z</published>
-    <updated>2019-08-11T02:20:19.563Z</updated>
+    <updated>2019-08-11T06:35:29.497Z</updated>
     
     <content type="html"><![CDATA[<p>Golang </p>]]></content>
     
@@ -241,7 +243,7 @@
     <link href="http://yoursite.com/2019/08/09/Python-Note/"/>
     <id>http://yoursite.com/2019/08/09/Python-Note/</id>
     <published>2019-08-09T10:59:15.000Z</published>
-    <updated>2019-08-11T02:21:03.609Z</updated>
+    <updated>2019-08-11T06:35:50.331Z</updated>
     
     <content type="html"><![CDATA[<p>Python Note</p>]]></content>
     
@@ -269,9 +271,13 @@
     <link href="http://yoursite.com/2019/08/09/Linux-Note/"/>
     <id>http://yoursite.com/2019/08/09/Linux-Note/</id>
     <published>2019-08-09T10:59:08.000Z</published>
-    <updated>2019-08-11T02:21:37.284Z</updated>
+    <updated>2019-08-11T06:52:51.717Z</updated>
+    
+    <content type="html"><![CDATA[<center> Linux </center> <a id="more"></a><h3 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h3><p><code>Centos Ubuntu</code> </p>]]></content>
     
     <summary type="html">
+    
+      &lt;center&gt; Linux &lt;/center&gt;
     
     </summary>
     
@@ -291,17 +297,13 @@
     <link href="http://yoursite.com/2019/08/09/PHP-Note/"/>
     <id>http://yoursite.com/2019/08/09/PHP-Note/</id>
     <published>2019-08-09T10:58:59.000Z</published>
-    <updated>2019-08-11T02:20:37.402Z</updated>
+    <updated>2019-08-11T07:00:09.678Z</updated>
     
-    <content type="html"><![CDATA[<p>I want to study Three Framework</p>]]></content>
+    <content type="html"><![CDATA[<center> PHP  </center><a id="more"></a><h3 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h3><p>PHP基础<br>PHP进阶<br>PHP高阶<br>More…</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;I want to study Three Framework&lt;/p&gt;
-
-      
+      &lt;center&gt; PHP  &lt;/center&gt;
     
     </summary>
     
@@ -323,7 +325,7 @@
     <link href="http://yoursite.com/2019/08/09/Vim-Note/"/>
     <id>http://yoursite.com/2019/08/09/Vim-Note/</id>
     <published>2019-08-09T10:58:51.000Z</published>
-    <updated>2019-08-11T02:30:58.681Z</updated>
+    <updated>2019-08-11T06:35:39.932Z</updated>
     
     <content type="html"><![CDATA[<p>Vim Note</p>]]></content>
     
@@ -371,7 +373,7 @@
     <link href="http://yoursite.com/2019/08/08/article/"/>
     <id>http://yoursite.com/2019/08/08/article/</id>
     <published>2019-08-07T18:15:28.000Z</published>
-    <updated>2019-08-11T02:30:15.195Z</updated>
+    <updated>2019-08-11T06:56:05.413Z</updated>
     
     <content type="html"><![CDATA[<p>记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。<br>然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！</p><p>以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！</p><p>vim docker linux </p>]]></content>
     
@@ -387,7 +389,11 @@
     
       <category term="Life" scheme="http://yoursite.com/categories/Life/"/>
     
-      <category term="Day" scheme="http://yoursite.com/categories/Life/Day/"/>
+      <category term="Year" scheme="http://yoursite.com/categories/Life/Year/"/>
+    
+      <category term="Month" scheme="http://yoursite.com/categories/Life/Year/Month/"/>
+    
+      <category term="Day" scheme="http://yoursite.com/categories/Life/Year/Month/Day/"/>
     
     
       <category term="Life" scheme="http://yoursite.com/tags/Life/"/>
