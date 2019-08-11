@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2019年]]></title>
+    <url>%2F2019%2F08%2F11%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[生活是美好的～]]></content>
+      <categories>
+        <category>Life</category>
+      </categories>
+      <tags>
+        <tag>Life</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Nginx-Note]]></title>
+    <url>%2F2019%2F08%2F11%2FNginx-Note%2F</url>
+    <content type="text"><![CDATA[Nginx]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MarkDown-Note]]></title>
+    <url>%2F2019%2F08%2F11%2FMarkDown-Note%2F</url>
+    <content type="text"><![CDATA[MarkDown Note]]></content>
+      <categories>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>MarkDown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Docker-Note]]></title>
+    <url>%2F2019%2F08%2F11%2FDocker-Note%2F</url>
+    <content type="text"><![CDATA[Docker Technology]]></content>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Golang Note]]></title>
     <url>%2F2019%2F08%2F09%2FGolang-Note%2F</url>
     <content type="text"><![CDATA[Golang]]></content>
@@ -28,6 +69,7 @@
     <url>%2F2019%2F08%2F09%2FLinux-Note%2F</url>
     <content type="text"></content>
       <categories>
+        <category>Linux</category>
         <category>Ubuntu</category>
         <category>Centos</category>
       </categories>
@@ -72,26 +114,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[现在是2019-08-08 01:52:30]]></title>
-    <url>%2F2019%2F08%2F08%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[生活是美好的～]]></content>
-      <categories>
-        <category>Life</category>
-      </categories>
-      <tags>
-        <tag>Time</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[点这个，嘿嘿]]></title>
     <url>%2F2019%2F08%2F08%2Farticle%2F</url>
     <content type="text"><![CDATA[记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！ 以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！ vim docker linux]]></content>
       <categories>
-        <category>PHP</category>
-        <category>Laravel</category>
+        <category>Life</category>
+        <category>Day</category>
       </categories>
       <tags>
-        <tag>生活</tag>
+        <tag>Life</tag>
       </tags>
   </entry>
 </search>

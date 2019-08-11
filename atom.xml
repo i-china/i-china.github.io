@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-10T14:16:40.259Z</updated>
+  <updated>2019-08-11T02:17:32.590Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,108 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019年</title>
+    <link href="http://yoursite.com/2019/08/11/hello-world/"/>
+    <id>http://yoursite.com/2019/08/11/hello-world/</id>
+    <published>2019-08-11T02:17:32.590Z</published>
+    <updated>2019-08-11T02:17:32.590Z</updated>
+    
+    <content type="html"><![CDATA[<p>生活是美好的～</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;生活是美好的～&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Life" scheme="http://yoursite.com/categories/Life/"/>
+    
+    
+      <category term="Life" scheme="http://yoursite.com/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx-Note</title>
+    <link href="http://yoursite.com/2019/08/11/Nginx-Note/"/>
+    <id>http://yoursite.com/2019/08/11/Nginx-Note/</id>
+    <published>2019-08-11T02:14:23.000Z</published>
+    <updated>2019-08-11T02:14:46.919Z</updated>
+    
+    <content type="html"><![CDATA[<p>Nginx</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Nginx&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Nginx" scheme="http://yoursite.com/categories/Nginx/"/>
+    
+    
+      <category term="Nginx" scheme="http://yoursite.com/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MarkDown-Note</title>
+    <link href="http://yoursite.com/2019/08/11/MarkDown-Note/"/>
+    <id>http://yoursite.com/2019/08/11/MarkDown-Note/</id>
+    <published>2019-08-11T02:06:00.000Z</published>
+    <updated>2019-08-11T02:06:35.709Z</updated>
+    
+    <content type="html"><![CDATA[<p>MarkDown Note</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;MarkDown Note&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Markdown" scheme="http://yoursite.com/categories/Markdown/"/>
+    
+    
+      <category term="MarkDown" scheme="http://yoursite.com/tags/MarkDown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker-Note</title>
+    <link href="http://yoursite.com/2019/08/11/Docker-Note/"/>
+    <id>http://yoursite.com/2019/08/11/Docker-Note/</id>
+    <published>2019-08-11T02:04:45.000Z</published>
+    <updated>2019-08-11T02:05:38.996Z</updated>
+    
+    <content type="html"><![CDATA[<p>Docker Technology</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Docker Technology&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Docker" scheme="http://yoursite.com/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Golang Note</title>
@@ -75,15 +177,17 @@
     <link href="http://yoursite.com/2019/08/09/Linux-Note/"/>
     <id>http://yoursite.com/2019/08/09/Linux-Note/</id>
     <published>2019-08-09T10:59:08.000Z</published>
-    <updated>2019-08-10T14:09:58.067Z</updated>
+    <updated>2019-08-11T02:13:56.816Z</updated>
     
     <summary type="html">
     
     </summary>
     
-      <category term="Ubuntu" scheme="http://yoursite.com/categories/Ubuntu/"/>
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
     
-      <category term="Centos" scheme="http://yoursite.com/categories/Ubuntu/Centos/"/>
+      <category term="Ubuntu" scheme="http://yoursite.com/categories/Linux/Ubuntu/"/>
+    
+      <category term="Centos" scheme="http://yoursite.com/categories/Linux/Ubuntu/Centos/"/>
     
     
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
@@ -153,7 +257,7 @@
     <link href="http://yoursite.com/2019/08/09/Git-Note/"/>
     <id>http://yoursite.com/2019/08/09/Git-Note/</id>
     <published>2019-08-09T10:58:44.000Z</published>
-    <updated>2019-08-10T14:11:00.136Z</updated>
+    <updated>2019-08-11T02:03:58.117Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>git config –local<br>git config –global<br>git config –system</p>]]></content>
     
@@ -175,37 +279,11 @@
   </entry>
   
   <entry>
-    <title>现在是2019-08-08 01:52:30</title>
-    <link href="http://yoursite.com/2019/08/08/hello-world/"/>
-    <id>http://yoursite.com/2019/08/08/hello-world/</id>
-    <published>2019-08-08T12:52:35.960Z</published>
-    <updated>2019-08-08T12:52:35.960Z</updated>
-    
-    <content type="html"><![CDATA[<p>生活是美好的～</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;生活是美好的～&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="Life" scheme="http://yoursite.com/categories/Life/"/>
-    
-    
-      <category term="Time" scheme="http://yoursite.com/tags/Time/"/>
-    
-  </entry>
-  
-  <entry>
     <title>点这个，嘿嘿</title>
     <link href="http://yoursite.com/2019/08/08/article/"/>
     <id>http://yoursite.com/2019/08/08/article/</id>
     <published>2019-08-07T18:15:28.000Z</published>
-    <updated>2019-08-08T12:52:35.960Z</updated>
+    <updated>2019-08-11T02:16:06.703Z</updated>
     
     <content type="html"><![CDATA[<p>记： 七夕节，回家做晚饭，吃完饭大概八点多，躺了一会，出去散了个步，回到家十点半，洗了个澡，十一点。<br>然后闲着无聊，开始着手部署博客项目。到现在是8.8号凌晨 两点多。阿哈，真累！</p><p>以后要养成记笔记的习惯，哈哈，不然学会的东西很快就会忘记的额～！</p><p>vim docker linux </p>]]></content>
     
@@ -219,12 +297,12 @@
     
     </summary>
     
-      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+      <category term="Life" scheme="http://yoursite.com/categories/Life/"/>
     
-      <category term="Laravel" scheme="http://yoursite.com/categories/PHP/Laravel/"/>
+      <category term="Day" scheme="http://yoursite.com/categories/Life/Day/"/>
     
     
-      <category term="生活" scheme="http://yoursite.com/tags/%E7%94%9F%E6%B4%BB/"/>
+      <category term="Life" scheme="http://yoursite.com/tags/Life/"/>
     
   </entry>
   
