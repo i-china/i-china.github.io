@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MySQL]]></title>
+    <url>%2F2019%2F08%2F11%2FMySQL-Note%2F</url>
+    <content type="text"><![CDATA[MySQL TODO LIST基本语法常见用法集群缓存主从复制双主热备分库分表分布式架构]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo]]></title>
     <url>%2F2019%2F08%2F11%2FHexo-Note%2F</url>
     <content type="text"><![CDATA[Hexo 基础和语法 npm install -g hexo-clihexo init &lt;Folder&gt;npm installvim package.jsonhexo new [layout] &lt;title&gt;hexo generate = hexo ghexo publish [layout] &lt;filename&gt;hexo server -p xxxx -s --static -l --loghexo deploy = hexo dhexo render &lt;file1&gt; [file2] ... -o --outputhexo migratehexo clean = hexo chexo list &lt;type&gt;hexo versionhexo --safehexo --debughexo --silenthexo --config custom.ymlhexo --drafthexo --cwd /path/to/cwd npm install hexo-migrator-rss --savehexo migrate rss &lt;source&gt;npm install hexo-migrator-wordpress --savehexo migrate wordpress &lt;source&gt; Writehexo new [layout] &lt;title&gt;layout: post &gt; source/_posts page &gt; source draft &gt; source/_draftshexo new photo &quot;TEXT&quot; Front-Matter1234567891011121314151617181920212223242526272829title: TEXTdate: DATEupdated: UPDATE_TIMEcomments: truetags: TEXTcategories: TEXTpermalink: urlkeywords: TEXTcopyright: true Tag Plugins引用块&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125; content &#123;% endblockquote %&#125; 代码块&#123;% codeblock [title] [lang:language] [url] [link text] %&#125;code snippet&#123;% endcodeblock %&#125; 反引号代码块&#123;% pullquote [class] %&#125;content&#123;% endpullquote %&#125; SERVERnpm install hexo-server --savehexo server -p 5000hexo server -shexo server -i 192.168.1.1 MADE FILEShexo generatehexo generate --watchhexo generate --deployhexo deploy --generatehexo g -dhexo d -g DEPLOYnpm install hexo-deploy-git --savehexo deploydeploy: type: git repo: &lt;repository url&gt; branch: [branch_name] message: [message] SFTPnpm install hexo-deployed0-sftp --savevim _config.yml deploy: type: sftp host: &lt;host&gt; user: &lt;user&gt; pass: &lt;password&gt; remotePath: [remote path] port: [port] privateKey: [path/to/privateKey] passphrase: [passphrase] agent: [path/to/agent/socket] PERMALINKSvim _config.yml permalink_defaults: lang: en|zh-Hans THEMEgit clone git@github.com/&lt;username&gt;/xxx.git theme/xxx cd xxx npm install TEMPLATEindex 首页 post 文章 page 分页 archive 归档 category 分类 tag 标签 具体看官方APIHEXO-DOC]]></content>
@@ -38,7 +49,7 @@
   <entry>
     <title><![CDATA[Nginx]]></title>
     <url>%2F2019%2F08%2F11%2FNginx-Note%2F</url>
-    <content type="text"><![CDATA[Nginx]]></content>
+    <content type="text"><![CDATA[Nginx TODO LIST基本语法常见用法虚拟主机反向代理缓存负载均衡]]></content>
       <categories>
         <category>Nginx</category>
       </categories>
