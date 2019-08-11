@@ -75,7 +75,7 @@
     <link href="http://yoursite.com/2019/08/11/MySQL-Note/"/>
     <id>http://yoursite.com/2019/08/11/MySQL-Note/</id>
     <published>2019-08-11T05:00:23.000Z</published>
-    <updated>2019-08-11T06:37:06.419Z</updated>
+    <updated>2019-08-11T07:04:21.209Z</updated>
     
     <content type="html"><![CDATA[<center> MySQL </center><a id="more"></a><h3 id="TODO-LIST"><a href="#TODO-LIST" class="headerlink" title="TODO LIST"></a>TODO LIST</h3><p>基本语法<br>常见用法<br>集群<br>缓存<br>主从复制<br>双主热备<br>分库分表<br>分布式架构</p>]]></content>
     
@@ -149,13 +149,13 @@
     <link href="http://yoursite.com/2019/08/11/Nginx-Note/"/>
     <id>http://yoursite.com/2019/08/11/Nginx-Note/</id>
     <published>2019-08-11T02:14:23.000Z</published>
-    <updated>2019-08-11T06:48:50.081Z</updated>
+    <updated>2019-08-11T07:02:30.342Z</updated>
     
-    <content type="html"><![CDATA[<center> Nginx </center><a id="more"></a> <h3 id="TODO-LIST"><a href="#TODO-LIST" class="headerlink" title="TODO LIST"></a>TODO LIST</h3><p>基本语法<br>常见用法<br>虚拟主机<br>反向代理<br>缓存<br>负载均衡</p>]]></content>
+    <content type="html"><![CDATA[<center> iFaithFreedom </center><a id="more"></a> <h3 id="TODO-LIST"><a href="#TODO-LIST" class="headerlink" title="TODO LIST"></a>TODO LIST</h3><p>基本语法<br>常见用法<br>虚拟主机<br>反向代理<br>缓存<br>负载均衡</p>]]></content>
     
     <summary type="html">
     
-      &lt;center&gt; Nginx &lt;/center&gt;
+      &lt;center&gt; iFaithFreedom &lt;/center&gt;
     
     </summary>
     
@@ -217,17 +217,13 @@
     <link href="http://yoursite.com/2019/08/09/Golang-Note/"/>
     <id>http://yoursite.com/2019/08/09/Golang-Note/</id>
     <published>2019-08-09T10:59:22.000Z</published>
-    <updated>2019-08-11T06:35:29.497Z</updated>
+    <updated>2019-08-11T07:03:52.959Z</updated>
     
-    <content type="html"><![CDATA[<p>Golang </p>]]></content>
+    <content type="html"><![CDATA[<center> iFaithFreedom </center><a id="more"></a><h3 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h3>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;Golang &lt;/p&gt;
-
-      
+      &lt;center&gt; iFaithFreedom &lt;/center&gt;
     
     </summary>
     
@@ -297,13 +293,13 @@
     <link href="http://yoursite.com/2019/08/09/PHP-Note/"/>
     <id>http://yoursite.com/2019/08/09/PHP-Note/</id>
     <published>2019-08-09T10:58:59.000Z</published>
-    <updated>2019-08-11T07:00:09.678Z</updated>
+    <updated>2019-08-11T07:03:06.536Z</updated>
     
-    <content type="html"><![CDATA[<center> PHP  </center><a id="more"></a><h3 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h3><p>PHP基础<br>PHP进阶<br>PHP高阶<br>More…</p>]]></content>
+    <content type="html"><![CDATA[<center> iFaithFreedom </center><a id="more"></a><h3 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h3><p>PHP基础<br>PHP进阶<br>PHP高阶<br>More…</p>]]></content>
     
     <summary type="html">
     
-      &lt;center&gt; PHP  &lt;/center&gt;
+      &lt;center&gt; iFaithFreedom &lt;/center&gt;
     
     </summary>
     
@@ -351,13 +347,13 @@
     <link href="http://yoursite.com/2019/08/09/Git-Note/"/>
     <id>http://yoursite.com/2019/08/09/Git-Note/</id>
     <published>2019-08-09T10:58:44.000Z</published>
-    <updated>2019-08-11T06:29:28.378Z</updated>
+    <updated>2019-08-11T07:02:45.761Z</updated>
     
-    <content type="html"><![CDATA[<center> Git </center><a id="more"></a> <h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h3 id="建Git仓库"><a href="#建Git仓库" class="headerlink" title="建Git仓库"></a>建Git仓库</h3><p>两种场景：</p><h4 id="1-把已有的项目代码纳入Git管理"><a href="#1-把已有的项目代码纳入Git管理" class="headerlink" title="1. 把已有的项目代码纳入Git管理"></a>1. 把已有的项目代码纳入Git管理</h4><p>cd 项目代码所在的文件夹<br>git init</p><h4 id="2-新建的项目直接用Git管理"><a href="#2-新建的项目直接用Git管理" class="headerlink" title="2. 新建的项目直接用Git管理"></a>2. 新建的项目直接用Git管理</h4><p>cd 某个文件夹<br>git init your_project    # 会在当前路径下创建和项目名称同名的文件夹<br>cd your_project</p><h3 id="Git-分离头指针"><a href="#Git-分离头指针" class="headerlink" title="Git 分离头指针"></a>Git 分离头指针</h3><pre><code>在没有绑定分支的情况下，git status 会显示 HEAD， 后面需要 git branch xxx head_id    如果没有保存，会被当作垃圾清理掉</code></pre><h3 id="HEAD-branch"><a href="#HEAD-branch" class="headerlink" title="HEAD  branch"></a>HEAD  branch</h3><pre><code>git checkout -b xxx yyy                 // 基于yyy 创建 xxx 分支HEAD 可脱离分支，独立存在</code></pre><p>git diff        // 比较两个commit 的不同        git diff HEAD HEAD^ | HEAD～n</p><h3 id="查看不同提交的指定文件的差异"><a href="#查看不同提交的指定文件的差异" class="headerlink" title="查看不同提交的指定文件的差异"></a>查看不同提交的指定文件的差异</h3><pre><code>git diff 分支1 分支2 -- 文件            //      比较不同分支的差异git diff 分支指针1 分支指针2 -- 文件     // 用分支比较文件的差异</code></pre><h3 id="正确删除文件的方法"><a href="#正确删除文件的方法" class="headerlink" title="正确删除文件的方法"></a>正确删除文件的方法</h3><pre><code>git rm xxx                      //      删除xxx 文件</code></pre><h3 id="开发中临时加塞了紧急任务的处理方法"><a href="#开发中临时加塞了紧急任务的处理方法" class="headerlink" title="开发中临时加塞了紧急任务的处理方法"></a>开发中临时加塞了紧急任务的处理方法</h3><pre><code>git stash                       // 把现在做的工作任务存放到不影响接下来要做的工作环境中去git stash list          //      查看所有的stash 任务的列表git statusgit stash apply         //      弹出最新的stash， 不保留stash 的任务git stash pop           //      弹出最新的stash 工作，存放起来的任务还在</code></pre><h3 id="指定不需要Git管理的文件"><a href="#指定不需要Git管理的文件" class="headerlink" title="指定不需要Git管理的文件"></a>指定不需要Git管理的文件</h3><pre><code>.gitignore                      // 文件中添加不需要被提交的文件类型</code></pre><h3 id="将Git仓库备份到本地"><a href="#将Git仓库备份到本地" class="headerlink" title="将Git仓库备份到本地"></a>将Git仓库备份到本地</h3><pre><code>git clone --bare        // 不在工作区的仓库哑协议： git clone --bare 本地仓库.git  新建仓库name.git</code></pre><h3 id="添加公钥到Github-SSH-and-GPG-keys"><a href="#添加公钥到Github-SSH-and-GPG-keys" class="headerlink" title="添加公钥到Github SSH and GPG keys"></a>添加公钥到Github SSH and GPG keys</h3><h3 id="在Github-创建个人仓库"><a href="#在Github-创建个人仓库" class="headerlink" title="在Github 创建个人仓库"></a>在Github 创建个人仓库</h3><h3 id="把本地仓库同步到Github"><a href="#把本地仓库同步到Github" class="headerlink" title="把本地仓库同步到Github"></a>把本地仓库同步到Github</h3><pre><code>git remote add xxx git@github.com:aspire_8/xxx.git              // 新增远程Github仓库git remote remove xxx                           //      删除远程Github仓库git remote rename oldName newName                               // 更改远程Github仓库的名称git push xxx -all               // 提交本地所有分支到远端</code></pre><h4 id="一般出错的情况"><a href="#一般出错的情况" class="headerlink" title="一般出错的情况"></a>一般出错的情况</h4><pre><code>在推送前，需要先 拉取 远程仓库到本地git pull                //      拉取远程到本地并且合并，等同于 git fetch + git mergegit fetch               // 仅仅把远端的拉到本地git merge 远端分支/本地分支(master)             // 合并分支</code></pre><h4 id="把不相干的两个分支合并"><a href="#把不相干的两个分支合并" class="headerlink" title="把不相干的两个分支合并"></a>把不相干的两个分支合并</h4><pre><code>git merge --allow-unrelater-histories 远端仓库/本地仓库</code></pre><h3 id="不同人修改了同文件的不同区域的处理方案"><a href="#不同人修改了同文件的不同区域的处理方案" class="headerlink" title="不同人修改了同文件的不同区域的处理方案"></a>不同人修改了同文件的不同区域的处理方案</h3><pre><code>git push</code></pre><h3 id="不同人修改了同文件的同一区域的处理方案"><a href="#不同人修改了同文件的同一区域的处理方案" class="headerlink" title="不同人修改了同文件的同一区域的处理方案"></a>不同人修改了同文件的同一区域的处理方案</h3><pre><code>global: git pull        vim xxx.xx              git pushlocal : git pull        vim xxx.xx              git push会出错，local没办法提交，解决方案vim xxx.xx              //      把修改的同一地方，删除其中一个人的修改，删除git的提示信息git status              -&gt;              git commit -am &apos;解决冲突&apos;  -&gt;  git push</code></pre><h3 id="同时变更了文件名和文件内容的处理方案"><a href="#同时变更了文件名和文件内容的处理方案" class="headerlink" title="同时变更了文件名和文件内容的处理方案"></a>同时变更了文件名和文件内容的处理方案</h3><pre><code>global 在更改同一文件名和内容之后local  在本地修改文件内容， git pull 的时候，git会弹出界面提示修改的信息，同时也会在被更改</code></pre><p>文件中，添加local修改的内容</p><h3 id="把同一文件改成不同文件名的处理方案"><a href="#把同一文件改成不同文件名的处理方案" class="headerlink" title="把同一文件改成不同文件名的处理方案"></a>把同一文件改成不同文件名的处理方案</h3><pre><code>global: 修改xxx.xx 为 xxxa.xx，local:  修改  xxx.xx 为 xxb.xxglobal: git push                local: git pull , git rm xxx.xx, git rm xxa.xx, git add xxb.xx, git commit -m &apos;delete xxx.xx xxa.xx&apos;      git push</code></pre><h3 id="禁止向集成分支执行push-f-操作"><a href="#禁止向集成分支执行push-f-操作" class="headerlink" title="禁止向集成分支执行push -f 操作"></a>禁止向集成分支执行push -f 操作</h3><pre><code>git push -f示例:        git log --oneline                               // 查看历史日志        git reset --hard commitID               // 在本地使用reset 恢复到 任意一个commit的历史，如</code></pre><p>果使用 -f 提交的话，远程仓库所有被提交的commit之前的改动都会被删除掉，很危险！！！</p><h3 id="禁止向集成分支执行变更历史的操作"><a href="#禁止向集成分支执行变更历史的操作" class="headerlink" title="禁止向集成分支执行变更历史的操作"></a>禁止向集成分支执行变更历史的操作</h3>]]></content>
+    <content type="html"><![CDATA[<center> iFaithFreedom </center><a id="more"></a> <h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><h3 id="建Git仓库"><a href="#建Git仓库" class="headerlink" title="建Git仓库"></a>建Git仓库</h3><p>两种场景：</p><h4 id="1-把已有的项目代码纳入Git管理"><a href="#1-把已有的项目代码纳入Git管理" class="headerlink" title="1. 把已有的项目代码纳入Git管理"></a>1. 把已有的项目代码纳入Git管理</h4><p>cd 项目代码所在的文件夹<br>git init</p><h4 id="2-新建的项目直接用Git管理"><a href="#2-新建的项目直接用Git管理" class="headerlink" title="2. 新建的项目直接用Git管理"></a>2. 新建的项目直接用Git管理</h4><p>cd 某个文件夹<br>git init your_project    # 会在当前路径下创建和项目名称同名的文件夹<br>cd your_project</p><h3 id="Git-分离头指针"><a href="#Git-分离头指针" class="headerlink" title="Git 分离头指针"></a>Git 分离头指针</h3><pre><code>在没有绑定分支的情况下，git status 会显示 HEAD， 后面需要 git branch xxx head_id    如果没有保存，会被当作垃圾清理掉</code></pre><h3 id="HEAD-branch"><a href="#HEAD-branch" class="headerlink" title="HEAD  branch"></a>HEAD  branch</h3><pre><code>git checkout -b xxx yyy                 // 基于yyy 创建 xxx 分支HEAD 可脱离分支，独立存在</code></pre><p>git diff        // 比较两个commit 的不同        git diff HEAD HEAD^ | HEAD～n</p><h3 id="查看不同提交的指定文件的差异"><a href="#查看不同提交的指定文件的差异" class="headerlink" title="查看不同提交的指定文件的差异"></a>查看不同提交的指定文件的差异</h3><pre><code>git diff 分支1 分支2 -- 文件            //      比较不同分支的差异git diff 分支指针1 分支指针2 -- 文件     // 用分支比较文件的差异</code></pre><h3 id="正确删除文件的方法"><a href="#正确删除文件的方法" class="headerlink" title="正确删除文件的方法"></a>正确删除文件的方法</h3><pre><code>git rm xxx                      //      删除xxx 文件</code></pre><h3 id="开发中临时加塞了紧急任务的处理方法"><a href="#开发中临时加塞了紧急任务的处理方法" class="headerlink" title="开发中临时加塞了紧急任务的处理方法"></a>开发中临时加塞了紧急任务的处理方法</h3><pre><code>git stash                       // 把现在做的工作任务存放到不影响接下来要做的工作环境中去git stash list          //      查看所有的stash 任务的列表git statusgit stash apply         //      弹出最新的stash， 不保留stash 的任务git stash pop           //      弹出最新的stash 工作，存放起来的任务还在</code></pre><h3 id="指定不需要Git管理的文件"><a href="#指定不需要Git管理的文件" class="headerlink" title="指定不需要Git管理的文件"></a>指定不需要Git管理的文件</h3><pre><code>.gitignore                      // 文件中添加不需要被提交的文件类型</code></pre><h3 id="将Git仓库备份到本地"><a href="#将Git仓库备份到本地" class="headerlink" title="将Git仓库备份到本地"></a>将Git仓库备份到本地</h3><pre><code>git clone --bare        // 不在工作区的仓库哑协议： git clone --bare 本地仓库.git  新建仓库name.git</code></pre><h3 id="添加公钥到Github-SSH-and-GPG-keys"><a href="#添加公钥到Github-SSH-and-GPG-keys" class="headerlink" title="添加公钥到Github SSH and GPG keys"></a>添加公钥到Github SSH and GPG keys</h3><h3 id="在Github-创建个人仓库"><a href="#在Github-创建个人仓库" class="headerlink" title="在Github 创建个人仓库"></a>在Github 创建个人仓库</h3><h3 id="把本地仓库同步到Github"><a href="#把本地仓库同步到Github" class="headerlink" title="把本地仓库同步到Github"></a>把本地仓库同步到Github</h3><pre><code>git remote add xxx git@github.com:aspire_8/xxx.git              // 新增远程Github仓库git remote remove xxx                           //      删除远程Github仓库git remote rename oldName newName                               // 更改远程Github仓库的名称git push xxx -all               // 提交本地所有分支到远端</code></pre><h4 id="一般出错的情况"><a href="#一般出错的情况" class="headerlink" title="一般出错的情况"></a>一般出错的情况</h4><pre><code>在推送前，需要先 拉取 远程仓库到本地git pull                //      拉取远程到本地并且合并，等同于 git fetch + git mergegit fetch               // 仅仅把远端的拉到本地git merge 远端分支/本地分支(master)             // 合并分支</code></pre><h4 id="把不相干的两个分支合并"><a href="#把不相干的两个分支合并" class="headerlink" title="把不相干的两个分支合并"></a>把不相干的两个分支合并</h4><pre><code>git merge --allow-unrelater-histories 远端仓库/本地仓库</code></pre><h3 id="不同人修改了同文件的不同区域的处理方案"><a href="#不同人修改了同文件的不同区域的处理方案" class="headerlink" title="不同人修改了同文件的不同区域的处理方案"></a>不同人修改了同文件的不同区域的处理方案</h3><pre><code>git push</code></pre><h3 id="不同人修改了同文件的同一区域的处理方案"><a href="#不同人修改了同文件的同一区域的处理方案" class="headerlink" title="不同人修改了同文件的同一区域的处理方案"></a>不同人修改了同文件的同一区域的处理方案</h3><pre><code>global: git pull        vim xxx.xx              git pushlocal : git pull        vim xxx.xx              git push会出错，local没办法提交，解决方案vim xxx.xx              //      把修改的同一地方，删除其中一个人的修改，删除git的提示信息git status              -&gt;              git commit -am &apos;解决冲突&apos;  -&gt;  git push</code></pre><h3 id="同时变更了文件名和文件内容的处理方案"><a href="#同时变更了文件名和文件内容的处理方案" class="headerlink" title="同时变更了文件名和文件内容的处理方案"></a>同时变更了文件名和文件内容的处理方案</h3><pre><code>global 在更改同一文件名和内容之后local  在本地修改文件内容， git pull 的时候，git会弹出界面提示修改的信息，同时也会在被更改</code></pre><p>文件中，添加local修改的内容</p><h3 id="把同一文件改成不同文件名的处理方案"><a href="#把同一文件改成不同文件名的处理方案" class="headerlink" title="把同一文件改成不同文件名的处理方案"></a>把同一文件改成不同文件名的处理方案</h3><pre><code>global: 修改xxx.xx 为 xxxa.xx，local:  修改  xxx.xx 为 xxb.xxglobal: git push                local: git pull , git rm xxx.xx, git rm xxa.xx, git add xxb.xx, git commit -m &apos;delete xxx.xx xxa.xx&apos;      git push</code></pre><h3 id="禁止向集成分支执行push-f-操作"><a href="#禁止向集成分支执行push-f-操作" class="headerlink" title="禁止向集成分支执行push -f 操作"></a>禁止向集成分支执行push -f 操作</h3><pre><code>git push -f示例:        git log --oneline                               // 查看历史日志        git reset --hard commitID               // 在本地使用reset 恢复到 任意一个commit的历史，如</code></pre><p>果使用 -f 提交的话，远程仓库所有被提交的commit之前的改动都会被删除掉，很危险！！！</p><h3 id="禁止向集成分支执行变更历史的操作"><a href="#禁止向集成分支执行变更历史的操作" class="headerlink" title="禁止向集成分支执行变更历史的操作"></a>禁止向集成分支执行变更历史的操作</h3>]]></content>
     
     <summary type="html">
     
-      &lt;center&gt; Git &lt;/center&gt;
+      &lt;center&gt; iFaithFreedom &lt;/center&gt;
     
     </summary>
     
