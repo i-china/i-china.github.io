@@ -321,18 +321,13 @@
     <link href="http://yoursite.com/2019/08/09/Vim-Note/"/>
     <id>http://yoursite.com/2019/08/09/Vim-Note/</id>
     <published>2019-08-09T10:58:51.000Z</published>
-    <updated>2019-08-12T14:38:58.864Z</updated>
+    <updated>2019-08-13T13:35:57.638Z</updated>
     
-    <content type="html"><![CDATA[<center> iFaithFreedom </center><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">明天写Vim 相关技术点,今天写了点Nginx，太晚了，哈哈</span><br><span class="line">Oh No!!!, 明天得去三河，哎～ 还得带电脑去... 不然没法写啦～！</span><br></pre></td></tr></table></figure><!-- Mote -->]]></content>
+    <content type="html"><![CDATA[<center> iFaithFreedom </center><a id="more"></a><h3 id="6-种模式"><a href="#6-种模式" class="headerlink" title="6 种模式"></a>6 种模式</h3><p>普通模式    插入模式    可视模式    选择模式    命令行模式        Ex模式</p><ul><li><p>普通模式<br>dd<br>ndd<br>dj<br>dG<br>dgg<br>db<br>dw</p></li><li><p>插入模式<br>i<br>I<br>a<br>A<br>x<br>X<br>s<br>S</p></li><li><p>可视模式<br>与普通模式相似</p></li><li><p>选择模式<br>Ctrl + v<br>Shift + v</p></li><li><dl><dt>命令行模式</dt><dd>：执行命令<br>/    ：搜索<br>?    ：搜索<br>!    ：过滤命令</dd></dl></li><li><p>Ex模式<br>与命令行模式相似，在使用 :visual 命令离开Ex模式前，可一次执行多条命令</p></li></ul><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><p>filename = x.x<br>-r x.x:<br>-R x.x:            </p><ul><li>x.x:        </li><li>n x.x:</li><li>/pattern x.x:</li></ul><p>-c command x.x</p><h3 id="编辑操作"><a href="#编辑操作" class="headerlink" title="编辑操作"></a>编辑操作</h3><p>i:    光标所在处插入<br>I:    所在行的第一个非空格符处开始插入<br>o:    光标所在行的下一行输入新的一行<br>O:  光标所在行的上一行输入新的一行<br>a:    光标所在的下一个字符处开始输入<br>A:    光标所在行的最后一个字符处开始输入<br>r:    取代光标所在的那个一字符一次<br>R:    取代光标所在的文字，直到按下 ESC为止</p><p>查找文本<br>/abc:<br>/^abc:<br>/abc$:<br>?abc:<br>n:<br>N:</p><p>替换文本<br>r:<br>R:<br>:s/x/x1/g:<br>:x1,x2s/y1/y2/g:<br>:g/x1/x2/g</p><p>删除文本<br>x: 向后删除一个字符        X: 向前删除一个字符        nx：连续向后删除n个字符<br>dd:    删除光标所在的一整行<br>ndd: 删除光标所在的向下n行<br>dG: 删除光标所在到最后一行的所有数据<br>d$:    删除光标所在处到最后一个字符<br>d0:    删除光标所在处到该行的最前面一个字符<br>D:    删除光标末尾的字符<br>:x1,x2d</p><p>p: 粘贴被删除的文本内容</p><p>复制文本<br>p: 粘贴通过复制下的行数和字符<br>P: 会增加行数<br>yy: 复制光标所在的那一行<br>nyy: 复制光标所在的向下n行<br>y1G: 复制光标所在行的第一行的所有数据<br>y0:    复制光标所在的那个字符到该行行首的所有数据<br>y$: 复制光标所在的那个字符到该行行尾的所有数据<br>yw:<br>J:    将光标所在行与下一行的数据结合成同一行<br>c:    重复删除多个数据<br>u:  复原前一个动作<br>Ctrl+r:    重做上一个动作</p><p>保存退出<br>:wq    保存并退出<br>:wq! 强制保存并退出<br>:q  离开vim<br>:q! 强制退出不保存<br>:w    将文本保存<br>:w!    若文件为只读时，强制写入该档案。但取决于权限<br>:w xxx.xx:  将编辑的数据保存成另一个档案，类似于另存<br>:x!<br>:n1,n2 w filename    :    将n1到n2的内容存储成filename这个档案<br>ZZ: 文件没有改动，则不保存离开，若改动，则保存后离开<br>:! command:     暂时离开vim到指令模式下执行命令</p><h3 id="方向键"><a href="#方向键" class="headerlink" title="方向键"></a>方向键</h3><p>h    :    向左        H    :    屏幕上方那一行的第一个字符<br>j    :    向下        M    :    屏幕中央那一行的第一个字符<br>k    :    向上        L    :    屏幕下方…<br>l    :    向右        G    :    移到档案的最后一行<br>Ctrl + f    :    屏幕向下一页<br>Ctrl + b    :    屏幕向上一页<br>Ctrl + d    :    屏幕向下移动半页<br>Ctrl + u    :    屏幕向上移动半页</p><ul><li>:    光标移动到非空格符的下一行</li></ul><ul><li>：    光标移动到非空格符的上一行<br>n<space>    :    n 表示数字，按下数字再按空格键</space></li></ul><p>光标以单词位单位移动<br>w|W    :<br>b|B    :<br>e|E    :<br>nw|nW    :<br>nb|nB    :</p><p>光标移动至行首或行尾<br>0 | ^    :    光标移动到行首<br>$        :    光标移动到行尾<br>n$        :    </p><p>光标移动到指定字符<br>fx    :<br>Fx    :</p><p>光标移动到指定行<br>gg    :    移到档案第一行<br>G    :    移到档案最后一行<br>nG    :    移动到档案的第n行<br>:n    :    光标向下移动n行</p><p>光标移动到匹配的括号处<br>%    : 将光标先定位到 “{“ ,然后再使用 “ % “ 命令，可定位到 “ } “ </p><p>批量注释和自定义注释快捷键<br>s/^/#/g        :<br>eg: :1,10s/^/#/g    :</p><p>取消连续行注释<br>:1,10s/^#//g    :</p><p>:map 快捷键 执行命令<br><a href="http://c.biancheng.net/view/813.html" target="_blank" rel="noopener">Vim map </a></p><p><a href="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" target="_blank" rel="noopener">Vim</a></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;center&gt; iFaithFreedom &lt;/center&gt;
-
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cl
-      
+      &lt;center&gt; iFaithFreedom &lt;/center&gt;
     
     </summary>
     
