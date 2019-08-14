@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="iFaithFreedom">
 <meta property="og:description" content="Linux">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-11T06:52:51.717Z">
+<meta property="og:updated_time" content="2019-08-14T13:13:34.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux">
 <meta name="twitter:description" content="Linux">
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4
+                  5.5k
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  20
                 </span>
               
             </div>
@@ -455,6 +455,159 @@
 <a id="more"></a>
 
 <h3 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h3><p><code>Centos Ubuntu</code> </p>
+<h3 id="Linux-文件和目录管理"><a href="#Linux-文件和目录管理" class="headerlink" title="Linux 文件和目录管理"></a>Linux 文件和目录管理</h3><p>cd: 切换目录<br>    cd 选项<br>~ ： 当前用户的主目录    ~用户名：指定用户的主目录    - ： 上次所在的目录        . : 当前目录     ..: 上级目录</p>
+<p>pwd：显示当前路径</p>
+<p>whoami：当前登陆的用户</p>
+<p>ls： 查看目录下文件<br>    ls 选项 文件<br>    -a:    全部文件    -A:    全部不包括. ..    -d:    目录本身    -f:    以文件名排序    -F:    再文件或目录后加上类型的指示符号    -h:    以易读方式显示    -i:显示inode节点信息<br>    -n:    以UID和GID代替用户名和群组    -r:    将排序结果反向输出    -R:    列出目录下所有文件    -S:    以文件容量大小排序    -t:    以时间排序    -l:    使用长格式列出文件和目录信息</p>
+<p>ls:<br>第一列： 权限        第二列：计数(硬连接数)    第三列：所有者    第四列：所属组        第五列：大小    第六列：文件修改时间        第七列: 文件名和目录名</p>
+<p>mkdir：创建目录文件夹<br>    mkdir 选项 文件目录名<br>    -p: 递归创立目录        -m: 自定义目录权限        </p>
+<p>rmdir: 删除空目录<br>    rmdir 选项 文件目录名<br>    -p：递归删除空目录        rmdir</p>
+<p>touch：创建文件及修改文件时间戳<br>    touch 选项 文件名<br>    选项：    -a：访问时间    -c：时间参数    -d：修订日期        -m：修改时间    -t：修订时间</p>
+<p>ln：在文件之间建立链接(硬链接和软链接)<br>    ln 选项 源文件    目标文件<br>        -s：建立软链接文件，不加-s 则建立硬链接<br>        -f：强制  如果目标文件存在，则删除后再建立链接文件</p>
+<p>cp：复制文件和目录<br>    cp 选项 源文件 目标文件<br>        -a：相当于 -d -p -r 的集合<br>        -d：如源文件为软链接，则复制出的目标文件也为软链接<br>        -i：询问 是否覆盖<br>        -l：把目标文件建立为源文件的硬链接，而不是复制源文件<br>        -s：把目标文件建立为源文件的软连接，而不是复制。。。<br>        -p：复制后目标文件保留源文件的属性 所有者、所属组、权限和时间<br>        -r：递归复制，用于复制父母<br>        -u：若目标文件比源文件有差异，则使用该选项更新目标文件，用于对文件的升级和备用</p>
+<p>rm：删除文件或目录<br>    rm 选项 文件或目录<br>        -f： 强制删除<br>        -i:  删除前给出提示<br>        -r： 递归删除，用于目录</p>
+<p>mv：移动文件或改名<br>    mv 选项 文件或目录<br>        -f：强制覆盖，不询问，直接覆盖<br>        -i：交互移动，询问是否覆盖<br>        -n：如果目标文件已存在，不会覆盖移动，也不询问<br>        -v: 显示文件或目录移动过程<br>        -u: 若目标文件存在，两者相比，源文件更新，对目标文件进行升级</p>
+<h3 id="打包-归档-和压缩"><a href="#打包-归档-和压缩" class="headerlink" title="打包(归档)和压缩"></a>打包(归档)和压缩</h3><p>tar：打包<br>    tar 选项 源文件或目录<br>        -c：将多个文件或目录打包<br>        -A：追加tar文件到归档文件<br>        -f：指定包的文件名<br>        -v：显示打包过程<br>        -x：对tar包做 解压<br>        -C：指定解压包位置<br>        -z：压缩和解压缩”.tar.gz”<br>        -j：压缩和解压缩”.tar.bz2”</p>
+<p>tar.gz:        -zxvf    -zcvf<br>tar.bz2:    -jxvf    -jcvf</p>
+<p>zip: 压缩文件和目录<br>    zip 选项 压缩包名    源文件或源目录列表<br>        -r：    递归压缩目录，所有文件以及目录全部压缩<br>        -m：    压缩后，删除源文件<br>        -v：    显示详细的压缩过程<br>        -q：    不显示命令执行过程<br>        -压缩级别：    1~9        -1 代表压缩速度最快  -9 代表压缩效果更好<br>        -u：    更新压缩文件，往压缩文件添加新文件</p>
+<p>unzip：解压zip文件<br>    unzip 选项 压缩包名<br>        -d 目录： 将压缩文件解压到指定目录下<br>        -n：      解压时不覆盖存在的文件<br>        -o：      解压时覆盖已经存在的文件，无需确认<br>        -v：      查看压缩文件的详细信息<br>        -t：      测试有无损坏，并不解压<br>        -x 文件列表: 解压文件，但不包含文件列表中指定的文件</p>
+<p>gzip：压缩文件或目录<br>    gzip 选项 源文件<br>        -c：将压缩数据输出到标准输出中，保留源文件<br>        -d：对压缩文件解压<br>        -r：递归压缩指定目录下以及目录下的所有文件<br>        -l：对每一个压缩文件 显示字段  压缩文件大小  未压缩大小  压缩比  未压缩名称<br>        -数字 ：指定压缩等级， -1 等级最低，压缩比最差</p>
+<p>gunzip：解压缩文件或目录<br>    gunzip 选项 文件<br>        -r：递归处理，解压缩指定目录下所有文件<br>        -c：把解压缩后的文件输出到标准设备<br>        -f：强制解压缩文件，不理会是否已存在<br>        -l：列出压缩文件内容<br>        -v：显示命令执行过程<br>        -t：测试压缩文件是否正常，不做任何操作</p>
+<p>bzip2：压缩文件 bz2格式<br>    bzip2 选项 源文件<br>        -d: 执行解压缩<br>        -k: 解压缩完成后，删除源文件，要保留源文件，需使用此选项<br>        -f：再解压或解压缩时，若同名，默认不覆盖，此选项会强制覆盖现有文件<br>        -t：测试压缩或解压缩的完整性<br>        -v：显示详细信息<br>        -数字： -1 等级最低，压缩比最差 -9 压缩比最高</p>
+<p>bunzip2 bz2 格式的及压缩命令<br>    bunzip2 选项<br>        -k:     解压缩后，默认删除压缩文件，若要保留，使用此参数<br>        -f： 解压缩时，若同名，默认不覆盖，若要覆盖，使用此参数<br>        -v： 显示命令执行过程<br>        -L:     列出压缩文件内容</p>
+<h3 id="三剑客-grep-sed-awk"><a href="#三剑客-grep-sed-awk" class="headerlink" title="三剑客 grep        sed        awk"></a>三剑客 grep        sed        awk</h3><p>cat： 连接文件并打印输出到标准输出设备<br>    cat  选项    文件名<br>        -A：列出所有隐藏符号<br>        -E:    列出每行结尾的回车符$<br>        -n：对输出的所有行进行编号<br>        -b：只对非空行进行编号<br>        -T：把Tab键 ^| 显示<br>        -V：列出特殊字符<br>        -s：连续2行以上的空白行，替换为1行的空白行<br>        &gt;:    合并<br>        &gt;&gt;：追加</p>
+<p>more：分屏显示文件内容<br>    more 选项 文件名<br>        -f：计算行数 实际的行数，<br>        -p：清屏后显示内容<br>        -c：先显示内容再清楚旧的资料<br>        -s：连续两行以上的空白行，就替换为一行的空白行<br>        -u：不显示下引号<br>        +n：从第n行开始显示文件内容，n代表数字<br>        -n：一次显示的行数，n表示数字<br>    交互指令及功能<br>        h或？：    帮助信息<br>        q或Q ：    退出<br>        v： 在当前行启动一个编辑器<br>        ：f 显示当前文件的文件名和行号<br>        !&lt;命令&gt;：在子shell中执行指定命令<br>        回车：向下移动一行<br>        空格：向上移动一行<br>        Ctrl+l：刷新屏幕<br>        =：    显示当前行的行号<br>        ‘： 转到上一次搜索开始的地方<br>        Ctrl+f： 向下滚动一页<br>        .：重复上次输入的命令<br>        /字符串：搜索指定的字符串<br>        d：向下移动半页<br>        b：向上移动半页</p>
+<p>head：显示文件开头的内容<br>    head 选项 文件名<br>        -nK： K表示行数，除了文件最后K行外，显示剩余的全部内容<br>        -cK： K表示字节，除了文件最后K字节，显示剩余全部的内容<br>        -v：  显示文件名</p>
+<p>less： 查看文件内容<br>    less 选项 文件名<br>        -N： 显示每行的行号<br>        -S： 行过长时舍弃超出部分<br>        -e： 文件显示结束后，自动离开<br>        -g： 只标志最后搜索到的关键词<br>        -Q： 不使用警告音<br>        -i： 忽略搜索时的大小写<br>        -m： 显示类似more的百分比<br>        -f:     强迫打开特殊文件<br>        -s:     显示连续行为一行<br>        -b： 设置缓冲区的大小<br>        -o： 将less输出的内容保存到指定文件中<br>        -x： 将tab键显示为规定的数字空格<br>    交互指令及功能<br>        /    ?    n    N    b    d    h|H        q|Q        y    空格键     回车键        PgDn   PgUp<br>        Ctrl + f    Ctrl + b    Ctrl + d    Ctrl + u    j    k    G    g    ZZ     v        [<br>            ]    p    u    </p>
+<p>tail： 显示文件结尾的内容<br>    tail 选项  文件名<br>        -nK： K指行数，从文件的第K行开始输出<br>        -cK： K指字节数，从文件第K个字节开始输出<br>        -f：  输出文件变化后新增加的数据</p>
+<h4 id="grep：-查找文件内容-正则表达式"><a href="#grep：-查找文件内容-正则表达式" class="headerlink" title="grep： 查找文件内容 正则表达式"></a>grep： 查找文件内容 正则表达式</h4><pre><code>正则表达式的通配符
+    c* ：  匹配0个空白或多个字符c(c为任一字符)
+    .  ：  匹配任何一个字符，只能是一个字符
+    [xyz]：匹配方括号中的任意一个字符
+    [^xyz]：匹配除方括号中字符外的所有字符
+    ^  ：  锁定行的开头
+    $  ：    锁定行的结尾
+    需结合反斜杠 \，
+
+grep 命令基本格式：
+    grep    选项    模式    文件名
+        -c ：列出文件中包含模式的行数
+        -i ：忽略模式中的字母大小写
+        -l ：列出带有匹配行的文件名
+        -n ：在每一行的最前面列出行号
+        -v ：列出没有匹配模式的行
+        -w ：把表达式当作一个完整的单字符来搜寻，忽略部分匹配的行</code></pre><h4 id="sed-根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序：-1-每次仅读取一行内容-2-根据规格命令匹配并修改数据-3-将执行结果输出"><a href="#sed-根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序：-1-每次仅读取一行内容-2-根据规格命令匹配并修改数据-3-将执行结果输出" class="headerlink" title="sed 根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序： 1.每次仅读取一行内容 2. 根据规格命令匹配并修改数据 3.将执行结果输出"></a>sed 根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序： 1.每次仅读取一行内容 2. 根据规格命令匹配并修改数据 3.将执行结果输出</h4><pre><code>sed 选项 脚本命令 文件名
+    -e 脚本命令： 将其后跟的脚本命令添加到已有的命令中
+    -f 脚本命令文件： 将其后文件中的脚本命令添加到已有的命令中
+    -n ： 所有脚本指定执行完毕后，自动输出处理后的内容，需使用print来输出
+    -i ： 直接修改源文件，慎用！
+
+sed 脚本命令
+    sed s 替换脚本命令： [address]s/pattern/reloacement/flags
+        address : 指定要操作的具体行        pattern ：需要替换的内容     replacement：要替换的新内容
+sed s 命令 flags 标记及功能
+    n ： 1-512 之间数字，表示指定要替换的字符串出现第n次时才进行替换
+    g ： 匹配到的所有内容进行替换
+    p ： 打印与替换命令中指定的模式匹配的行 与-n选项使用
+    w file ：将缓冲区中的内容写道指定的file文件中
+    &amp; ： 用正则表达式匹配到的内容进行替换
+    \n ： 匹配第n个字串，该字串之前在pattern中用 \(\) 指定    
+    \ ： 转义
+sed d 替换脚本命令
+    需要删除文本中的特定行，用d脚本命令，删除指定行中的所有内容，如忘记指定具体行，删删除所有内容
+    [address]d
+sed a    | sed i 脚本命令
+    a 表示在指定行的后面附加一行，i表示在指定行的前面插入一行
+    [address]a(i或) \新文本内容
+sed c 替换脚本命令
+    c 表示将指定行中的所有内容，替换成该选项后面的字符串
+    [address]c\用于替换的新文本
+sed y 转换脚本命令
+    y 转换命令唯一可以处理单个字符
+    [address]y/inchars/outchars/
+sed p 打印脚本命令
+    p 搜索符号条件的行，输出该行的内容
+    [address]p
+sed w 脚本命令
+    w 将文本中指定行的内容写入文件
+    [address]w filename
+sed r 脚本命令
+    r 将一个独立文件的数据插入到当前数据流的指定位置
+    [address]r filename 
+sed q 退出脚本命令
+    q 使sed命令在第一次匹配任务结束后，退出sed程序</code></pre><p>sed 脚本命令的寻址方式<br>    两种：<br>        1.[address]脚本命令 </p>
+<pre><code>2.address{
+    多个脚本命令
+}</code></pre><h4 id="awk-文本数据处理工具"><a href="#awk-文本数据处理工具" class="headerlink" title="awk 文本数据处理工具"></a>awk 文本数据处理工具</h4><pre><code>基本格式：
+    awk 选项 &apos;脚本命令&apos; 文件名
+        -F fs ：指定以fs作为输入行的分隔符，默认以分隔符为空格或制表符
+        -f file ：从脚本文件中读取awk脚本指令，取代直接在命令行中输入指令
+        -v var=val：在执行前，设置一个变量var，初始值为 val
+awk 使用数据字段变量
+    $0 ：代表整个文本行
+    $1 ： 代表文本行的第1个数据字段
+    $2 :  。。。第2个数据字符按
+    $n : 代表第n个数据字段
+awk 脚本命令使用多个命令
+    awk &apos;{
+        $a = &quot;some text&quot;
+        print $0
+    }&apos;
+awk 从文件中读取程序
+    awk -F: -f awk.sh /etc/passwd
+awk BEGIN 关键字
+    awk &apos;BEGIN&apos; {print &quot;text&quot;}
+awk END 关键字
+    awk &apos;ENG&apos; {print &quot;text&quot;}</code></pre><h3 id="软件安装相关"><a href="#软件安装相关" class="headerlink" title="软件安装相关"></a>软件安装相关</h3><p>RPM 包安装、卸载、升级<br>    /etc/                ：配置文件安装目录<br>    /usr/bin/            ：可执行的命令安装目录<br>    /usr/lib/            ：程序所使用的函数库保存位置<br>    /usr/share/doc/        ：基本的软件使用手册保存位置<br>    /usr/share/man/        ：帮助文件保存位置<br>RPM 包的安装<br>    rpm -ivh 包名<br>        -i ：安装(install)<br>        -v ：显示详细信息(verbose)<br>        -h ：打印 # 显示安装进度(hash)<br>    rpm -ivh x.rpm xx.rpm xxx.rpm<br>    rpm 选项 包名<br>        -nodeps ： 不检测依赖性安装<br>        -replacefiles ：替换文件安装<br>        -replacepkgs ：替换软件包安装<br>        -force ：强制安装<br>        -test ：测试安装<br>        -prefix ：指定安装路径</p>
+<h4 id="软件的启动和管理"><a href="#软件的启动和管理" class="headerlink" title="软件的启动和管理"></a>软件的启动和管理</h4><pre><code>service 服务名 start | stop | restart | status 
+    stat: 启动服务
+    stop: 停止服务
+    restart:    重启服务
+    status:        查看服务状态
+检测端口：    
+    netstat -tlun | grep 80</code></pre><p>RPM 包的升级<br>    rpm -Uvh 包名    ： 如没安装过则直接安装<br>    rpm -Fvh 包名    ： 如没有安装，则不安装</p>
+<p>RPM 包的卸载    (e 时 erase)<br>    rpm -e 包名  </p>
+<p>RPM 命令查询软件包 (-q, -qa, -i ,-p, -l, -f ,-R )<br>    rpm 选项 查询对象<br>        -q  ：表示查询， query<br>        -qa ：查询系统中所有安装的软件包<br>        -qi ：查询软件包的详细信息 i = information<br>        -ql ：查询软件包的文件列表<br>        -qf ：查询系统文件属于哪个RPM包<br>        -qR ：查询软件包的依赖关系</p>
+<p>RPM 包验证和数字证书(数字签名)<br>    rpm 包校验<br>        -Va ：校验系统中已安装的软件包<br>        -V  ：校验已安装的包名<br>        -Vf ：校验某个系统文件是否被修改</p>
+<p>提取RPM包文件(cpio命令)<br>    cpio 用于从归档包中存入和读取文件<br>        cpio 选项<br>            -o ： 指 copy-out 模式，把数据备份到文件库中<br>            -v ： 显示备份过程<br>            -c ： 使用较新的protable format 存储方式<br>            -B ： 设定输入/输出块为5120Bytes，而不是模式的512Bytes<br>            -i ： 指 copy-in ，把数据从文件库中恢复<br>            -d ： 还原时自动新建目录<br>            -u ： 自动使用较新的文件覆盖较旧的文件<br>            -p ： 指复制模式</p>
+<p>YUM 源配置<br>    Yum 源配置文件： /etc/yum.repos.d/ ， 文件扩展名为：”*.repo”<br>        参数：<br>            [base]: 容器名称<br>            name：容器说明<br>            mirrorlist：镜像站点<br>            baseurl：源服务器的地址<br>            enable：此容器是否生效， 不写或写enable表示生效，0为不生效<br>            gpgcheck：为1表示RPM的数字证书生效，0为不生效<br>            gpgkey：数字证书的公钥文件保存位置<br>    Yum 查询、安装、升级、卸载<br>        yum list : 列出已安装的和可安装的软件名<br>        yum list 包名 : 查询安装情况<br>        yum search 关键字 : 查找与关键字相关的所有软件包<br>        yum info 包名 : 查询执行软件包的详细信息</p>
+<p>Yum 安装命令<br>        yum -y install 包名<br>            install ： 安装<br>            -y ： 自动回答yes</p>
+<p>Yum 升级命令<br>        yum -y update ： 升级所有软件包<br>        yum -y update 包名 ： 升级特定的软件包</p>
+<p>Yum 卸载命令<br>        yum remote 包名 ：卸载指定的软件包</p>
+<p>Yum 查询软件组包含的软件<br>        yum groupinfo 软件组名 ： 查询软件组包含的软件</p>
+<p>Yum 安装软件组<br>        yum groupinstall 软件组名 ： 安装指定软件组，组名由grouplist查询出来</p>
+<p>Yum 卸载软件组<br>        yum groupremove 软件组名 ： 卸载指定软件组</p>
+<p>Linux 源码包安装和卸载<br>    首先安装 gcc 和 make<br>        rpm -q gcc   |   yum -y install gcc<br>        rpm -q make  |   yum -y install make<br>    下载源码包，如:  xxx.tar.gz<br>    解压： tar -zxvf xxx.tar.gz<br>    进入解压目录<br>    检测系统环境是否符合安装要求： ./configure<br>        定义需要的功能选项：<br>            ./configure –prefix=安装路径<br>        执行 ./configure–help 查询支持的功能<br>    编译： make<br>    正式安装软件： make install<br>    重装：在make前，要执行 make clean ，他会清空 Makefile 文件或编译产生的 .o 头文件</p>
+<p>Linux 源码包卸载<br>    rm -rf /usr/local/xxx  ： 删除软件的安装目录，删除前需停止服务</p>
+<p>Linux 源码包快速升级<br>    使用补丁更新源码包： 省去./configure 生成新的 Makefile文件，还省去了编译<br>    Linux 补丁文件的生成和使用<br>        diff 选项 old new<br>            -a ： 将任何文档当作文本文档处理<br>            -b ： 忽略空格造成的不同<br>            -B ： 忽略空白行造成的不同<br>            -l ： 忽略大小写造成的不同<br>            -N ： 比较两个目录时，如某个文件只在一个目录，则另一个目录视为空<br>            -r ： 比较目录时，递归比较子目录<br>            -u ： 使用同一输出格式<br>    1. 创建两个文件<br>        mkdir test  | cd test | vi old.txt  | vim new.txt  </p>
+<pre><code>2. 利用diff命令，比较两个文件(old.txt 和 new.txt)的不同，并生成补丁文件 (txt.patch)，执行一下代码：
+    diff -Naur /roor/test/old.txt  /root/text/new.txt &lt; txt.patch</code></pre><p>给软件打入补丁<br>    1. 下载补丁文件<br>    2. 复制补丁文件到源码包解压目录中 cp xxx.diff 软件包名<br>    3. 给旧软件打入补丁  cd 软件目录    | vi xxx.diff<br>    4. 重新编译 软件包源码  make<br>    3. 安装 软件  make install</p>
+<h3 id="Linux-用户和用户组管理"><a href="#Linux-用户和用户组管理" class="headerlink" title="Linux 用户和用户组管理"></a>Linux 用户和用户组管理</h3><p>UID 和 GID (用户ID 和 组ID)</p>
+<p>/etc/passwd<br>        系统用户配置文件，存储系统所有用户的基本信息，所有用户有读操作<br>        表达的含义：<br>        用户名： 密码：UID(用户ID) ：GID(组ID) ：描述性信息 ： 主目录 ： 默认Shell</p>
+<pre><code>用户名： 代表用户身份的字符串
+密 码 ：x 表示此用户设有密码， 真正的密码保存在 /etc/shadow 文件中
+UID ： 用户ID，识别不同的用户 0~65535
+0 ： 超级用户 
+1 ~ 499 ： 系统用户
+500 ~ 65535 ： 普通用户
+GID ： Group ID ，组ID 
+初始组： 如：建立用户lamp的同时，建立 lamp组作为lamp用户的初始组
+附加组： 指用户可以加入多个其他的用户组，并拥有这些组的权限
+描述性信息： 
+主目录： 用户登陆后有操作权限的访问目录，用户的主目录
+默认的Shell：Linux的解释器，用户和Linux内核沟通的桥梁，默认 bash /bin/bash</code></pre><p>/etc/shadow (影子文件)<br>        用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的款期时间：账号失效时间：保留字段</p>
+<pre><code>忘记密码：
+    1.重启进入单用户模式， 系统会提供root权限的bash 接口，用 passwd命令修改账号密码；
+    2.通过挂载根目录，修改 /etc/shadow，将账户的root密码清空</code></pre><p>/etc/group<br>    用户组配置文件，用户组的所有信息存放在此文件中<br>        组名：密码：GID：该用户组中的用户列表</p>
+<p>/etc/gshadow<br>    组名：加密密码：组管理员：组附加用户列表</p>
+<p>初始组和附加组<br>    添加新用户： useradd user<br>    添加新群组： groupadd group<br>    将用户xxx加入到xxx群组： usermod -G group user<br>    查找： grep ‘user’ /etc/passwd /etc/group /etc/gshadow</p>
+<pre><code>一个用户可以所属多个附加组，但只能有一个初始组
+查看用户所属全部群组:
+    gourps</code></pre><p>/etc/login.defs :创建用户的默认设置文件</p>
+<p>useradd ： 添加新的系统用户<br>    useradd 选项 用户名<br>        -u UID : 手工指定用户的UID，UID 不要小于500<br>        -d 主目录 ： 手工指定用户的主目录，必须是绝对路径，注意权限<br>        -c 用户说明 ： 手工指定 /etc/passwd 文件中各用户信息中第5哥字段的描述性内容，可随意配置<br>        -g 组名 ： 手工指定用户的初始组<br>        -G 组名 ： 指定用户的附加组<br>        -s shell ：手工指定用户的登录 Shell ，默认是 /bin/bash<br>        -e 日期 ： 指定用户的失效日期 格式为 “YYYY-MM-DD” /etc/shadow 文件的第八个字段<br>        -o ： 允许创建的用户的UID 相同，例如：useradd -u 0 -o usertest<br>        -m ： 建立用户时强制建立用户的家目录<br>        -r ： 创建系统用户 UID 在 1 ~ 499 </p>
+<p>/etc/default/useradd 文件</p>
+<p>passwd ：修改用户密码<br>    passwd 选项 用户名<br>        -S ：查询用户密码的状态 = /etc/shadow<br>        -l ：暂时锁定用户<br>        -u ：解锁用户<br>        –stdin ：通过管道符输出的数据作为用户的密码，主要用于批量添加用户<br>        -n ： 天数 不能修改密码期限 /etc/shadow 第4个字段<br>        -x ： 天数，设置密码有效期                第5个字段<br>        -w ： 天数 用户密码过期的警告天数        第6个字段<br>        -i ： 日期，用户密码失效日期            第7个字段</p>
+<p>usermod ： 修改用户信息<br>    usermod 选项 用户名<br>        -c ： 用户说明：修改用户的说明信息 修改 /etc/paswd 文件目标用户信息的第5个字段<br>        -d ： 主目录： 修改用户的主目录        6<br>        -e ： 日期：修改用户的失效日期        8<br>        -g ： 组名：修改用户的初始组        4<br>        -u ： UID： 修改用户的UID            3<br>        -G ： 组名：修改用户的附加组，把用户加入其他用户组<br>        -l ： 修改用户名称<br>        -L ： 临时锁定用户<br>        -U ： 解锁用户<br>        -s ： shell： 修改用户的登录Shell</p>
 
       
     </div>
@@ -643,7 +796,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/hello.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -761,7 +914,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TODO-List"><span class="nav-number">1.</span> <span class="nav-text">TODO List</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TODO-List"><span class="nav-number">1.</span> <span class="nav-text">TODO List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-文件和目录管理"><span class="nav-number">2.</span> <span class="nav-text">Linux 文件和目录管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包-归档-和压缩"><span class="nav-number">3.</span> <span class="nav-text">打包(归档)和压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三剑客-grep-sed-awk"><span class="nav-number">4.</span> <span class="nav-text">三剑客 grep        sed        awk</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#grep：-查找文件内容-正则表达式"><span class="nav-number">4.1.</span> <span class="nav-text">grep： 查找文件内容 正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sed-根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序：-1-每次仅读取一行内容-2-根据规格命令匹配并修改数据-3-将执行结果输出"><span class="nav-number">4.2.</span> <span class="nav-text">sed 根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序： 1.每次仅读取一行内容 2. 根据规格命令匹配并修改数据 3.将执行结果输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk-文本数据处理工具"><span class="nav-number">4.3.</span> <span class="nav-text">awk 文本数据处理工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件安装相关"><span class="nav-number">5.</span> <span class="nav-text">软件安装相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件的启动和管理"><span class="nav-number">5.1.</span> <span class="nav-text">软件的启动和管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-用户和用户组管理"><span class="nav-number">6.</span> <span class="nav-text">Linux 用户和用户组管理</span></a></li></ol></div>
             
 
           </div>
@@ -808,7 +961,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.3k字</span>
+  <span class="post-count">博客全站共8.8k字</span>
 </div>
 
 
