@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-11T06:58:17.195Z</updated>
+  <updated>2019-08-14T15:18:29.034Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Error</title>
+    <link href="http://yoursite.com/2019/08/14/Error-Note/"/>
+    <id>http://yoursite.com/2019/08/14/Error-Note/</id>
+    <published>2019-08-14T15:15:56.000Z</published>
+    <updated>2019-08-14T15:18:29.034Z</updated>
+    
+    <content type="html"><![CDATA[<center> 积累工作中常见错误</center><a id="more"></a><h3 id="TODO-List"><a href="#TODO-List" class="headerlink" title="TODO List"></a>TODO List</h3><ul><li>积累错误</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt; 积累工作中常见错误&lt;/center&gt;
+    
+    </summary>
+    
+      <category term="Error" scheme="http://yoursite.com/categories/Error/"/>
+    
+    
+      <category term="Error" scheme="http://yoursite.com/tags/Error/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Design</title>
+    <link href="http://yoursite.com/2019/08/14/Design-Note/"/>
+    <id>http://yoursite.com/2019/08/14/Design-Note/</id>
+    <published>2019-08-14T15:04:45.000Z</published>
+    <updated>2019-08-14T15:19:52.522Z</updated>
+    
+    <content type="html"><![CDATA[<center> 设计模式 </center><a id="more"></a><h3 id="TODO-设计模式"><a href="#TODO-设计模式" class="headerlink" title="TODO: 设计模式"></a>TODO: 设计模式</h3><h2 id="创造型设计模式"><a href="#创造型设计模式" class="headerlink" title="创造型设计模式"></a>创造型设计模式</h2><ul><li>简单工厂</li><li>工厂方法</li><li>抽象工厂</li><li>构建器</li><li>原型</li><li>单例</li></ul><h2 id="结构型设计模式"><a href="#结构型设计模式" class="headerlink" title="结构型设计模式"></a>结构型设计模式</h2><ul><li>适配器</li><li>桥梁</li><li>组合</li><li>装饰</li><li>门面</li><li>享元</li><li>代理</li></ul><h2 id="行为型设计模式"><a href="#行为型设计模式" class="headerlink" title="行为型设计模式"></a>行为型设计模式</h2><ul><li>责任链</li><li>命令行</li><li>迭代器</li><li>中介者</li><li>备忘录</li><li>观察者</li><li>访问者</li><li>策略</li><li>状态</li><li>模版方法</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt; 设计模式 &lt;/center&gt;
+    
+    </summary>
+    
+    
+      <category term="Design" scheme="http://yoursite.com/tags/Design/"/>
+    
+  </entry>
   
   <entry>
     <title>2019年</title>

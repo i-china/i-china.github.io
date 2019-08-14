@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Error]]></title>
+    <url>%2F2019%2F08%2F14%2FError-Note%2F</url>
+    <content type="text"><![CDATA[积累工作中常见错误 TODO List 积累错误]]></content>
+      <categories>
+        <category>Error</category>
+      </categories>
+      <tags>
+        <tag>Error</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Design]]></title>
+    <url>%2F2019%2F08%2F14%2FDesign-Note%2F</url>
+    <content type="text"><![CDATA[设计模式 TODO: 设计模式创造型设计模式 简单工厂 工厂方法 抽象工厂 构建器 原型 单例 结构型设计模式 适配器 桥梁 组合 装饰 门面 享元 代理 行为型设计模式 责任链 命令行 迭代器 中介者 备忘录 观察者 访问者 策略 状态 模版方法]]></content>
+      <tags>
+        <tag>Design</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2019年]]></title>
     <url>%2F2019%2F08%2F11%2Fhello-world%2F</url>
     <content type="text"><![CDATA[At 2019 我的野心，以及和挚友的约定！]]></content>
