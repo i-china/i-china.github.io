@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="iFaithFreedom">
 <meta property="og:description" content="Linux">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-17T13:17:08.628Z">
+<meta property="og:updated_time" content="2019-08-19T13:28:09.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux">
 <meta name="twitter:description" content="Linux">
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  13.9k
+                  14.2k
                 </span>
               
 
@@ -429,7 +429,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  52
+                  54
                 </span>
               
             </div>
@@ -701,7 +701,40 @@ ls -al    // 查看文件或目录的权限信息</code></pre><p>chgrp：修改�
 <p>Linux基于xinetd服务的管理方法<br>    基于xinetd服务的启动<br>        xinetd 服务的配置文件保存在 /etc/xinetd.d/ 目录中<br>            telnet： /etc/xinetd.d/telnet<br>            如果要启动telnet服务，只需把 /etc/xinetd.d/telnet 文件中的disable=yes 改为 disable=no    ，disable:代表取消<br>    基于xinetd服务的自启动<br>        1. 使用chkconfig 命令管理自启动<br>            chkconfig 服务名 on|off<br>        2. 使用ntsysv命令管理自启动</p>
 <p>Linux源码包服务管理(启动与自启动)<br>    源码包服务的启动管理：<br>        /usr/local/apache2/bin/apachectl start|stop|restart|status|…<br>    源码包服务的自启动管理：<br>        vim /etc/rc.d/rc.local            // 修改自启动文件<br>            touch /var/lock/subsys/local /usr/local/apache2/bin/apachectl start<br>            # 加入源码包服务的标准启动命令<br>    让源码包服务被服务管理命令识别：<br>        1. 卸载RPM包默认安装的apache服务<br>            yum -y remove httpd<br>        2. 安装源码包的apache服务，并启动<br>            /usr/local/apache2/bin/apachectl start<br>            netst -tlun | grep 80<br>        3. 让源码包安装的apache服务能被service命令管理启动<br>            ln -s /usr/local/apache2/bin/apachectl /etc/init.d/apache<br>            # 把源码包的启动脚本连接到 /etc/init.d/目录中，能被service命令管理<br>        4. 让源码包安装的apache服务能被chkconfig命令管理自启动<br>            vi /etc/init.d/apache<br>                # 修改源码包安装的apache服务的启动脚本，此文件是软连接，实际修改的是源码包的启动脚本<br>                chkconfig: 运行级别 启动顺序 关闭顺序<br>            chkconfig –add apache<br>            chkconfig –list | grep apache<br>        5. 让ntsysv命令可以管理源码包安装的apache服务<br>                把服务的启动脚本链接到/etc/init.d/目录中，在启动脚本中加入：<br>                #chkconfig:运行级别 启动顺序 关闭<br>                #description:说明<br>                然后使用： chkconfig –add 服务名<br>                    chkconfig 选项服务名<br>                        -add： 把服务加入chkconfig命令的管理中<br>                        -del： 把服务从chkconfig命令的管理中删除<br>                        chkconfig -del|httpd</p>
 <p>Linux常见服务类被及功能<br>    acpid：    电源管理接口<br>    anacron：    系统的定时任务，是cron的子系统<br>    alsasound： alsa声卡驱动<br>    apmd：    电源管理模块<br>    atd：指定系统在特定时间执行某个任务，只能执行一次<br>    auditd：审核子系统<br>    autofs：让服务器可自动挂载网络中其服务器的共享数据，挂载NFS服务<br>    avahi-daemon：avahi是zeroconf协议的实现<br>    bluetooth：蓝牙设备支持<br>    capi：仅对ISND设备用户有用<br>    chargen-dgram：使用UDP协议的chargen server，类远程打字功能<br>    chargen-stream： 同上<br>    cpuspeed：调整CPU频率<br>    crond：系统定时任务<br>    cvs：版本控制系统<br>    … More<br>    <a href="http://c.biancheng.net/view/1059.html" target="_blank" rel="noopener">常见服务</a></p>
+<h3 id="Linux-命令行快捷键"><a href="#Linux-命令行快捷键" class="headerlink" title="Linux 命令行快捷键"></a>Linux 命令行快捷键</h3><pre><code>Tab：补全
+Ctrl + c ：    中断命令或进程
+Ctrl + z ：    同 &amp; ，将程序送到后台
+Ctrl + d ：    退出终端
+Ctrl + l ：    清空终端
+Ctrl + a ：    光标移到行首
+Ctrl + e ：    光标移到行尾
+Ctrl + u ：    擦除整行命令
+Ctrl + k ：    擦除所在未到行尾
+Ctrl + y ：    粘贴擦除的命令
+Ctrl + p ：    查看上一个命令，可看历史命令
+Ctrl + n ： 下一个命令
+Ctrl + h ： 擦除前面一个字符
+Ctrl + r ： 搜索历史命令
+Ctrl + 左右键： 在单词间跳转
+Ctrl + t ： 交换光标所在处的两个字符的位置
 
+esc + b ： 移到单词的开头
+esc + f ： 移到单词的结尾
+esc + w ： 删除光标前的字符
+esc + t ： 颠倒光标所在处相邻字符位置
+
+Ctrl + x + u ： 按Ctrl 同时按 x u，撤销操作
+
+Bang(!)命令：
+!! ： 执行上一条命令
+^foo^bar ： 把上一条命令的foo替换为bar，并执行
+!wget ： 执行最近的以 wget 开头的命令
+!wget:p ： 仅打印最近的以wget开头的命令，但不执行
+!$ ： 上一条命令的最后一个参数
+!* ： 上一条命令的所有参数
+!*p ： 执行上一条命令的所有参数
+^abc ： 删除上一条命令中的abc
+!-n  ： 执行前 n 条命令， eg：!-3 执行前3条命令</code></pre>
       
     </div>
     
@@ -720,7 +753,7 @@ ls -al    // 查看文件或目录的权限信息</code></pre><p>chgrp：修改�
   <p><span>本文标题:</span><a href="/2019/08/09/Linux-Note/">Linux</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 <center> Hale Lv </center> 的个人博客"><center> Hale Lv </center></a></p>
   <p><span>发布时间:</span>2019年08月09日 - 18:08</p>
-  <p><span>最后更新:</span>2019年08月17日 - 21:08</p>
+  <p><span>最后更新:</span>2019年08月19日 - 21:08</p>
   <p><span>原始链接:</span><a href="/2019/08/09/Linux-Note/" title="Linux">http://yoursite.com/2019/08/09/Linux-Note/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/09/Linux-Note/" aria-label="复制成功！"></i></span>
   </p>
@@ -1023,7 +1056,7 @@ ls -al    // 查看文件或目录的权限信息</code></pre><p>chgrp：修改�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TODO-List"><span class="nav-number">1.</span> <span class="nav-text">TODO List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-文件和目录管理"><span class="nav-number">2.</span> <span class="nav-text">Linux 文件和目录管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包-归档-和压缩"><span class="nav-number">3.</span> <span class="nav-text">打包(归档)和压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三剑客-grep-sed-awk"><span class="nav-number">4.</span> <span class="nav-text">三剑客 grep        sed        awk</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#grep：-查找文件内容-正则表达式"><span class="nav-number">4.1.</span> <span class="nav-text">grep： 查找文件内容 正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sed-根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序：-1-每次仅读取一行内容-2-根据规格命令匹配并修改数据-3-将执行结果输出"><span class="nav-number">4.2.</span> <span class="nav-text">sed 根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序： 1.每次仅读取一行内容 2. 根据规格命令匹配并修改数据 3.将执行结果输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk-文本数据处理工具"><span class="nav-number">4.3.</span> <span class="nav-text">awk 文本数据处理工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件安装相关"><span class="nav-number">5.</span> <span class="nav-text">软件安装相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件的启动和管理"><span class="nav-number">5.1.</span> <span class="nav-text">软件的启动和管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-用户和用户组管理"><span class="nav-number">6.</span> <span class="nav-text">Linux 用户和用户组管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限管理"><span class="nav-number">7.</span> <span class="nav-text">权限管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统管理"><span class="nav-number">8.</span> <span class="nav-text">文件系统管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级文件系统管理"><span class="nav-number">9.</span> <span class="nav-text">高级文件系统管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVM逻辑卷管理机制-硬盘分区管理机制"><span class="nav-number">10.</span> <span class="nav-text">LVM逻辑卷管理机制(硬盘分区管理机制)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动管理"><span class="nav-number">11.</span> <span class="nav-text">启动管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统服务管理"><span class="nav-number">12.</span> <span class="nav-text">系统服务管理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TODO-List"><span class="nav-number">1.</span> <span class="nav-text">TODO List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-文件和目录管理"><span class="nav-number">2.</span> <span class="nav-text">Linux 文件和目录管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包-归档-和压缩"><span class="nav-number">3.</span> <span class="nav-text">打包(归档)和压缩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三剑客-grep-sed-awk"><span class="nav-number">4.</span> <span class="nav-text">三剑客 grep        sed        awk</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#grep：-查找文件内容-正则表达式"><span class="nav-number">4.1.</span> <span class="nav-text">grep： 查找文件内容 正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sed-根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序：-1-每次仅读取一行内容-2-根据规格命令匹配并修改数据-3-将执行结果输出"><span class="nav-number">4.2.</span> <span class="nav-text">sed 根据脚本命令处理文本文件中的数据，命令从命令行输入，或存储在一个文本文件中，此命令执行数据顺序： 1.每次仅读取一行内容 2. 根据规格命令匹配并修改数据 3.将执行结果输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#awk-文本数据处理工具"><span class="nav-number">4.3.</span> <span class="nav-text">awk 文本数据处理工具</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件安装相关"><span class="nav-number">5.</span> <span class="nav-text">软件安装相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软件的启动和管理"><span class="nav-number">5.1.</span> <span class="nav-text">软件的启动和管理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-用户和用户组管理"><span class="nav-number">6.</span> <span class="nav-text">Linux 用户和用户组管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限管理"><span class="nav-number">7.</span> <span class="nav-text">权限管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件系统管理"><span class="nav-number">8.</span> <span class="nav-text">文件系统管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高级文件系统管理"><span class="nav-number">9.</span> <span class="nav-text">高级文件系统管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LVM逻辑卷管理机制-硬盘分区管理机制"><span class="nav-number">10.</span> <span class="nav-text">LVM逻辑卷管理机制(硬盘分区管理机制)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动管理"><span class="nav-number">11.</span> <span class="nav-text">启动管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统服务管理"><span class="nav-number">12.</span> <span class="nav-text">系统服务管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-命令行快捷键"><span class="nav-number">13.</span> <span class="nav-text">Linux 命令行快捷键</span></a></li></ol></div>
             
 
           </div>
@@ -1084,7 +1117,7 @@ ls -al    // 查看文件或目录的权限信息</code></pre><p>chgrp：修改�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共33.4k字</span>
+  <span class="post-count">博客全站共38.5k字</span>
 </div>
 
 
