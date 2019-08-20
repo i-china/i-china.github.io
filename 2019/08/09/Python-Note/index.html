@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="iFaithFreedom">
 <meta property="og:description" content="Python">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-19T13:30:43.473Z">
+<meta property="og:updated_time" content="2019-08-20T12:02:01.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python">
 <meta name="twitter:description" content="Python">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8.3k
+                  14.3k
                 </span>
               
 
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  32
+                  54
                 </span>
               
             </div>
@@ -644,16 +644,24 @@ setdefault() 方法
 <p>set集合方法<br>    dir(set)<br>        add、clear、copy、difference、difference_update、discard、intersection、intersection_update、isdisjoint、issubset、i是superset、pop、remove、symmetric_difference、symmetric_difference_update、union、update</p>
 <p>frozenset 集合(set 集合不可变版本)<br>    特点：<br>        1. 当集合元素不需要改变时，使用frozenset代替set更安全<br>        2. API不需要改变时，必须用frozenset代替set。如 集合元素不可变，set只能包含frozenset<br>            s = set()<br>            f = frozenset(‘key’)<br>            s.add(f)</p>
 <p>深入底层字典和集合<br>    字典和集合是进行过性能高度优化的数据结构<br>        字典和集合的工作原理：<br>            数据机构<br>                字典和集合的内部结构都是一张哈希表<br>                    对字典：表存储了哈希值(hash)、键和值<br>                    对集合：哈希表内只存储单一的元素<br>    哈希表插入数据<br>    哈希表查找数据<br>    哈希表删除元素</p>
-<h3 id="字符串常用方法详解"><a href="#字符串常用方法详解" class="headerlink" title="字符串常用方法详解"></a>字符串常用方法详解</h3><pre><code>拼接字符串、截取字符串、格式化字符串</code></pre><p>字符串拼接(+拼接数字)<br>    使用加号 (+) 作为字符串的拼接运算符<br>    字符串拼接数字<br>        先将数字转换为 字符串<br>            数字转换为字符串： str()    repr()<br>                直接拼接字符串和数字，会报错</p>
-<p>截取字符串(字符串切片)<br>    通过索引来操作字符：<br>        string[index]                // index 表示索引值，从0开始递增，最后一个为-1<br>    使用范围获取字符串的中间值：<br>        string[start: end: step]<br>            string : 要截取的字符串<br>            start : 要截取的第一个字符所在的索引，默认为0<br>            end ：要截取最后一个字符所在的索引。如不指定，默认字符串的长度<br>            step ：从start字符开始，step 距离获取一个字符，end索引出的字符。step默认值为1<br>                支持用 in 运算符判断是hi否包含某个子串</p>
+<h2 id="字符串常用方法详解"><a href="#字符串常用方法详解" class="headerlink" title="字符串常用方法详解"></a>字符串常用方法详解</h2><pre><code>拼接字符串、截取字符串、格式化字符串</code></pre><h3 id="字符串拼接-拼接数字"><a href="#字符串拼接-拼接数字" class="headerlink" title="字符串拼接(+拼接数字)"></a>字符串拼接(+拼接数字)</h3><pre><code>使用加号 (+) 作为字符串的拼接运算符
+字符串拼接数字
+    先将数字转换为 字符串
+        数字转换为字符串： str()    repr()
+            直接拼接字符串和数字，会报错</code></pre><p>截取字符串(字符串切片)<br>    通过索引来操作字符：<br>        string[index]                // index 表示索引值，从0开始递增，最后一个为-1<br>    使用范围获取字符串的中间值：<br>        string[start: end: step]<br>            string : 要截取的字符串<br>            start : 要截取的第一个字符所在的索引，默认为0<br>            end ：要截取最后一个字符所在的索引。如不指定，默认字符串的长度<br>            step ：从start字符开始，step 距离获取一个字符，end索引出的字符。step默认值为1<br>                支持用 in 运算符判断是hi否包含某个子串</p>
 <p>split() : 分割字符串<br>    将一个字符串按照指定的分隔符切分成多个子串，字串被保存在列表中，不包含分隔符<br>        str.split(sep,maxsplit)<br>                1. str：要分割的字符串<br>                2. set：指定分隔符，默认使用空字符分割<br>                3. maxsplit：可选参数，指定分割的次数，如不指定，次数不限</p>
 <p>join() ：合并字符串<br>    将列表(或元组)中多个字符串采用固定的分隔符连接在一起<br>        join_str = str.join(iterable)<br>            1. join_str : 合并后生成的新字符串<br>            2. str ： 指定合并时的分隔符<br>            3. iterator： 做合并操作的源字符串数据，允许：列表、元组等</p>
 <p>count() ：统计字符串出现的次数<br>    用于检索指定字符串在另一个字符中出现的次数，如检索的字符串不存在，返回 0，否则返回出现的次数<br>        str.count(sub[,start[,end]])<br>            1. str : 原字符串<br>            2. sub : 要检索的字符串<br>            3. start : 起始位置<br>            4. end : 终止位置</p>
 <p>find() ：检测字符串中是否包含某字串<br>    检索字符串中是否包含目标字符串，如包含：出现第一次该字符串的索引，返回-1<br>        1. str：原字符串<br>        2. sub：目标字符串<br>        3. start： 起始位置，若不指定，默认从头开始索引<br>        4. end ：结束位置，若不指定，一直检索到结尾<br>    rfind() ：字符串从右边开始检索</p>
 <p>index() ：检测字符串中是否包含某子串<br>    检索是否包含指定的字符串，若指定的字符串不存在，抛出异常<br>        str.index(sub[,start[,end]])<br>            1. str : 原字符串<br>            2. sub : 子字符串<br>            3. start : 起始位置，默认从头开始<br>            4. end : 结束位置，默认到结尾</p>
 <p>startswith() 和 endswith<br>    startswith() ： 检索字符串是否以指定字符串开头，是返回True，反之False<br>        str.startswith(sub[,start[,end]])<br>            1. str ： 原字符串<br>            2. sub ： 要检索的字串<br>            3. start ：起始位置，默认从头开始<br>            4. end ： 结束索引<br>    end.swith(sub[,start[,end]]) : 是否以指定字符结尾，是返回True，反之Flase<br>        str.endswith(sub[,start[,end]])<br>            1. str : 原字符串<br>            2. sub : 检索的字符串<br>            3. start : 起始位置<br>            4. end : 结束位置</p>
-<p>字符串大小写转换的三种函数<br>    title()    : 将字符串中每个单词的首字符转为大写，其他转为小写<br>        str.title()<br>            str 要进行转换的字符串<br>    lower() : 将字符串所有大写字符转为小写<br>        str.lower()<br>    upper() : 将字符串所有小写字母转为大写<br>        str.upper()</p>
-<p>去除字符串中空格(删除指定字符)的3种方法<br>    去除字符串中的空格和特殊字符<br>        特殊字符： 制表符 \t、回车符 \r 、换行符 \n<br>    strip()     lstrip()     rstrip()<br>    1. strip()    :    删除字符串前后(左右两侧)的空格或特殊字符<br>        str.strip([chars])<br>            str : 原字符串<br>            chars ：指定要删除的字符，可同时指定多个，若不指定，默认为空格、制表符、回车符、换行符等特殊字符<br>    2. lstrip() :    删除字符左边的空格或特殊字符<br>        str.lstrip([chars])<br>    3. rstrip() :    删除字符右边的空格或特殊字符<br>        str.rstrip([chars])</p>
+<h3 id="字符串大小写转换的三种函数"><a href="#字符串大小写转换的三种函数" class="headerlink" title="字符串大小写转换的三种函数"></a>字符串大小写转换的三种函数</h3><pre><code>title()    : 将字符串中每个单词的首字符转为大写，其他转为小写
+    str.title()
+        str 要进行转换的字符串
+lower() : 将字符串所有大写字符转为小写
+    str.lower()
+upper() : 将字符串所有小写字母转为大写
+    str.upper()</code></pre><p>去除字符串中空格(删除指定字符)的3种方法<br>    去除字符串中的空格和特殊字符<br>        特殊字符： 制表符 \t、回车符 \r 、换行符 \n<br>    strip()     lstrip()     rstrip()<br>    1. strip()    :    删除字符串前后(左右两侧)的空格或特殊字符<br>        str.strip([chars])<br>            str : 原字符串<br>            chars ：指定要删除的字符，可同时指定多个，若不指定，默认为空格、制表符、回车符、换行符等特殊字符<br>    2. lstrip() :    删除字符左边的空格或特殊字符<br>        str.lstrip([chars])<br>    3. rstrip() :    删除字符右边的空格或特殊字符<br>        str.rstrip([chars])</p>
 <p>format() 格式化输出<br>    str.format(args)<br>        str : 指定字符串显示样式<br>        args: 指定要进行格式化转换的项，如多项，逗号分割<br>            str 格式：<br>                { [index][:[fill] align] [sign] [#] [width] [.precision] [type] ]}<br>                    index :  指定 ；后边设置的格式要作用到args中第几个数据，索引值从0开始<br>                    fill : 指定空白处填充的字符<br>                    align : 指定数据的对齐方式<br>                        &lt; :    左对齐<br>                        &gt; : 右对齐<br>                        = : 右对齐，放在填充内容的最左侧，只对数字类型有效<br>                        ^ : 居中，和width参数一起使用<br>                    sign：<br>                        +    ：<br>                        -    ：<br>                        空格：<br>                        #    ：<br>                    width ：指定输出数据时所占的宽度<br>                    .precision : 指定保留的小数位数<br>                    type ：指定输出数据的具体类型<br>                        s    ： 字符串<br>                        d    ： 十进制整数<br>                        c    ： 将十进制整数自动转换为对应的Unicode字符<br>                        e|E    ： 转为科学技术后，再格式化输出<br>                        g|G    ： 自动再e|f E|F 中切换<br>                        b    ： 将十进制自动转换为二进制，再格式化<br>                        o    ： 转为八进制，再格式化<br>                        x|X    ： 转为十六进制<br>                        f|F    ： 转为浮点数<br>                        %    ： 显示百分比，默认小数点后6位</p>
 <p>encode() 和 decode() 字符串编码转换<br>    2中常用字符串类型： str 、bytes。 str：Unicode 。 bytes：二进制数据。使用encode 和decode 进行转换<br>    encode() : 将str类型转换为bytes类型，成为 编码<br>        str.encode([encoding=”utf-8”][,errors=”strict”])<br>            str ：要进行转换的字符串<br>            encoding=”utf-8” : 采用的字符编码，默认位utf-8 中文：gb2312<br>            errors=”strict”     : 指定错误处理方法：<br>                    strict :    遇到非法字符就抛出异常<br>                    ignore :    忽略非法字符<br>                    replace:    用 “?” 替换非法字符<br>                    xmlcharrefreplace: 使用xml的字符引用</p>
 <pre><code>decode() ： 将bytes类型的二进制数据转换为str类型，过程称为&quot;解码&quot;
@@ -661,15 +669,12 @@ setdefault() 方法
         bytes : 要进行转换的二进制数据
         encoding=&quot;utf-8&quot;: 解码时采用的字符编码
         errors=&quot;strict&quot;</code></pre><p>dir() 和 help() 帮助函数<br>    dir() : 列出指定类或模块名包含的全部内容，包括函数、方法、类、变量等<br>    help() : 查看某个函数或方法的帮助文档</p>
-<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><pre><code>两种基本流程控制结构： 分支结构、循环结构
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><pre><code>两种基本流程控制结构： 分支结构、循环结构
     分支结构： 实现根本条件来选择性地执行某段代码
     循环结构： 实现根据循环条件重复执行某段代码
     if语句：分支
     while、for in 循环
-        break 和 continue 控制程序的循环结构
-
-条件语句可分3中形式：
-    if、if else、 if elif else
+        break 和 continue 控制程序的循环结构</code></pre><h3 id="if条件语句可分3中形式："><a href="#if条件语句可分3中形式：" class="headerlink" title="if条件语句可分3中形式："></a>if条件语句可分3中形式：</h3><pre><code>    if、if else、 if elif else
         if 表达式：
             代码块
         if 表达式：
@@ -722,15 +727,24 @@ assert 断言函数及用法
     eg： age = input(&apos;enter age&apos;)
         age = int(age)
         assert 30 &lt; age &lt; 100
-        print(&apos;your age at 30 ~ 100&apos;)</code></pre><p>while 循环语句<br>    如果条件condition为真，一直重复执行代码块<br>    while 条件表达式：<br>        代码块<br>        执行流程：判断条件表达式的值，如果为True 真，执行代码块语句，执行完毕，重新判断条件表达式的值是否为真，如为真，继续执行代码块，直到表达式的值为假False，才终止循环</p>
-<pre><code>使用while循环遍历列表和元组
+        print(&apos;your age at 30 ~ 100&apos;)</code></pre><h3 id="while-循环语句"><a href="#while-循环语句" class="headerlink" title="while 循环语句"></a>while 循环语句</h3><pre><code>如果条件condition为真，一直重复执行代码块
+while 条件表达式：
+    代码块
+    执行流程：判断条件表达式的值，如果为True 真，执行代码块语句，执行完毕，重新判断条件表达式的值是否为真，如为真，继续执行代码块，直到表达式的值为假False，才终止循环
+
+使用while循环遍历列表和元组
     列表和元组有索引，通过while循环、列表和元组的索引来遍历列表和元组中的所有元素
         eg： tuple_str = (&apos;name&apos;,&apos;age&apos;,&apos;sex&apos;)
             i = 0
             while(i &lt; len(tuple_str)):
                 print(tuple_str[i])
-                i += 1</code></pre><p>for循环用法<br>    循环语句有2种，while 和for<br>        用于遍历字符串、列表、元组、字典、集合等序列类型<br>            for 迭代变量 in 字符串|列表|元组|字典|集合：<br>                代码块<br>            迭代变量：用来存放从序列类型变量中读取的元素，一般不再循环中对迭代变量赋值，代码块值具有相同缩进格式的多行代码。也称为循环体</p>
-<pre><code>for 进行数值循环
+                i += 1</code></pre><h3 id="for循环用法"><a href="#for循环用法" class="headerlink" title="for循环用法"></a>for循环用法</h3><pre><code>循环语句有2种，while 和for 
+    用于遍历字符串、列表、元组、字典、集合等序列类型
+        for 迭代变量 in 字符串|列表|元组|字典|集合：
+            代码块
+        迭代变量：用来存放从序列类型变量中读取的元素，一般不再循环中对迭代变量赋值，代码块值具有相同缩进格式的多行代码。也称为循环体
+
+for 进行数值循环
     如 0 ～100 的累加
     r = 0;
     for i in range(101):
@@ -761,7 +775,256 @@ for 循环遍历字典
 <p>reversed 函数及用法<br>    反向遍历，可接收各种序列(元组、列表、区间等)，返回一个反序排列的法代器<br>        reversed()可对列表、元组进行反转</p>
 <p>sorted函数及用法<br>    与reversed 函数类似，接收一个可迭代对象作为参数，返回一个对元素排序的列表<br>        不会改变传入的可迭代对象，而是返回新的、排序好的列表<br>            sorted 可传入一个 reverse 参数，也可传入一个 key 参数</p>
 <p>2种强制离开循环体的方法：<br>    1. continue    ： 可跳过执行本次循环体中剩余的代码，转而执行下一次的循环<br>    2. break ： 完全终止当前循环</p>
+<h2 id="函数和lambda表达式"><a href="#函数和lambda表达式" class="headerlink" title="函数和lambda表达式"></a>函数和lambda表达式</h2><h3 id="函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"><a href="#函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用" class="headerlink" title="函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"></a>函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用</h3><pre><code>lambda表达式：可作为表达式、函数参数或函数返回值，可让代码更简洁。
 
+函数(函数定义、函数调用)
+    函数定义需注意3点：
+        1. 函数需要几个关键的需要动态变化的数据，这些数据被定义成函数的参数
+        2. 函数需要传几个重要的数据(就是调用该函数的人希望得到的数据)，这些数据被定义成返回值。 
+        3. 函数的内部实现过程。</code></pre><h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><pre><code>def 函数名(形参列表):
+    // 由零条到多条可执行语句组成的代码块
+    [return 返回值]
+        函数名：函数名是合法的标识符，单词的字符全小写，但此语单词用下划线分隔
+        形参列表：定义该函数可接收的参数。形参列表由多个形参名组成，多个用逗号隔开，定义函数指定了形参列表，就必须传入相应的参数值，谁调用函数谁负责为形参赋值。</code></pre><p>函数的调用<br>    调用函数就是执行函数<br>        函数名(形参值)<br>        函数名：是调用的函数的名称，形参值：指当初创建函数传入的各个形参的值。即创建函数有多少个形参，就传入多少个值，顺序必须和创建函数一致。函数名后的小括号不能省略。</p>
+<p>为函数提供说明文档<br>    使用内置的 help()函数查看帮助文档。 很重要<br>        可为函数编写说明文档， 写在函数声明之后、函数体之前。<br>        可通过help()函数查看，也可通过函数的 <strong>doc</strong> 属性访问函数的说明文档<br>            def hi():<br>                ‘’’<br>                    这是说明文档的内容，输出 hi<br>                ‘’’<br>                print(‘hi’)<br>        使用help()函数查看该函数的说明文档<br>            help(hi)</p>
+<h3 id="函数值传递和引用传递-包括形式参数和实际参数的区别"><a href="#函数值传递和引用传递-包括形式参数和实际参数的区别" class="headerlink" title="函数值传递和引用传递(包括形式参数和实际参数的区别)"></a>函数值传递和引用传递(包括形式参数和实际参数的区别)</h3><pre><code>函数参数作用：传递数据给函数，令其对接收的数据做具体的操作处理
+    形式参数(形参) 和 实际参数(实参)的区别：
+        形式参数：在定义函数时，函数名后面括号中的参数就是形式参数
+            def hi(name):
+                print(name)
+        实际参数：在调用函数时，函数名后面括号中的参数成为实际参数，函数的调用者给函数的参数。
+            name = &apos;hale&apos;
+            hi(name)
+函数参数的传递方式分为2种：值传递和引用(地址)传递
+    1. 值传递：参数类型不可变类型(字符串、数字、元组)
+    2. 引用(地址)传递： 实参类型为可变类型(列表、字典)
+    值传递和引用传递的区别：
+        函数参数进行值传递后，如形参的值改变，不影响实参的值。
+        函数参数进行引用传递后，若改变形参的值，实参的值也一同改变
+            def name(name):
+
+            name(&apos;hale&apos;)
+
+            def name(name):
+
+            name = [&apos;adam&apos;]</code></pre><h3 id="函数参数传递机制"><a href="#函数参数传递机制" class="headerlink" title="函数参数传递机制"></a>函数参数传递机制</h3><pre><code>1.值传递：实际是将实际参数值的副本(复制品)传入函数，本身不受影响
+    值传递会在主程序和swap函数分配两块栈区，用于保存局部变量，实际上在swap 函数战区产生了两个变量，并将主程序栈区的两个变量赋值给swap栈区的两个参数：即对swap函数的两个变量进行初始化。系统存在两个变量，只是存在于不同的栈区中。</code></pre><p>函数参数的引用传递<br>    如实际参数的数据类型是可变对象(列表、字典)，函数参数的传递方式将采用引用传递方式。但引用传递方式的底层实现，采用的依然是值传递的方式<br>    程序创建了一个字典对象，定义了一个引用变量，其实就是一个指针 指向字典对象， 此时内存中有两个东西：对象本身和只想该对象的引用变量，<br>    <a href="http://c.biancheng.net/view/2258.html" target="_blank" rel="noopener">具体内容点击</a></p>
+<pre><code>结论：
+    1. 不管类型的参数，对参数直接使用 = 符号复制是没用的，使用 = 符号复制不能改变参数
+    2. 如函数修改数据，则通过把数据包装成列表、字典等可变对象，然后把列表、字典等对象作为参数传入函数，在函数中通过列表、字典的方法，可改变数据。</code></pre><p>python 位置参数<br>    也称 必备参数，指必须按照正确的顺序将实际参数传到函数中，调用函数时传入实际参数的数量和位置必须和定义函数保持一致。<br>    实参和形参数量必须一致<br>        如数量不一致抛出 TypeError异常<br>    实参和形参位置必须一致<br>        若不一致，会出现两中结果：<br>            1. 抛出 TypeError 异常<br>            2. 产生的结果和预期不符</p>
+<p>函数关键字参数用法<br>    指使用形式参数的名字来确定输入的参数值，此方式指定函数参数，不需要位置一致，只需参数名正确即可！<br>        def obj(name,age):</p>
+<pre><code>obj(age,name)</code></pre><h3 id="函数默认参数设置"><a href="#函数默认参数设置" class="headerlink" title="函数默认参数设置"></a>函数默认参数设置</h3><pre><code>在定义函数时，直接给形式参数指定默认值
+    def 函数名(...，形参名 = 默认值)：
+        代码块
+在调用函数时关键字参数必须位于位置参数的后面，在定义函数时指定了默认值的参数(关键字参数)必须在没有默认值的参数之后</code></pre><p>可变参数函数用法<br>    可变参数：不定长参数，传入函数中的实际参数是任意个数。主要形式：<br>        1. 可变参数：形参前添加一个 ‘ * ‘<br>            <em>parameter<br>                parameter 表示形参名，可接收任意多个实际参数，并放到一个元组中<br>            def kebian(name,</em>obj):<br>                for i in obj:<br>                    print(b)<br>            kebian(‘hale’,’judy’,’jally’)<br>            obj 参数可传入多个字符串作为参数值，本质就是一个元组，将参数的多个值集成一个元组<br>            可变的形参可处于形参列表的任意位置<br>        2. 可变参数：形参前添加两个 ‘ * ‘<br>            <strong>parameter<br>                parameter 表示形参名，可接任意多个以关键字参数赋值的实际参数，并放到一个字典中。<br>            def obj(name,age,sex, *height,</strong>weight):<br>                print(name,age,sex)<br>            obj(‘hale’,’jally’,’judy’,100,200,110,220)<br>                前三为普通参数，两个字符串收集成元组，最后两个关键字收集为字典</p>
+<pre><code>逆向参数收集
+    指在程序已有列表、元组、字典等对象，把他们的元素 拆开 后传给函数的参数。需在传入的列表、元组参数前添加一个星号，在字典参数前添加两个星号
+        def obj(name,age):
+        objs = [&apos;hale&apos;,23]
+        obj(objs)
+    可变参数，如程序将一个元组传给参数，使用逆向收集
+        def obj(name,*ages):
+            print(name)
+            print(ages)
+        ages = (12,23,32)
+        obj(&apos;hale&apos;,*ages)</code></pre><p>return 函数返回值<br>    用def 创建函数时，可用return 指定返回的值，该返回值可是任意类型，但return在同意函数值可出现一次，只要执行，就会结束函数。<br>        return [返回值]<br>            指定返回值后，在调用函数时，将该函数赋值给一个变量，用变量保存函数的返回值，也可将函数作为其他函数的实际参数<br>        def name(names):<br>            pass<br>        def age(name(name)):<br>            pass</p>
+<p>函数返回多个值的方法<br>    将多个值包装成列表后返回，也可直接返回多个值，自动将多个返回值封装成元组</p>
+<p>函数递归<br>    在函数体内调用它本身，递归包含了一种隐式的循环。重复执行某段代码，<br>    递归调用，必须在某个时刻函数的返回值是确定的，否则死循环。 递归一定要向已知方向进行<br>        def fn(n):<br>            if n = 10:<br>                return 1<br>            elif n = 20:<br>                return 2<br>            else :<br>                return fn(n+2) - 2*fn(n + 1)</p>
+<h3 id="变量作用域-全局和局部"><a href="#变量作用域-全局和局部" class="headerlink" title="变量作用域(全局和局部)"></a>变量作用域(全局和局部)</h3><pre><code>变量的有效范围：全局和局部
+    局部变量：指在函数内部定义并使用的变量，只在函数内部有效
+        在执行函数时，为该函数分配一块&quot;临时内存空间&quot;，所有局部变量保存在临时变量中，执行完后，释放内存空间，局部变量失效。离开此函数不能再访问，否则抛出NameError
+        def name():
+            i_name = &apos;Hale&apos;
+        name()
+    全局变量：指能作用于函数内部的变量，可在各个函数外部使用，也可在各函数内部使用
+        定义方式：
+            1. 在函数体外的变量，一定为全局变量：
+                i_name = &apos;Hale&apos;
+                def name():
+                    print(i_name)
+            2. 在函数体内定义使用 global 关键字对变量修饰，即为全局变量
+                def name():
+                    global your_name = &apos;Judy&apos;
+获取指定作用域范围中的变量
+    1. globals() : 该函数返回全局范围内所有变量组成的 变量字典
+    2. locals() : 返回当前局部范围内所有变量组成的 变量字典
+    3. vars(object) : 获取在制定对象范围内所有变量组成的 变量字典 如不传入 object 参数， vars 和 locals 作用完全相同
+globals 和 locals 的区别：
+    1. local 获取当前局部范围内所有变量组成的 变量字典， 如全局范围内(在函数外)调用locals 函数，获取全局范围内所有变量组成的 变量字典。 而 globals 无论在哪，获取的都是全局的变量字典
+    2. 一般，locals 和 globals 获取的 变量字典 只被访问，不被修改。实际上都可被修改，修改改变全局变量本身。 locals 获取的局部范围内的 变量字典 不会影响局部变量
+
+全局变量和局部变量的遮蔽现象
+    全局变量所有函数体内被访问，若函数体中定义了与全局变量同名的变量，会发生遮蔽。
+两种方式避免遮蔽：
+    1. 访问被遮蔽的全局变量， globals 函数来实现
+    2. 在函数中声明全局变量， 使用global 语句来声明全局变量</code></pre><p>局部函数及用法(包含 nonlocal 关键字)<br>    在函数体内定义函数，被放在函数体内的函数称为 局部函数<br>        默认情况下，局部函数对外隐藏，在封闭函数内有效，封闭函数返回局部函数，以便在其他作用域中使用局部函数<br>        局部函数内的变量会遮蔽他所在函数内的局部变量<br>        在函数体内声明的变量，赋值语句不是定义新的局部变量，而是访问他所在函数体内的局部变量。<br>        nonlocal 关键字， 可声明访问赋值语句只是访问该函数内的局部变量</p>
+<h3 id="函数高级用法"><a href="#函数高级用法" class="headerlink" title="函数高级用法"></a>函数高级用法</h3><pre><code>函数本身是一个对象，即可用于赋值，也可用作其他函数的参数，还可作为其他函数的返回值
+使用函数变量
+    所有函数都是 function 对象，即可把函数本省赋值给变量，就像把整数、浮点数、列表、元组赋值给变量一样
+使用函数作为函数形参
+    若调用函数能动态传入 某些逻辑代码，就需要在函数中定义函数形参，即可在调用该函数时传入不同的函数作为参数
+使用函数作为返回值
+    使用函数作为其他函数的返回值</code></pre><h3 id="lambda-表达式及用法"><a href="#lambda-表达式及用法" class="headerlink" title="lambda 表达式及用法"></a>lambda 表达式及用法</h3><pre><code>使用 lambda 表达式代替局部函数
+    lambda [parameter_list] : 表达式
+        lambda 几个要点：
+            1. lambda 必须使用lambda 关键字定义
+            2. 在 lambda 关键字后、冒号左边的参数列表，可没有参数，也可有多个，多个用逗号隔开，冒号右边是该lambda表达式的返回值
+            本质：就是匿名的、单行函数体的函数
+                lambda x，y ：x + y 
+                --------------------
+                def add (x , y):
+                    return x + y
+    lambda 两个用途：
+        1. 单行函数： 使用lambda 可省去定义函数的过程，代码更简洁
+        2. 不需要多次复用的代码，lambda表达式使用完后立即释放，提高了性能</code></pre><h2 id="类和对象"><a href="#类和对象" class="headerlink" title="类和对象"></a>类和对象</h2><pre><code>封装、继承、多态</code></pre><h3 id="面向对象：-一切皆对象"><a href="#面向对象：-一切皆对象" class="headerlink" title="面向对象： 一切皆对象"></a>面向对象： 一切皆对象</h3><pre><code>面向对象编程(Object-oriented Programming, OOP)，是一种封装代码的方法
+    代码封装：隐藏实现功能的具体代码，仅留接口
+    分为两部分描述：
+        1. 表面特征： 颜色、外观等
+        2. 行为：爬、运动
+        所有变量都是对象，
+    面向对象相关术语：
+        类： 即模版，可创建出多个具体实例。称为：类的实例化
+        对象： 创造出的实例，称为对象
+        属性： 类中所有变量 称为属性
+        方法： 类中所有函数 称为方法</code></pre><p>定义类<br>    类：仅充当图纸，根据图纸创造对象。 先定义、在创建类的实物对象，通过实例对象实现特定的功能。类名：每个单词首字母大写，单词与单词不能有分隔符<br>    创建类使用 class 关键字<br>        class 类名：<br>            N个类属性<br>            N个类方法</p>
+<pre><code>__init__()类构造方法
+    用于创建对象使用，没创建一个类的实例对象时，会自动调用它。
+        def __init__(self,...):
+            代码块
+        可包含多个参数，但必须包含 self 此参数，必须作为第一个，类的构造方法至少要一个self参数，self 不需要手动传递参数,python自动给 self传值。
+        class Person {
+            &apos;&apos;&apos; commit &apos;&apos;&apos;
+            def __init__(self):
+                print(&apos;构造方法&apos;)
+        }</code></pre><h3 id="类对象的创建和使用"><a href="#类对象的创建和使用" class="headerlink" title="类对象的创建和使用"></a>类对象的创建和使用</h3><pre><code>class 语句只创建类，需手动创建类的对象，创建类对象的过程称为类的实例化
+    类名(参数)
+    class Person {
+        def __init__(self,name,age):
+            self.name = name
+            self.age = age
+    }
+    p = Person(&apos;Hale&apos;,23)
+
+类对象的使用
+    作用：
+        1. 操作对象的实例变量，即访问、修改实例对象的值，以及给对象添加、删除实例变量
+        2. 调用对象的方法。
+    类对象访问变量或方法
+        使用已创建好的对象访问类中的实例变量
+            对象名.变量名
+        使用类对象调用类中方法
+            对象名.方法名(参数)
+            对象与变量名及方法名 用 &apos; . &apos; 连接
+    给类对象动态添加变量
+        为已创建好的对象动态增加实例变量，只要为它的新变量赋值
+            xxx.yyy = [&apos;xxxx&apos;,&apos;xxxx&apos;]
+        删除变量：
+            del xxx.yyy
+    给类对象动态添加方法
+        如果希望动态增加的方法能自动绑定到第一个参数，可借助于types模块下的MethodType 进行包装
+
+self 用法
+    python 类方法中的self 参数相当于 C++中的 this 指针
+    同一个类可产生多个对象，当某个对象调用类方法时，该对象会把自身的引用作为第一个参数自动传给该方法，python自动绑定类方法的第一个参数指向调用该方法的对象，即解释器知道操作哪个对象的方法
+    对构造方法，self 参数 代表 该 构造方法 正在初始化的对象
+    class Obj {
+        def __ini__(self):
+            pass
+        def __name(self):
+            pass
+        def __jump(self):
+            self.name()
+    }
+        当self参数作为对象的默认引用时，可访问self参数，也可当成实例方法的返回值
+        class ReturnSelf {
+            def obj(self):
+                if hasattr(self,&apos;age&apos;):
+                    self.age += 1
+                else: 
+                    self.age = 1
+                return self
+        }
+        rs = ReturnSelf()        // 实例化</code></pre><p>类变量和实例变量(类属性和实例属性)<br>    类中定义的属性和方法，在外部，无法调用。 可把类看做独立的作用域，称为 类命名空间，类属性定义在类命令空间内的变量<br>        类属性 可分为： 类属性也称类变量，和 实例属性也称实例变量<br>        类变量： 指定义在类中，但在各个类方法外的变量，类变量的特点是：所有类的实例化和对象都可共享类变量的值，即类变量可在所有实例化对象中作为公用资源<br>            类变量推荐直接用类名访问，也可用对象名访问<br>                改变类变量的值会作用于该类所有的实例化对象</p>
+<p>实例变量(实例属性)<br>    指：定义在类的方法中的属性，特点：只作用于调用方法的对象<br>        实例变量只能通过对象名访问，无法通过类名直接访问<br>            class Obj {<br>                name = ‘hale’<br>                age = 23<br>                def change(self,name,age):<br>                    self.name = name<br>                    self.age = age<br>            }<br>            one = Obj()<br>            one.change(‘judy’,24)<br>            print(one.name,one.age)            //    Judy 24<br>            print(Obj.name,Obj.age)            //    Hale 23</p>
+<p>实例方法、静态方法和类方法详解<br>    分为： 类方法、实例方法、静态方法</p>
+<pre><code>类实例方法
+    实例方法： 至少需要包含一个self参数，用于绑定调用此方法的实例对象，可用类对象、也可用类名调用
+        p = Person{}
+        p.say(&apos;xxx&apos;)
+        Person.say(person,&apos;xxx&apos;)
+
+类方法
+    类方法： 至少包含一个参数，名为： cls， 自动将类本身绑定给 cls 参数， cls命名不规定，可随意命名
+    类方法需要使用 @classmethod 修饰
+        class Obj:
+            # @classmethod 修饰的方法是类方法
+            @classmethod 
+            def name(cls):
+                print(&apos;Class Method:&apos;,cls)
+        如没有 @classmethod ，会将 name方法认定为 实例方法，而不是类方法
+
+类静态方法
+    静态方法和函数唯一区别： 静态方法定义在类空间，而函数定义在程序所在的空间中
+    静态方法没有类似 self cls 特殊的参数，因此不会对包含的参数做任何类或对象的绑定。此方法中无法调用任何类和对象的属性和方法，其和类关系不大
+    静态方法使用 @staticmethod 修饰
+        class Obj:
+            @staticmethod
+            def name(p):
+                print(&apos;static Method&apos;, p)
+    静态方法的调用：可用类名，也可用类对象
+        Obj.name(&apos;Class Name&apos;)
+        o = Obj()
+        b.name(&apos;Class Object&apos;)</code></pre><p>类调用实例方法<br>    # 定义全局空间的foo函数<br>    def foo():<br>        pass<br>    # 全局空间的bar变量<br>    bar = 20<br>    class Obj:<br>        # 定义Obj空间的bar变量<br>        def foo():<br>            pass<br>        bar = 200<br>    # 调用Obj空间的函数和变量<br>    foo()<br>    Obj.foo()</p>
+<p>总结： python类可调用实例方法，使用类调用实例方法，不会自动为方法的第一个参数self绑定参数值，程序必须显式为参数self传参，称为：未绑定方法</p>
+<p>property 函数：定义属性<br>    属性名 = property(fget=NOne, fset=None, fdel=None, doc=None)<br>        fget：制定获取该属性值的类方法， fset：指定设置该属性值的方法， fdel：指定删除该属性值的方法，doc： 提供说明此函数的作用<br>        类似property 函数合成的属性被称为计算属性，并不存储任何状态，值通过某种算法得到，当程序对该值赋值时，被赋的值也会被存储到其他实例变量中</p>
+<p>@parperty 装饰器<br>    既保护类的封装特性，又可以用 对象.属性 操作类属性，除了 property 函数，还提供 @property 装饰器，可直接通过方法名来访问方法，<br>    @preperty<br>    def 方法名(self)<br>        代码块<br>    要想实现修改 xx 属性的值，还为xx属性添加 setter方法，可用 setter装饰器<br>        @方法名.setter<br>        def 方法名(self,value):<br>            代码块<br>    可用 deleter 装饰器 删除指定属性<br>        @方法名.deleter<br>        def 方法名(self):<br>            代码块</p>
+<p>@函数装饰器及用法<br>    内置的函数装饰器：    @staticmethod    @classmethod    @property<br>    自定义函数装饰器：<br>        1. 将被修饰的函数(函数B) 作为参数传给 @ 符号引用的函数(函数A)<br>        2. 将函数B替换(装饰) 成第一步的返回值</p>
+<h3 id="封装机制及实现方法"><a href="#封装机制及实现方法" class="headerlink" title="封装机制及实现方法"></a>封装机制及实现方法</h3><pre><code>目的：
+    隐藏类的实现细节
+    使用预定义方法访问，可加入控制逻辑，限制对属性的不合理访问
+    进行数据检查，保证完整性
+    便于修改，提高可维护性
+实现封装的两方面：
+    1. 将对象的属性和实现细节隐藏起来，不可直接访问
+    2. 暴露方法，对属性安全访问和操作
+定义：
+    类的成员命名以双下划线开头，就能隐藏
+    class User:
+        def __hide(self):
+            pass
+        def getname(self):
+            return self.__name</code></pre><h3 id="继承机制及作用"><a href="#继承机制及作用" class="headerlink" title="继承机制及作用"></a>继承机制及作用</h3><pre><code>实现继承的类称为 子类， 被继承的类称为 父类，也叫 基类、超类
+子类继承父来的语法：在定义类时，将多个父类放在子类后的圆括号内
+    class 类名(父类1，父类2,...):
+        类定义部分
+Python是多继承机制，一个类可继承多个父类
+    object 类是所有类的父类，直接父类、间接父类
+    子类是对父类的扩展，子类是一种特殊的父类
+    从子类的角度看，子类扩展(extend)类父类，从父类的角度看，父类派生出(derive)出子类，
+    class Fruit:
+        def name(self):
+            pass
+    class Animal:
+        def name(self):
+    class Obj(Fruit,Animal):
+        pass</code></pre><p>父类方法重写<br>    子类与父类同名的方法为方法重写(Override)，也叫方法覆盖<br>    使用未绑定方法调用被重写的方法</p>
+<p>super()函数：调用父类的构造方法<br>    子类继承父类的构造方法，如子类有多个直接父类，优先选择最前面父类的构造方法<br>    如果子类重写了父类的构造方法，子类的构造方法必须调用父类的构造方法<br>        子类调用父类构造方法的2种方式：<br>            1. 使用未绑定，构造方法是实例方法，可通过此方式来调用<br>            2. 使用super()函数调用父类的构造方法<br>                当子类继承多个父类时，super()只调用第一个父类的构造方法，其他父类构造方法只能使用 未绑定 的方式调用</p>
+<p><strong>slots(两侧得都有两下划线)</strong>: 限制类实例动态添加属性和方法<br>    <strong>slots</strong> 属性的值是一个元组，该元组的所有元素列出了该类的实例允许动态添加的所有属性名和方法名</p>
+<p>type(): 动态创建类<br>    type 可指定三个参数：<br>        1. 参数一： 创建的类名<br>        2. 参数二： 该类继承的父类集合，使用元组指定多个父类<br>        3. 参数三： 该字典对象为该类绑定的类变量和方法</p>
+<p>MetaClass 元类<br>    创建类的来，即创建类后，再由类来创建实例进行应用，使用元类可在创建类时动态修改类定义<br>    定义元类： 类名以MetaClass 结尾，元类需要定义并实现 <em>new</em>()方法，一定要有返回值<br>        <strong>new</strong>()方法作用： 使用class定义新类时，如指定了元类，<strong>new</strong>方法会被自动执行</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><pre><code>同一变量完全可在不同的时间应用不同的对象，当同一变量在调用同一方法，可呈现多种行为
+    class Bird:
+        def move(self,filed):
+            print(&apos;bird %s&apos; % filed)
+    class Dog:
+        def move(self,filed):
+            print(&apos;dog %s&apos; % field)
+    b = Bird()
+    b.move(&apos;sky&apos;)
+    d = Dog()
+    d.move(&apos;road&apos;)</code></pre><p>枚举类定义和使用<br>    定义方式：<br>        1. 使用Enum 列出多个枚举值来创建枚举类<br>        2. 通过继承Enum 基类来派生枚举类<br>        import enum<br>        s = enum.Enum(‘name’,(‘hale’,’judy’,’jally’))<br>    可通过枚举类变量名或枚举值来访问指定枚举对象<br>    <strong>members</strong> 属性，返回一个dict字典，包含了该枚举的所有实例，遍历 <strong>members</strong>属性访问枚举的所有实例</p>
+<pre><code>枚举构造器
+    可定义构造器，为枚举定义构造器后，在定义枚举实例时，必须为构造器参数设置值</code></pre>
       
     </div>
     
@@ -780,7 +1043,7 @@ for 循环遍历字典
   <p><span>本文标题:</span><a href="/2019/08/09/Python-Note/">Python</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 <center> Hale Lv </center> 的个人博客"><center> Hale Lv </center></a></p>
   <p><span>发布时间:</span>2019年08月09日 - 18:08</p>
-  <p><span>最后更新:</span>2019年08月19日 - 21:08</p>
+  <p><span>最后更新:</span>2019年08月20日 - 20:08</p>
   <p><span>原始链接:</span><a href="/2019/08/09/Python-Note/" title="Python">http://yoursite.com/2019/08/09/Python-Note/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/09/Python-Note/" aria-label="复制成功！"></i></span>
   </p>
@@ -1083,7 +1346,7 @@ for 循环遍历字典
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编程基础"><span class="nav-number">1.</span> <span class="nav-text">Python 编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个python"><span class="nav-number">1.1.</span> <span class="nav-text">第一个python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型和运算符"><span class="nav-number">2.</span> <span class="nav-text">变量类型和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、元组、字典、集合"><span class="nav-number">3.</span> <span class="nav-text">列表、元组、字典、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list列表"><span class="nav-number">3.1.</span> <span class="nav-text">list列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple元组"><span class="nav-number">3.2.</span> <span class="nav-text">tuple元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串常用方法详解"><span class="nav-number">3.4.</span> <span class="nav-text">字符串常用方法详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流程控制"><span class="nav-number">3.5.</span> <span class="nav-text">流程控制</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编程基础"><span class="nav-number">1.</span> <span class="nav-text">Python 编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个python"><span class="nav-number">1.1.</span> <span class="nav-text">第一个python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型和运算符"><span class="nav-number">2.</span> <span class="nav-text">变量类型和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、元组、字典、集合"><span class="nav-number">3.</span> <span class="nav-text">列表、元组、字典、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list列表"><span class="nav-number">3.1.</span> <span class="nav-text">list列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple元组"><span class="nav-number">3.2.</span> <span class="nav-text">tuple元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用方法详解"><span class="nav-number">4.</span> <span class="nav-text">字符串常用方法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接-拼接数字"><span class="nav-number">4.1.</span> <span class="nav-text">字符串拼接(+拼接数字)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串大小写转换的三种函数"><span class="nav-number">4.2.</span> <span class="nav-text">字符串大小写转换的三种函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">5.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件语句可分3中形式："><span class="nav-number">5.1.</span> <span class="nav-text">if条件语句可分3中形式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-循环语句"><span class="nav-number">5.2.</span> <span class="nav-text">while 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环用法"><span class="nav-number">5.3.</span> <span class="nav-text">for循环用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和lambda表达式"><span class="nav-number">6.</span> <span class="nav-text">函数和lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"><span class="nav-number">6.1.</span> <span class="nav-text">函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的定义"><span class="nav-number">6.2.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数值传递和引用传递-包括形式参数和实际参数的区别"><span class="nav-number">6.3.</span> <span class="nav-text">函数值传递和引用传递(包括形式参数和实际参数的区别)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数传递机制"><span class="nav-number">6.4.</span> <span class="nav-text">函数参数传递机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数默认参数设置"><span class="nav-number">6.5.</span> <span class="nav-text">函数默认参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域-全局和局部"><span class="nav-number">6.6.</span> <span class="nav-text">变量作用域(全局和局部)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数高级用法"><span class="nav-number">6.7.</span> <span class="nav-text">函数高级用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda-表达式及用法"><span class="nav-number">6.8.</span> <span class="nav-text">lambda 表达式及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">7.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象：-一切皆对象"><span class="nav-number">7.1.</span> <span class="nav-text">面向对象： 一切皆对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类对象的创建和使用"><span class="nav-number">7.2.</span> <span class="nav-text">类对象的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装机制及实现方法"><span class="nav-number">7.3.</span> <span class="nav-text">封装机制及实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承机制及作用"><span class="nav-number">7.4.</span> <span class="nav-text">继承机制及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">7.5.</span> <span class="nav-text">多态</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1144,7 +1407,7 @@ for 循环遍历字典
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共38.5k字</span>
+  <span class="post-count">博客全站共44.5k字</span>
 </div>
 
 
