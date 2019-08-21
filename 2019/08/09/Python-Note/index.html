@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="iFaithFreedom">
 <meta property="og:description" content="Python">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-20T12:02:01.099Z">
+<meta property="og:updated_time" content="2019-08-21T12:15:13.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python">
 <meta name="twitter:description" content="Python">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  14.3k
+                  21k
                 </span>
               
 
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  54
+                  80
                 </span>
               
             </div>
@@ -1024,7 +1024,476 @@ Python是多继承机制，一个类可继承多个父类
     d = Dog()
     d.move(&apos;road&apos;)</code></pre><p>枚举类定义和使用<br>    定义方式：<br>        1. 使用Enum 列出多个枚举值来创建枚举类<br>        2. 通过继承Enum 基类来派生枚举类<br>        import enum<br>        s = enum.Enum(‘name’,(‘hale’,’judy’,’jally’))<br>    可通过枚举类变量名或枚举值来访问指定枚举对象<br>    <strong>members</strong> 属性，返回一个dict字典，包含了该枚举的所有实例，遍历 <strong>members</strong>属性访问枚举的所有实例</p>
 <pre><code>枚举构造器
-    可定义构造器，为枚举定义构造器后，在定义枚举实例时，必须为构造器参数设置值</code></pre>
+    可定义构造器，为枚举定义构造器后，在定义枚举实例时，必须为构造器参数设置值</code></pre><h2 id="异常处理机制"><a href="#异常处理机制" class="headerlink" title="异常处理机制"></a>异常处理机制</h2><h3 id="异常机制主要依赖try、except、else、finally、raise-五个关键字"><a href="#异常机制主要依赖try、except、else、finally、raise-五个关键字" class="headerlink" title="异常机制主要依赖try、except、else、finally、raise 五个关键字"></a>异常机制主要依赖try、except、else、finally、raise 五个关键字</h3><pre><code>    1. try 关键字后的代码块简称 try块，放置 引发异常的代码
+    2. 在except 后对应的是异常类型和一个代码块，表明该 except 块处理这种类型的daimakaui    
+    3. 多个except 后放一个 else 块，程序不出现异常还是执行 else 块
+    4. finally 块用于回收在 try 打开的无力资源，异常机制保证 finally 块总被执行
+    5. raise 用于引发实际的异常，可单独作为语句使用，引发具体异常对象
+
+常见异常类型
+    语法错误 和 运行时错误
+        语法错误：
+            解析代码是出现的错误，报出 SyntaxError 语法错误
+        运行时错误：
+            逻辑错误
+    常见异常类型
+        AssertionError ： 当assert 关键字后的条件为假时，程序停止并抛出此异常
+        AttributeError ： 试图访问的对象属性不存在时，抛出
+        IndexError       ： 索引超出序列范围
+        KeyError       ： 字典中查找一个不存在的关键字时
+        NameError       ： 尝试访问一个未声明的变量时
+        TypeError       ： 不同类型数据之间的无效操作
+        ZeroDivisionError ： 除法运算中除数为 0 引发此异常</code></pre><h3 id="异常处理机制-1"><a href="#异常处理机制-1" class="headerlink" title="异常处理机制"></a>异常处理机制</h3><p>try except 异常处理<br>    try:<br>        可能产生异常的代码块<br>    except ([Error1,Error2,…]) [as e]:        // ErrorN 表明处理异常的具体类型<br>        处理异常的代码块1<br>    except ([Error3,Error4,…]) [as e]:        // as e 表示将异常类型赋值给变量 e<br>        处理异常的代码块2<br>    执行流程：<br>        1. 先执行 try 中的代码块，如出现异常，自动生成异常对象，提交给Python解释器，称为引发异常<br>        2. 解释器收到异常，寻找处理该异常对象的except块，如找到合适的except块，则把异常对象交给except块，如找不到，则终止。<br>            try:<br>                name = input(‘Enter name’)<br>            except (ValueError, ArithmeticError):<br>                print(‘error’)<br>            except :<br>                print(‘no error’)<br>    访问异常信息<br>        通过except块添加 as e 来访问异常对象的相关信息，当解释器决定调用某个except块来处理该异常对象时，会将异常对象赋值给except 块后的异常变量<br>        异常对象包含的属性和方法：<br>            args ： 返回异常的错误编号和描述字符串<br>            errno ： 返回异常的错误编号<br>            strerror ： 返回异常的描述字符串<br>            with_traceback() ： 处理异常的传播轨迹信息</p>
+<pre><code>异常类的继承体系
+    异常类派生于 BaseException，
+    [继承关系](http://c.biancheng.net/uploads/allimg/190215/2-1Z2151H054Q0.gif)
+    BaseException 主要子类是 Exception，不管是系统的异常类，还是用户自定义的异常类，都应该从Exception派生
+        1. 如发生数值类型错误，则调用ValueError 对应的except块处理该异常
+        2. 如发生逻辑错误： 2/0，则调用ArthmeticError 对应的except块处理该异常
+        3. 如运行时发生其他异常，异常对象是Exception类或其他子类的实例，则调用Exception对应的except块处理该异常
+        注： 先捕获小异常，再捕获大异常。</code></pre><p>try except else 异常处理结构<br>    作用：指定当try块中没有发现异常时要执行的代码，若try中发现异常，则else块中的语句不会执行<br>        try:<br>            r = 20 / int(input(‘enter num’))<br>        except ValueError:<br>            pass<br>        except ArithmeticError:<br>            pass<br>        else:<br>            print(‘no error’)</p>
+<p>try except finally : 资源回收<br>    完整异常处理语法结构：<br>        try:<br>            xxx<br>        except SubException as e:<br>            xxx<br>        except SubException as e:<br>            xxx<br>        else:<br>            xxx<br>        finally:<br>            xxx<br>        在异常处理语法结构中，只有try块是必须的<br>            1. 如没有try块，就没有except 和 finally 块<br>            2. except 和 finally 块可选，可同时出现，也可出现其一<br>            3. 可有多个except块，但捕获父类异常的except块位于捕获子类异常的后面<br>            4. 不能只有try块，没有except  finally块<br>            5. 多个except 位于try块后，finally块位于所有except块之后<br>        不要在finally块中使用如return 或 raise 等导致方法终止的语句，若在finally中使用return 或 raise 语句，会导致 try 块、except、中的return、raise语句失效</p>
+<h3 id="raise-用法"><a href="#raise-用法" class="headerlink" title="raise 用法"></a>raise 用法</h3><pre><code>    如需自行引发异常，则使用raise语句
+        raise [exceptionName [(reason)]]
+    raise 语句三种用法
+        1. raise： 单独一个raise。 引发当前上下文中捕获的异常，如在except中，引发 RuntimeError异常
+        2. raise异常类名称： 指定异常类的默认实例
+        3. raise异常类名称： 引发指定异常的同时，附带异常的描述信息
+raise 不需要参数
+    class Demo:
+        def __init__(self,init_price):
+            self.init_price = init_price
+        def bid(self,bid_price):
+            try:
+                xxx
+            except Exception as e:
+                xxx
+                raise 
+
+except 和 raise 同时使用
+    实现通过多个方法协作处理同一个异常，可在except中结合raise语句来完成
+        try:
+            xx
+        except Exception as e:
+            raise AuctionException(&apos;error message by self&apos;)
+            raise AuctionException(e)
+        对异常的处理分为两个部分：
+            1. 应用后台需要通过日志来记录异常发生的详细情况
+            2. 根据异常向应用使用者传达某种提示
+    用户自定义异常对原始异常进行包装
+        raise AuctionException(e)
+        被称为： 异常包装或异常转译
+自定义异常类
+    自定义异常需继承Exception 基类 或Exception的子类，
+    class AuctionException(Exception):
+        pass</code></pre><h3 id="sys-exc-info-获取异常信息"><a href="#sys-exc-info-获取异常信息" class="headerlink" title="sys.exc_info(): 获取异常信息"></a>sys.exc_info(): 获取异常信息</h3><pre><code>捕获异常的2种方式获得更多的异常信息：
+    1. 使用 sys 模块中的 exc_info 方法
+    2. 使用 traceback 模块中的相关函数
+两个方法返回异常全部信息：exc_info 和 last_traceback 
+        exc_info ： 将当前的异常信息以元组的形式返回，该元组包含三个元素， type、value、traceback
+                type： 异常类型的名称
+                value： 捕获到的异常实例
+                traceback： 是一个traceback 对象
+                    try:
+                        pass
+                    except:
+                        print(sys.exc_info())</code></pre><h3 id="traceback模块：-获取异常信息"><a href="#traceback模块：-获取异常信息" class="headerlink" title="traceback模块： 获取异常信息"></a>traceback模块： 获取异常信息</h3><pre><code>使用traceback 模块查看异常传播轨迹，现将traceback模块引入，提供两个方法：
+    1. traceback.print_exec() ： 将异常传播轨迹信息输出到控制台或指定文件中
+    2. format_exc()    ： 将异常传播轨迹信息转换为 字符串
+print_exception(etype,value,tb[,limit[,file]])
+    三个参数用于分别指定异常的信息：
+        etype ： 指定异常类型
+        value ： 指定异常值
+        tb ： 指定异常的traceback 信息
+print_exc([limit[,file]])
+    print_exc 自动处理except块所捕获的异常，涉及两个参数
+        1. limit ： 限制显式异常传播的层数
+        2. file  ： 指定将异常传播轨迹信息输出到指定文件中，如不指定该参数，默认输出到控制台
+        import traceback
+        def xxx():
+            raise SelfException(&apos;by self&apos;)
+        try:
+            xxx()
+        except:
+                traceback.print_exec(file=open(&apos;log.txt&apos;,&apos;a&apos;))</code></pre><h3 id="自定义异常类及用法"><a href="#自定义异常类及用法" class="headerlink" title="自定义异常类及用法"></a>自定义异常类及用法</h3><pre><code>自定义一个异常类，通常应继承自 Exception类，直接继承Exception。也可继承自从Exception 继承而来的类，间接继承Exception
+[异常继承图](http://c.biancheng.net/uploads/allimg/190819/2-1ZQ9154321244.gif)</code></pre><p>异常机制使用细节<br>    成功的异常处理4个小目标<br>        1. 使程序代码混乱最小化<br>        2. 捕获并保留诊断信息<br>        3. 通知合适的人员<br>        4. 采用合适的方式结束异常活动<br>    不要过度使用异常<br>        1. 把异常和普通错误混淆<br>        2. 使用异常处理代替流程控制<br>        3. 不要使用过于庞大的try块<br>        4. 不要忽略捕获到的异常</p>
+<p>assert 调试程序<br>    assert 条件表达式 [,描述信息]<br>        assert 语句作用： 当条件表示式为真时，什么也不做，如果为假，则assert抛出 AssertionError异常<br>            age = input(‘enter age’)<br>            name = input(‘enter name’)<br>            assert 20 &lt; age &lt; 100 , ‘age at 20 ~ 100’<br>    assert 可与  try except 异常处理语句配合使用<br>        try:<br>            age = input(‘enter age’)<br>            assert 20 &lt; age &lt; 100 , ‘age at 20 ~ 100’<br>        except AssertionError as e:<br>            print(‘age is error’)</p>
+<h2 id="类特殊成员-属性和方法"><a href="#类特殊成员-属性和方法" class="headerlink" title="类特殊成员(属性和方法"></a>类特殊成员(属性和方法</h2><h3 id="特殊：-方法名、属性名前后添加双下划线。-可重写或调用方法来实现特殊的功能"><a href="#特殊：-方法名、属性名前后添加双下划线。-可重写或调用方法来实现特殊的功能" class="headerlink" title="特殊： 方法名、属性名前后添加双下划线。 可重写或调用方法来实现特殊的功能"></a>特殊： 方法名、属性名前后添加双下划线。 可重写或调用方法来实现特殊的功能</h3><pre><code>如： 构造方法： __init__ ，通过重写类中的此方法实现自己的初始化逻辑
+__repr__()方法 ： 显式属性
+__del__方法：    销毁对象
+__dir__用法 ： 列出对象的所有属性(方法)名
+__dict__属性： 查看对象内部所有属性名和属性值组成的字典
+setattr() , getattr() , hasattr()
+issubclass , isinstance ： 检查类型
+__call__
+__getitem__ , __setitem__ , __delitem__ , __len__, __contains__
+__iter__ , __reversed__ ：实现迭代器
+生成器详解
+
+__repr__()方法： 显式属性
+    class xxx:
+        def __init__(self,xx,xxx):
+            self.xx = xx
+            self.xxx = xxx
+    x = xxx(&apos;xx&apos;,&apos;xxx&apos;)
+__repr__(): 所有的类都是object类的子类，所以所有的对象都具有 __repr__()方法
+    此方法：用于实现： 当程序直接打印该对象时，系统输出该对象的 自我描述 信息，用来告诉外界该对象具有的状态信息
+    此方法返回该对象实现类的 &quot;类名+object at + 内存地址&quot;，如
+    class obj:
+            def __init__(self,xx,xxx):
+                self.xx = xxx
+                self.xxx = xxx
+            def __repr__(self):
+                return &quot;self.xx&quot; + self.xx + \
+                    ,&quot;self.xxx&quot; + self.xxx 
+    x = obj(&apos;xx&apos;,&apos;xxx&apos;)
+重写__repr__() 总是返回该对象的所有令人感兴趣的信息所组成的字符串，如下格式的字符串
+    类名 [field1 = 值1， filed1 = 值2 ,...]
+
+__del__方法： 销毁对象
+    与 __init__() 方法对象， __init__() 方法用于初始化对象，  __del__() 方法用于销毁python对象，在任何对象被系统收回之时，会自动调用该对象的 __del__() 方法
+如不需要一个对象时，必须把对象占用的内存空间释放，称为垃圾回收(GC, Garbage Collector)
+    Python 采用自动引用计数(ARC) 方式来回收对象所占用的空间
+    当对象被垃圾回收时，自动调用该对象的 __del__方法，当对象的引用计数变为0时，对象才会被回收
+    class Obj:
+        del __init__(self,xx):
+            self.xx = xx
+        def __del__(self):
+            pass
+    o = Obj(&apos;xx&apos;)
+    x = o
+    del x
+若父类提供 __del__()方法，则系统重写 __del__() 方法时必须显式调用父类的 __del__()方法，保证合理回收父类实例的部分属性
+
+__dir__用法：列出对象的所有属性(方法)名
+    用于列出该对象内部的所有属性包活方法名，该方法将会返回包含所有属性方法名的序列
+    当程序对某个对象执行 dir 函数时，将该对象的__dir__() 方法返回值进行排序，然后包装成 列表
+    class obj:
+        def __init__(self,xxx):
+            self.xxx = xxx
+        def info():
+            pass 
+    x = obj
+    print(x.__dir__())
+        不仅输出对对象定义的xxx 、info属性和方法，还有系统内置的属性和方法，如 __repr__, __del__方法
+
+__dict__属性： 查看对象内部所有属性名和属性值组成的字典
+    即可看对象的所有内部状态，也可通过字典语法来访问或修改指定属性的值
+        class obj:
+            def __init__(self,xxx):
+                self.xxx = xxx
+        x = obj
+        print(x.__dict__)
+        print(x.__dict__(xxx))</code></pre><h3 id="setattr-getattr-hasattr-函数用法"><a href="#setattr-getattr-hasattr-函数用法" class="headerlink" title="setattr(), getattr(), hasattr() 函数用法"></a>setattr(), getattr(), hasattr() 函数用法</h3><pre><code>动态检测对象是否包含某些属性或方法相关的函数：
+    1. hasattr(obj,name) : 检查obj对象是否包含名为 name 的属性或方法
+    2. getattr(object,name[,default]) : 获取object对象中名为 name 的属性的属性值
+    3. setattr(obj,name,value,/) : 将obj对象的 name 属性设为 value
+        class obj:
+            def __init__(self,xx,xxx):
+                self.xx = xx
+                self.xxx = xxx
+            def info():
+                pass
+        x = obj
+        print(hasattr(x,&apos;xxx&apos;))        // True
+        print(getattr(x,&apos;xxx&apos;))        // True
+        setattr(x,&apos;xx&apos;,&apos;yy&apos;)
+        print(x.xx)
+setattr() 可改变 对象的属性值，若对象设置的属性不存在，可添加属性</code></pre><h3 id="issubclass-和-isinstance-函数-：-检查类型"><a href="#issubclass-和-isinstance-函数-：-检查类型" class="headerlink" title="issubclass 和 isinstance 函数 ： 检查类型"></a>issubclass 和 isinstance 函数 ： 检查类型</h3><pre><code>issubclass(cls, clsss_or_tuple) : 检查cls是否为后一个类或元组包含的多个类中任意类的子类
+isinstance(obj, class_or_tuple) : 检查obj是否为后一个类或元组包含的多个类中任意类的对象
+区别：
+    issubclass 第一个参数是类名，判断是否为子类
+    isinstance 第一个是变量，判断是否为该类或子类的实例                         
+    第二参数都可使用 元组
+__base__属性 ： 通过该属性可查看该类的所有直接父类，该属性返回所有直接父类组成的元组
+    class x:
+        pass
+    class xx:
+        pass
+    class xxx(x,xx):
+        pass
+    print(x.__base__)
+    print(xx.__base__)
+
+__subclasses__()方法 ： 查看该类的所有直接子类，返回该类的所有组成的列表
+    print(x.__subclasses__()
+
+__call__方法
+    hasattr 函数判断指定属性或方法是否存在，  __call__属性： 进一步判断该属性或方法是否可调用
+    class x:
+        def __init__(self,xx,xxx):
+            self.xx = xx
+            self.xxx = xxx
+        def ValidLogin(self):
+            pass
+    x = x(&apos;xx&apos;,&apos;xxx&apos;)
+    print(x.xx,&apos;__call__&apos;)
+    print(x.xxx,&apos;__call__&apos;)
+
+__getitem__ , __setitem__ , __delitem__ , __len__ , __contains__ 
+    序列的特征 可包含多个元素，相关的特殊方法：
+        __len__(self)    ： 返回值决定序列中元素的个数
+        __getitem__(self,key) ： 获取指定索引对应的元素，key是整数值或slice对象，会引发 KeyError异常
+        __contains__(self,item) ： 判断序列是否包含指定元素
+        __setitem__(self,key,value) ： 指定设置索引对应的元素，key 是整数值或slice对象，否则引发 KeyError异常
+        __delitem__(self,key) ： 删除指定索引对应的元素
+    def xx(key):
+        if not isinstace(key,int) : raise TypeError(&apos;must int&apos;)
+        if key &lt; 0 : raise IndexError(&apos;is ini&apos;)
+    class xxx:
+        def __init__(self):
+            self.__changed = {}
+            self.deleted = []
+        def __len__(self):
+            pass
+        def __getitem__(self,key):
+            pass
+        def __setitem__(self,key,value):
+            pass
+        def __delitem(self,key):
+            pass</code></pre><h3 id="iter-和-reversed-：实现迭代器"><a href="#iter-和-reversed-：实现迭代器" class="headerlink" title="iter 和 reversed ：实现迭代器"></a><strong>iter</strong> 和 <strong>reversed</strong> ：实现迭代器</h3><pre><code>for循环遍历列表、元组和字典等对象都是可迭代的，都属于迭代器
+实现迭代器，需实现两个方法：
+    1. __iter__(self) : 该方法返回一个迭代器，必须包含一个 __next__() 方法，返回迭代器的下一个元素
+    2. __reversed__(self) : 为内奸的reversed 反转函数提供支持，对指定迭代器执行反转时
+class  x:
+    def __init__(self,len):
+        self.first = 0
+        self.sec = 1
+        self.__len = len
+    def __next__(self):
+        if self.__len == 0:
+            raise StopIteration
+            self.first, self.sec = self.sec, self.first + self.sec
+            self.__len -= 1
+            return self.first
+    def __iter__(self):
+        return self</code></pre><h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><pre><code>生成器与迭代器的区别在于： 迭代器通常是先定义一个迭代器类，通过创建实例来创建迭代器。 生成器：先定义一个包含 yield 语句的函数，然后通过调用该函数来创建生成器
+创建生成器
+    创建生成器的步骤：
+        1. 定义一个包含 yield 语句的函数
+        2. 调用第一步创建的函数得到生成器
+            def xxx(val,step):
+                xx = 0 
+                for i in range(val):
+                    xx += i * step
+                    yield xx
+        yield xx 语句的作用：
+            1. 每次返回一个值，类return 语句
+            2. 冻结执行，每次执行到yield 语句时会被暂停</code></pre><h3 id="两种方式创建生成器："><a href="#两种方式创建生成器：" class="headerlink" title="两种方式创建生成器："></a>两种方式创建生成器：</h3><pre><code>    1. 使用 for 循环的生成器推导式
+    2. 调用带 yield 语句的生成器函数
+生成器的方法：
+    1. 外部程序通过 send 方法发送数据
+    2. 生成器函数使用 yield 语句接收收据
+生成器两个常用方法：
+    1. close ：用于停止生成器
+    2. throw ：用于在生成器内部(yield语句内) 引发一个异常</code></pre><h2 id="模块和包"><a href="#模块和包" class="headerlink" title="模块和包"></a>模块和包</h2><h3 id="常用-sys、OS-、-traceback-三个模块"><a href="#常用-sys、OS-、-traceback-三个模块" class="headerlink" title="常用 sys、OS 、 traceback 三个模块"></a>常用 sys、OS 、 traceback 三个模块</h3><pre><code>模块化编程
+    模块： Modules， 模块就是Python程序，
+        代码的可重复性体现在，编写好模块后，需用到该模块中的某个功能(由变量、函数、类实现)，无需重复性工作，直接导入该模块即可使用该功能
+    封装特性的结构：
+        1. 容器： 例 列表、元组、字符串、字典等，都是对数据的封装
+        2. 函数： 对Python代码的封装
+        3. 类： 对方法和属性的封装，对函数和数据的封装
+    语法格式：
+        模块名.函数</code></pre><h3 id="导入模块：-import"><a href="#导入模块：-import" class="headerlink" title="导入模块： import"></a>导入模块： import</h3><pre><code>    1. import 模块名1 [as 别名] , 模块名2 [as 别名2],... : 
+        导入指定模块中的所有成员(变量、函数、类等)。 当使用模块中的成员时，需要该模块名(或别名)作为前缀
+    2. from 模块名 import 成员名1 [as 别名1], 成员名2 [as 别名2] ,... :
+        只会导入模块中指定的成员，非全部成员，使用该成员时，无需任何前缀，直接使用成员名或别名
+        第二种from 模块名 import * ： 可导入指定模块中的所有成员
+
+import 模块名 as 别名
+    1. 导入整个模块： import sys
+    2. 导入整个模块，指定别名： import sys as s
+    3. 导入多个模块： import sys，os
+    4. 导入多个模块，同时指定别名： import sys as s, os as o
+
+from 模块名 import 成员名 as 别名
+    1. 导入模块的成员 ： from sys import argv
+    2. 导入模块成员，指定别名 ： from sys import argv as v
+    3. 导入模块成员，一次导入多个成员 ： from sys import argv ， winver
+    4. 导入多个模块，指定别名 ： from sys import argv as v， winver as w
+
+    不推荐使用 from import 导入模块所有成员</code></pre><h3 id="自定义模块"><a href="#自定义模块" class="headerlink" title="自定义模块"></a>自定义模块</h3><pre><code>    模块文件的文件名是它的模块名，如 xxx.py 的模块名就是 xxx
+自定义模块编写测试代码
+    如直接运行模块文件，程序会执行该模块的函数，如其他程序导入该模块，不应该执行该模块的函数
+    要实现这个效果，需借助 python 内置的 __name__ 变量，当直接运行模块时， name 变量的值为 __main__; 而将模块被导入其他程序并运行该程序，处于模块中 __name__ 变量的值就编程类模块名。 如希望函数只有在直接运行模块文件时才执行，则可增加判断，即只有当 __name__ == &apos;__main__&apos; 时才调用函数
+
+__name__ == &apos;__main__&apos; :
+    __name__ :内置的系统变量，用于标识所在模块的模块名，
+    作用： 确保只有单独运行该模块时，此表达式才成立，才可以进入此判断语法，执行其中的测试代码，反之，如只是作为模块导入到其他程序文件中， 则此表达式不成立，若运行，不执行判断语句汇中的代码</code></pre><h3 id="导入模块的三种方式"><a href="#导入模块的三种方式" class="headerlink" title="导入模块的三种方式"></a>导入模块的三种方式</h3><pre><code>当时用import 语句导入模块后，会按顺序查找指定的模块文件
+    1. 当前目录，即当前执行的程序程序文件所在目录下查找
+    2. 到Pythonpath 环境变量下的每个目录下查找
+    3. 到python 默认的安装目录下查找
+自定义的模块：
+    1. 向sys.path 中临时添加模块文件存储位置的完整路径
+    2. 将模块放在sys.path 变量中已包含的模块加载路径中
+    3. 设置系统环境变量
+导入模块方式一： 临时添加模块完整路径
+导入模块方式二： 将模块保存到指定位置
+导入模块方式三： 设置环境变量
+    linux 设置环境变量：    
+        vim ~/.bash_profile 
+            PATHONPATH=.:/pythondir/python_module
+            export PYTHONPATH</code></pre><h3 id="导入模块的本质"><a href="#导入模块的本质" class="headerlink" title="导入模块的本质"></a>导入模块的本质</h3><pre><code>    将xxx.py 中的全部代码加载到内存并执行，然后将整个模块内容赋值给与模块同名的变量，该变量的类型是module，而在该模块中定义的所有程序单元都相当于该module对象的成员
+    导入同一模块多次，只执行一次
+
+__all__ 变量
+    将变量的值设置为一个列表，只有该列表中的成员才会被暴露出来
+        def xx():
+            pass
+        def xxx():
+            pass
+        __all__ = [&apos;xx&apos;,&apos;xxx&apos;]
+    意义：为模块定义开放的公公接口，只有 __all__变量列出的成员，
+    如使用模块内__all__ 列表之外的成员，两种解决方法
+        1. import 模块名  导入模块， 通过模块名前缀来调用模块内的成员
+        2. from 模块名 import 成员 ，导入指定成员
+
+包： 存放多个模块的文件夹
+    包：就是文件夹，必须存在名为 &quot;__init__.py&quot; 的文件
+        每个包的目录下必须建立一个 __init__.py 的模块，可为空模块
+        作用： 将目录当成包来处理</code></pre><h3 id="创建包，导入包"><a href="#创建包，导入包" class="headerlink" title="创建包，导入包"></a>创建包，导入包</h3><pre><code>    包的创建步骤：
+        1. 创建文件夹，名称为该包的包名
+        2. 文件夹内创建名为 __init__.py 的文件，
+    包的导入：
+        1. import 包名[.模块名[as 别名]]
+            import xx.xxx
+        2. from 包名 import 模块名 [as 别名]
+            from xx import xxx
+        3. from 包名.模块名 import 成员名 [as 别名]
+            from xx.xxx import xxxx
+
+__init__.py
+    导入包等同于导入包中的__init__.py文件，可在此文件中编写功能代码。 包作用是包含多个模块，因此此文件作用是导入该包内的其他模块
+
+查看模块(变量、函数、类)方法
+    2种方式：
+        1. dir()
+            dir(xxx)
+        2. __all__
+            xxx.__all__
+
+__doc__属性：查看文档
+    help(string.capwords)
+    print(string.capwords.__doc__)
+
+__file__属性：查看模块的源文件路径
+    import string        
+    string.__file__
+
+第三方模块(库)下载和安装(通过pip命令)
+    pip install | uninstall | list  模块名</code></pre><h2 id="常见模块"><a href="#常见模块" class="headerlink" title="常见模块"></a>常见模块</h2><pre><code>日期、时间、正则表达式、JSON支持、容器等
+
+sys 模块用法
+    和解释器关系密切的标准库，帮助访问和解释器联系密切的变量和函数
+    import sys
+    [e for e in dir(sys) if not e.startswith(&apos;__&apos;)]        // 双下划线 没有 __all__变量</code></pre><h3 id="sys模块包含全部成员-包括变量、函数等"><a href="#sys模块包含全部成员-包括变量、函数等" class="headerlink" title="sys模块包含全部成员 包括变量、函数等"></a>sys模块包含全部成员 包括变量、函数等</h3><pre><code>    sys成员：
+        sys.argv ： 获取运行python 程序的命令行参数
+        sys.path ： 一个字符串列表，每个字符串都是一个目录名，使用import导入模块时，解释器从这些目录中查找指定的模块
+        sys.exit() ： 引发SystemExit 异常退出程序
+        sys.modules ： 返回模块名和载入模块对应关系的字典
+        sys.platform ： 是字符串，标识解释器运行平台名称，即操作系统名称
+        sys.stdin、sys.stdout、sys.stderr ： 类文件流对象，表示 标准输入、输出、错误
+        sys.flags ： 只读属性返回运行py命令时指定的旗标
+        sys.getrefcount(object) ： 返回指定对象的引用计数，当objet对象引用计数为0，系统会回收该对象
+        sys.getfilesystemencoding(object) ： 返回系统中保存文件所用的字符集
+        sys.getrecursionlimit() ： 返回当前支持的递归深度
+        sys.getswitchinterval()    ： 返回解释器中线程切换的时间间隔，通过setswitchinterval 函数改变
+        sys.implementation ： 返回当前py解释器的实现
+        sys.maxsize ： 返回整数支持的最大值，32: 2**31 -1  64: 2**63-1 
+        sys.executable ： 返回解释器在从磁盘的存放路径
+        sys.byteorder ： 显示本地字节序的指示符
+        sys.copyright ： 返回与解释器有关的版权信息
+        sys.version ： 返回解释器版本的版本信息
+        sys.winver ： 返回解释器的主版本号
+sys获取运行参数：
+    sys 模块的argv 属性可获取运行py程序的命令行参数，argv是一个列表
+        python argv xx.py &quot;xxx&quot;
+动态修改模块加载路径：
+    import sys
+    sys.path.append(&apos;E:\xxx&apos;)</code></pre><h3 id="os-模块及用法"><a href="#os-模块及用法" class="headerlink" title="os 模块及用法"></a>os 模块及用法</h3><pre><code>    代表程序所在的操作系统，用于获取程序运行所在操作系统的相关信息
+    import os 
+    os.__all__ ： 查看该模块所包含的全部变量和函数
+        os.name ：返回依赖模块操作系统的名称，如 posix、nt、java等
+        os.environ ： 所有环境变量组的字典
+        os.sep ： 路径分隔符
+        os.fsencode(filename) ： 对类路径 path-like 的文件名进行编码
+        os.fsdecode(filename) ： 对类路径 path-like 的文件名解码
+        os.PathLie ： 是类，代表 类路径对象
+        os.getenv(key,default=None) ： 指定环境变量的值
+        os.getlogin() ： 系统登录用户名。 os.getuid、os.getgroups、os.getgid 等函数，获取用户 ID 、用户组、组ID
+        os.getpid() ： 进程ID
+        os.getppid() ： 进程的父ID
+        os.putenv(key,value) ： 设置环境变量
+        os.cpu_count() ： 系统的CPU数量
+        os.pathsep ： 系统上多条路径之间的分隔符。如 ； ：
+        os.linesep ： 系统的换行符
+        os.urandom(size) ： 加密使用、最多由N个字节组成的bytes对象
+    os 进程管理函数：
+        os.system(command) ： 运行操作系统上的指定命令
+        os.abor() ： 生成一个SIGABRT 信号给当前进程，UNIX上默认生成内核转储；windows 退出返回3
+        os.execl(path,arg0,arg1,...) ： 一系列功能类似的函数，如： os.execle、os.execlp等
+        os.forkpty() ： fork 一个子进程
+        os.kill(pid, sig) ： 将sig 信号发送到pid对应的过程，用于结束进程
+        os.killpg(pgid,sig) ： 发送到 pgid 对应的进程组
+        os.popen(cmd, mode=&apos;r&apos;,buffering=-1) ： 向cmd命令打开读写管道，buffering村冲参数，返回文件对象用于读写字符串，而不是字节
+        os.startfile(path,operation) ： 对指定文件使用关联工具执行operation对应的操作
+
+random 模块及用法
+    查看该模块所包含的全部变量和函数： import random   random.__all__
+    random 模块常用函数：
+        random.seed(a=None,version=2) ： 指定种子来初始化伪随机数生成器
+        random.randrange(start,stop[,step]) ： 返回从start开始到stop结束，步长为 step的随机数
+        random.randin(a,b) ： 生成一个范围为 a &lt;= N &lt;= b 的随机数
+        random.choice(seq) ： 从seq 中随机抽取一个元素，如为空，抛 IndexError异常
+        random.choices(seq,weights=None,cum_weights=None,k=1) ： 从seq 抽元素，weigths指定被抽取的权重
+        random.shuffle(x[,random]) ： 对 x 序列执行洗牌 随机排序 操作
+        random.sample(population,k) ： 从population序列中随机抽取k个独立元素
+        random.random() ： 生成从包含0.0 到不包含1.0之间的随机浮点数
+        random.uniform(a,b) ： 生成一个范围 a ～ b 的随机数
+        random.expovariate(lambd) ： 生成呈指数分布的随机数，lambda 参数</code></pre><h3 id="time-模块"><a href="#time-模块" class="headerlink" title="time 模块"></a>time 模块</h3><pre><code>查看time模块包含的全部属性和函数
+    import time
+    time.__all__        |  [e for e in dir(time) if not e.startswith(&apos;__&apos;)]
+        time.struct_time ： 代表一个时间对象，包含9个属性
+            tm_year 年
+            tm_mon 月    | tm_mday 日    | tm_hour 时    | tm_min 分
+            tm.sec 秒    | tm_wday 周    | tm_yday 一年内第几天 | tm_isdst 夏令时
+    time 函数：
+        time.asctime([t]) ： 将时间元组或struct_time转换为时间字符串
+        time.ctime([secs]) ： 以秒数的时间转换时间字符串
+        time.gmtime([secs])    ： 将秒数的时间转为 struct_time 对象
+        time.localtime([secs]) ： 
+        time.mktime(t)
+        time.perf_counter()
+        time.process_time()
+        time.sleep(secs)
+        time.strftime(format[,t])
+        time.time()
+        time.timezone
+        time.tzname
+        [详细点击](http://c.biancheng.net/view/2420.html)</code></pre><h3 id="json-模块"><a href="#json-模块" class="headerlink" title="json 模块"></a>json 模块</h3><pre><code>JSON： JavaScript Object Notation ，即javascript对象符号，数据交换格式
+两种数据结构：    
+    1. 由 key-value 对组成的数据结构
+    2. 有序集合， 在python中对应于列表
+使用JSON语法创建对象：
+    object = {
+            xxx:xxxx,        // 字符串用双引号包含
+            yyy:yyyy,
+    }
+JSON创建数组：
+    arr = [value1,value2,...]
+
+JSON for Python
+    JSON 类型转换 Python 类型
+        对象(object)                字典(dict)
+        数组(array)                    列表(list)
+        字符串(string)                字符串(str)    
+        整数(number(int))            整数(int)        
+        true                        True
+        false                        False
+        null                        None
+    Python类型转换为 JSON类型
+        字典(dict)                    对象(object)
+        字符串(str)                    字符串(string)</code></pre>
       
     </div>
     
@@ -1043,7 +1512,7 @@ Python是多继承机制，一个类可继承多个父类
   <p><span>本文标题:</span><a href="/2019/08/09/Python-Note/">Python</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 <center> Hale Lv </center> 的个人博客"><center> Hale Lv </center></a></p>
   <p><span>发布时间:</span>2019年08月09日 - 18:08</p>
-  <p><span>最后更新:</span>2019年08月20日 - 20:08</p>
+  <p><span>最后更新:</span>2019年08月21日 - 20:08</p>
   <p><span>原始链接:</span><a href="/2019/08/09/Python-Note/" title="Python">http://yoursite.com/2019/08/09/Python-Note/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/09/Python-Note/" aria-label="复制成功！"></i></span>
   </p>
@@ -1346,7 +1815,7 @@ Python是多继承机制，一个类可继承多个父类
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编程基础"><span class="nav-number">1.</span> <span class="nav-text">Python 编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个python"><span class="nav-number">1.1.</span> <span class="nav-text">第一个python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型和运算符"><span class="nav-number">2.</span> <span class="nav-text">变量类型和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、元组、字典、集合"><span class="nav-number">3.</span> <span class="nav-text">列表、元组、字典、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list列表"><span class="nav-number">3.1.</span> <span class="nav-text">list列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple元组"><span class="nav-number">3.2.</span> <span class="nav-text">tuple元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用方法详解"><span class="nav-number">4.</span> <span class="nav-text">字符串常用方法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接-拼接数字"><span class="nav-number">4.1.</span> <span class="nav-text">字符串拼接(+拼接数字)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串大小写转换的三种函数"><span class="nav-number">4.2.</span> <span class="nav-text">字符串大小写转换的三种函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">5.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件语句可分3中形式："><span class="nav-number">5.1.</span> <span class="nav-text">if条件语句可分3中形式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-循环语句"><span class="nav-number">5.2.</span> <span class="nav-text">while 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环用法"><span class="nav-number">5.3.</span> <span class="nav-text">for循环用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和lambda表达式"><span class="nav-number">6.</span> <span class="nav-text">函数和lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"><span class="nav-number">6.1.</span> <span class="nav-text">函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的定义"><span class="nav-number">6.2.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数值传递和引用传递-包括形式参数和实际参数的区别"><span class="nav-number">6.3.</span> <span class="nav-text">函数值传递和引用传递(包括形式参数和实际参数的区别)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数传递机制"><span class="nav-number">6.4.</span> <span class="nav-text">函数参数传递机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数默认参数设置"><span class="nav-number">6.5.</span> <span class="nav-text">函数默认参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域-全局和局部"><span class="nav-number">6.6.</span> <span class="nav-text">变量作用域(全局和局部)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数高级用法"><span class="nav-number">6.7.</span> <span class="nav-text">函数高级用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda-表达式及用法"><span class="nav-number">6.8.</span> <span class="nav-text">lambda 表达式及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">7.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象：-一切皆对象"><span class="nav-number">7.1.</span> <span class="nav-text">面向对象： 一切皆对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类对象的创建和使用"><span class="nav-number">7.2.</span> <span class="nav-text">类对象的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装机制及实现方法"><span class="nav-number">7.3.</span> <span class="nav-text">封装机制及实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承机制及作用"><span class="nav-number">7.4.</span> <span class="nav-text">继承机制及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">7.5.</span> <span class="nav-text">多态</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编程基础"><span class="nav-number">1.</span> <span class="nav-text">Python 编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个python"><span class="nav-number">1.1.</span> <span class="nav-text">第一个python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型和运算符"><span class="nav-number">2.</span> <span class="nav-text">变量类型和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、元组、字典、集合"><span class="nav-number">3.</span> <span class="nav-text">列表、元组、字典、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list列表"><span class="nav-number">3.1.</span> <span class="nav-text">list列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple元组"><span class="nav-number">3.2.</span> <span class="nav-text">tuple元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用方法详解"><span class="nav-number">4.</span> <span class="nav-text">字符串常用方法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接-拼接数字"><span class="nav-number">4.1.</span> <span class="nav-text">字符串拼接(+拼接数字)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串大小写转换的三种函数"><span class="nav-number">4.2.</span> <span class="nav-text">字符串大小写转换的三种函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">5.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件语句可分3中形式："><span class="nav-number">5.1.</span> <span class="nav-text">if条件语句可分3中形式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-循环语句"><span class="nav-number">5.2.</span> <span class="nav-text">while 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环用法"><span class="nav-number">5.3.</span> <span class="nav-text">for循环用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和lambda表达式"><span class="nav-number">6.</span> <span class="nav-text">函数和lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"><span class="nav-number">6.1.</span> <span class="nav-text">函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的定义"><span class="nav-number">6.2.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数值传递和引用传递-包括形式参数和实际参数的区别"><span class="nav-number">6.3.</span> <span class="nav-text">函数值传递和引用传递(包括形式参数和实际参数的区别)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数传递机制"><span class="nav-number">6.4.</span> <span class="nav-text">函数参数传递机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数默认参数设置"><span class="nav-number">6.5.</span> <span class="nav-text">函数默认参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域-全局和局部"><span class="nav-number">6.6.</span> <span class="nav-text">变量作用域(全局和局部)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数高级用法"><span class="nav-number">6.7.</span> <span class="nav-text">函数高级用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda-表达式及用法"><span class="nav-number">6.8.</span> <span class="nav-text">lambda 表达式及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">7.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象：-一切皆对象"><span class="nav-number">7.1.</span> <span class="nav-text">面向对象： 一切皆对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类对象的创建和使用"><span class="nav-number">7.2.</span> <span class="nav-text">类对象的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装机制及实现方法"><span class="nav-number">7.3.</span> <span class="nav-text">封装机制及实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承机制及作用"><span class="nav-number">7.4.</span> <span class="nav-text">继承机制及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">7.5.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理机制"><span class="nav-number">8.</span> <span class="nav-text">异常处理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常机制主要依赖try、except、else、finally、raise-五个关键字"><span class="nav-number">8.1.</span> <span class="nav-text">异常机制主要依赖try、except、else、finally、raise 五个关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理机制-1"><span class="nav-number">8.2.</span> <span class="nav-text">异常处理机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#raise-用法"><span class="nav-number">8.3.</span> <span class="nav-text">raise 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-exc-info-获取异常信息"><span class="nav-number">8.4.</span> <span class="nav-text">sys.exc_info(): 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traceback模块：-获取异常信息"><span class="nav-number">8.5.</span> <span class="nav-text">traceback模块： 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义异常类及用法"><span class="nav-number">8.6.</span> <span class="nav-text">自定义异常类及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类特殊成员-属性和方法"><span class="nav-number">9.</span> <span class="nav-text">类特殊成员(属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊：-方法名、属性名前后添加双下划线。-可重写或调用方法来实现特殊的功能"><span class="nav-number">9.1.</span> <span class="nav-text">特殊： 方法名、属性名前后添加双下划线。 可重写或调用方法来实现特殊的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setattr-getattr-hasattr-函数用法"><span class="nav-number">9.2.</span> <span class="nav-text">setattr(), getattr(), hasattr() 函数用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#issubclass-和-isinstance-函数-：-检查类型"><span class="nav-number">9.3.</span> <span class="nav-text">issubclass 和 isinstance 函数 ： 检查类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iter-和-reversed-：实现迭代器"><span class="nav-number">9.4.</span> <span class="nav-text">iter 和 reversed ：实现迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器"><span class="nav-number">9.5.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方式创建生成器："><span class="nav-number">9.6.</span> <span class="nav-text">两种方式创建生成器：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块和包"><span class="nav-number">10.</span> <span class="nav-text">模块和包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-sys、OS-、-traceback-三个模块"><span class="nav-number">10.1.</span> <span class="nav-text">常用 sys、OS 、 traceback 三个模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块：-import"><span class="nav-number">10.2.</span> <span class="nav-text">导入模块： import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义模块"><span class="nav-number">10.3.</span> <span class="nav-text">自定义模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的三种方式"><span class="nav-number">10.4.</span> <span class="nav-text">导入模块的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的本质"><span class="nav-number">10.5.</span> <span class="nav-text">导入模块的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建包，导入包"><span class="nav-number">10.6.</span> <span class="nav-text">创建包，导入包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见模块"><span class="nav-number">11.</span> <span class="nav-text">常见模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sys模块包含全部成员-包括变量、函数等"><span class="nav-number">11.1.</span> <span class="nav-text">sys模块包含全部成员 包括变量、函数等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-模块及用法"><span class="nav-number">11.2.</span> <span class="nav-text">os 模块及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-模块"><span class="nav-number">11.3.</span> <span class="nav-text">time 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json-模块"><span class="nav-number">11.4.</span> <span class="nav-text">json 模块</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1407,7 +1876,7 @@ Python是多继承机制，一个类可继承多个父类
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共44.5k字</span>
+  <span class="post-count">博客全站共51.2k字</span>
 </div>
 
 
