@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-16T14:01:13.537Z</updated>
+  <updated>2019-08-26T15:02:01.076Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac</title>
+    <link href="http://yoursite.com/2019/08/26/Mac-Note/"/>
+    <id>http://yoursite.com/2019/08/26/Mac-Note/</id>
+    <published>2019-08-26T14:58:31.000Z</published>
+    <updated>2019-08-26T15:02:01.076Z</updated>
+    
+    <content type="html"><![CDATA[<center> Hale's Mac </center><a id="more"></a><p>Mac 开发相关</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt; Hale&#39;s Mac &lt;/center&gt;
+    
+    </summary>
+    
+    
+      <category term="Mac" scheme="http://yoursite.com/tags/Mac/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker</title>
