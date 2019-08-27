@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="iFaithFreedom">
 <meta property="og:description" content="Python">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T12:30:34.147Z">
+<meta property="og:updated_time" content="2019-08-27T14:17:29.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python">
 <meta name="twitter:description" content="Python">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  49.6k
+                  51.3k
                 </span>
               
 
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  199
+                  206
                 </span>
               
             </div>
@@ -3718,7 +3718,172 @@ poplib 模块： 收取邮件
             mg = BytesParser(policy=default).parsebytes(msg_data)
             [More](http://c.biancheng.net/view/2667.html)
 
-            程序在创建BytesParser 解析字节串格式的邮件数据 或 Parser 解析字符串格式的邮件数据时，必须指定 policy=default， 否则 BytesParser或Parser 解析邮件数据得到的就是过时的Message对象</code></pre>
+            程序在创建BytesParser 解析字节串格式的邮件数据 或 Parser 解析字符串格式的邮件数据时，必须指定 policy=default， 否则 BytesParser或Parser 解析邮件数据得到的就是过时的Message对象</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Author : Hale Lv</span><br><span class="line">@Created Time : 2019-08-27 20:41:18</span><br><span class="line">@Description :</span><br></pre></td></tr></table></figure>
+
+<h2 id="pydoc-模块：查看、生成帮助文档"><a href="#pydoc-模块：查看、生成帮助文档" class="headerlink" title="pydoc 模块：查看、生成帮助文档"></a>pydoc 模块：查看、生成帮助文档</h2><pre><code>在控制器中使用help 函数和 __doc__ 属性查看函数、类、方法的文档
+借助自带的pydoc模块，方便查看、生成帮助文档，是HTML格式
+创建名为 HI_doc.py 的文件
+    MY_NAME = &apos;Python DOC&apos;
+    def say_hi(name):
+        &apos;&apos;&apos;
+            定义一个say hi的函数
+            返回对指定用户打招呼的字符串
+        &apos;&apos;&apos;
+        print(&apos;run hi func&apos;)
+        return name + &apos;welcome !&apos;
+    def run(load):
+        &apos;&apos;&apos;
+            走路ing
+        &apos;&apos;&apos;
+        print(&apos;run run func&apos;)
+        return &apos;run &apos; + load
+    class User:
+        NAME = &apos;Hale&apos;
+        &apos;&apos;&apos;
+            定义一个用户的类
+            命名名字为Hale
+        &apos;&apos;&apos;
+        def __init__(self,name,age):
+            &apos;&apos;&apos;
+                name 为初始化的name值
+                age 初始化该用户的age
+            &apos;&apos;&apos;
+            self.name = name
+            self.age = age
+        def eat(food):
+            &apos;&apos;&apos;
+                定义用户在吃东西的方法
+                food 代表正在吃的东西
+            &apos;&apos;&apos;
+            print(&apos;%s eat %s&apos; % (self.user, food))
+        定义了一个HI_doc.py 源文件，即定义了一个HI_doc 模块， 该模块为函数、类、方法都提供文档
+
+    pydoc在控制台中查看文档
+        使用pydoc模块在控制台查看HTML文档
+            python -m pydoc 模块名
+                -m ： 选项，表示运行指定模块，运行pydoc模块，模块名参数代表程序要查看的模块
+                python -m pydoc HI_doc 
+            pydoc 模块中的全部内容：
+                CLASSES 部分： 列出该模块所包含的全部类
+                FUINCTIONS ： 列出包含的全部函数
+                DATA ： 全部成员变量
+                FILE： 源文件
+
+    pydoc 生成HTML文档
+        python -m pydoc -w 模块名
+            -m ：代表模块0
+            -w 选项： 代表 write，表明输出HTML文档
+    pydoc 为指定目录生成HTML文档，为指定目录下的所有模块生成HTML文档：
+        python -m pydoc -w 目录名
+
+启动本地服务器查看文档信息
+    启动本地服务器产看文档信息的两个命令
+        1. python -m pydoc -p 端口号
+    指定端口启动HTTP服务器，通过浏览器查看Python的所有模块的文档信息：
+        2. python -m pydoc -b
+
+    第一部分：显示python内置的核心模块
+    第二部分：显示当前目录下的所有模块
+    第三部分：显示当前目录下的所有模块，
+
+pydoc 查找模块
+    python -m pydoc -k 被搜索的模块的部分内容</code></pre><h3 id="doctest模块：-文档测试"><a href="#doctest模块：-文档测试" class="headerlink" title="doctest模块： 文档测试"></a>doctest模块： 文档测试</h3><pre><code>文档测试工具可以提取说明文档中的测试用例，其中 &quot;&gt;&gt;&gt;&quot; 之后的内容表示测试用例，下一行代表测试用例的输出结果
+def squre(x):
+    &apos;&apos;&apos;
+    计算平方的函数
+    eg :
+    &gt;&gt;&gt; squre(2)
+    4
+    &gt;&gt;&gt; squre(4)
+    16 
+    &apos;&apos;&apos;
+    return x * 2 # 故意写错的
+
+class User:
+    &apos;&apos;&apos;
+    定义一个代表用户的类，包括属性：
+    name - 代表名字
+    age - 代表年龄
+    例如：
+    &gt;&gt;&gt; u = User(&apos;hale&apos;,23)
+    &gt;&gt;&gt; u.name
+    &apos;hale&apos;
+    &gt;&gt;&gt; u.age
+    23ß
+    &apos;&apos;&apos;
+
+if __name__ == &apos;__main__&apos;:
+    import doctest
+    doctest.testmdo()
+
+测试结果包含的内容：
+    1. 第一部分：显示在哪个源文件的哪一行
+    2. 第二部分：Failed example，显示是哪个测试用例出错了
+    3. 第三部分：Expected 显示程序期望的输出结果，即在&quot;&gt;&gt;&gt;命令&quot;的下一行给出的运行结果
+    4. 第四部分：Got ，显示程序实际运行产生的输出结果，只有输出结果与期望结果一致，才表明测试用例通过
+可见：为文档注释提供doctest模块，程序只要导入该模块，并调用模块的testmod 函数即可。 testmod 自动提取模块的说明文档的测试用例，并执行这些测试用例，最终生成测试报告。</code></pre><h3 id="unittest-PyUnit-单元测试框架"><a href="#unittest-PyUnit-单元测试框架" class="headerlink" title="unittest(PyUnit)单元测试框架"></a>unittest(PyUnit)单元测试框架</h3><pre><code>PyUnit unittest 是单元测试框架，编写和运行可重复的测试。 PyUnit 是xUnit体系的一个成员，xUnix是众多测试框架的总称。主要用于进行白盒测试和回归测试
+好处： 
+    可以使测试代码与产品代码分离
+    针对某一个类的测试代码只需要进行较少的改动，便于另一个类的测试
+    开源，方便对PyUnit的扩展
+
+特征：
+    1. 使用断言方法判断期望值和实际值的差异，返回bool值
+    2. 测试驱动设备可使用共同的初始化变量或实例
+    3. 测试包结构便于组织和继承运行
+
+PyUnit(unittest)用法：
+    通过给定参数执行函数，判断函数的实际输出结果和期望的输出结果是否一致，测试用例提供执行函数和方法， 获取他们的执行结果，然后使用断言方法来判断
+    开发方式称为：测试驱动开发，强调先编写测试用例，然后在编写函数和方法，例：开发A功能的fun_a函数，采用测试驱动开发的步骤：
+    1. 为fun_a 函数编写测试用例，使用大量不同的参数组合来执行fun_a函数，并断言该函数的执行结果与业务期望的执行结果匹配
+    2. 编写、修改fun_a 函数
+    3. 运行fun_a函数的测试用例，如不能完全通过，则重复第2步和第3步，直到fun_a的所有测试用例全部通过
+        开发一个简单的 fk_math.py 程序，包含两个函数，分别用于计算一元一次方程的解和二元一次方程的解
+            def one_equation(a,b):
+                &apos;&apos;&apos;
+                一元一次方程的解
+                返回方程解
+                &apos;&apos;&apos;
+                if a == 0:
+                    raise ValueError(&apos;参数错误&apos;)
+                else:
+                    return b / a
+            def two_equation(a,b,c):
+                &apos;&apos;&apos;
+                一元二次方程 
+
+                &apos;&apos;&apos;
+                if a == 0:
+                    raise ValueError(&quot;参数错误&quot;)
+                elif b * b - 4 * a * c &lt; 0:
+                    raise ValueError(&apos;方程在有理数范围内无解&apos;)
+                elif b * b - 4 * a * c == 0:
+                    return -b / (2 * a)
+                else:
+                    r1 = (-b + (b * b - 4 * a * c) ** 0.5 ) / 2 /a 
+                    r2 = (-b + (b * b - 4 * a * c) ** 0.5 ) / 2 /a 
+                    return r1, r2
+
+            unittest要求单元测试类必须继承 unittest.TestCase，该类中的测试方法需要满足：
+                1. 测试方法应该没有返回值
+                2. 测试方法不应该有任何参数
+                3. 测试方法应以test开头
+                    import unittest
+                    from fk_math import * 
+
+                    class TestFkMath(unittest.TestCase):
+                        def test_one_equation(self):
+                            self.assertEqual(one_equation(5,9), -1.8)
+
+                            with self.assertRaises(ValueError):
+                                one_euqation(0,9)
+                        def test_two_equation(self):
+                            r1,r2 = two_equation(1,-3,2)
+                            self.assertCountEqual((r1,r2),(1.0,2.0),&apos;求解出错&apos;)
+                            ...
+                            with self.assertRaises(ValueError):
+                                two_equation(0,9,3)
+                                ...</code></pre>
       
     </div>
     
@@ -3737,7 +3902,7 @@ poplib 模块： 收取邮件
   <p><span>本文标题:</span><a href="/2019/08/09/Python-Note/">Python</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 <center> Hale Lv </center> 的个人博客"><center> Hale Lv </center></a></p>
   <p><span>发布时间:</span>2019年08月09日 - 18:08</p>
-  <p><span>最后更新:</span>2019年08月27日 - 20:08</p>
+  <p><span>最后更新:</span>2019年08月27日 - 22:08</p>
   <p><span>原始链接:</span><a href="/2019/08/09/Python-Note/" title="Python">http://yoursite.com/2019/08/09/Python-Note/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/09/Python-Note/" aria-label="复制成功！"></i></span>
   </p>
@@ -4040,7 +4205,7 @@ poplib 模块： 收取邮件
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编程基础"><span class="nav-number">1.</span> <span class="nav-text">Python 编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个python"><span class="nav-number">1.1.</span> <span class="nav-text">第一个python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型和运算符"><span class="nav-number">2.</span> <span class="nav-text">变量类型和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、元组、字典、集合"><span class="nav-number">3.</span> <span class="nav-text">列表、元组、字典、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list列表"><span class="nav-number">3.1.</span> <span class="nav-text">list列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple元组"><span class="nav-number">3.2.</span> <span class="nav-text">tuple元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用方法详解"><span class="nav-number">4.</span> <span class="nav-text">字符串常用方法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接-拼接数字"><span class="nav-number">4.1.</span> <span class="nav-text">字符串拼接(+拼接数字)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串大小写转换的三种函数"><span class="nav-number">4.2.</span> <span class="nav-text">字符串大小写转换的三种函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">5.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件语句可分3中形式："><span class="nav-number">5.1.</span> <span class="nav-text">if条件语句可分3中形式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-循环语句"><span class="nav-number">5.2.</span> <span class="nav-text">while 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环用法"><span class="nav-number">5.3.</span> <span class="nav-text">for循环用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和lambda表达式"><span class="nav-number">6.</span> <span class="nav-text">函数和lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"><span class="nav-number">6.1.</span> <span class="nav-text">函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的定义"><span class="nav-number">6.2.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数值传递和引用传递-包括形式参数和实际参数的区别"><span class="nav-number">6.3.</span> <span class="nav-text">函数值传递和引用传递(包括形式参数和实际参数的区别)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数传递机制"><span class="nav-number">6.4.</span> <span class="nav-text">函数参数传递机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数默认参数设置"><span class="nav-number">6.5.</span> <span class="nav-text">函数默认参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域-全局和局部"><span class="nav-number">6.6.</span> <span class="nav-text">变量作用域(全局和局部)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数高级用法"><span class="nav-number">6.7.</span> <span class="nav-text">函数高级用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda-表达式及用法"><span class="nav-number">6.8.</span> <span class="nav-text">lambda 表达式及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">7.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象：-一切皆对象"><span class="nav-number">7.1.</span> <span class="nav-text">面向对象： 一切皆对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类对象的创建和使用"><span class="nav-number">7.2.</span> <span class="nav-text">类对象的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装机制及实现方法"><span class="nav-number">7.3.</span> <span class="nav-text">封装机制及实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承机制及作用"><span class="nav-number">7.4.</span> <span class="nav-text">继承机制及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">7.5.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理机制"><span class="nav-number">8.</span> <span class="nav-text">异常处理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常机制主要依赖try、except、else、finally、raise-五个关键字"><span class="nav-number">8.1.</span> <span class="nav-text">异常机制主要依赖try、except、else、finally、raise 五个关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理机制-1"><span class="nav-number">8.2.</span> <span class="nav-text">异常处理机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#raise-用法"><span class="nav-number">8.3.</span> <span class="nav-text">raise 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-exc-info-获取异常信息"><span class="nav-number">8.4.</span> <span class="nav-text">sys.exc_info(): 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traceback模块：-获取异常信息"><span class="nav-number">8.5.</span> <span class="nav-text">traceback模块： 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义异常类及用法"><span class="nav-number">8.6.</span> <span class="nav-text">自定义异常类及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类特殊成员-属性和方法"><span class="nav-number">9.</span> <span class="nav-text">类特殊成员(属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊：-方法名、属性名前后添加双下划线。-可重写或调用方法来实现特殊的功能"><span class="nav-number">9.1.</span> <span class="nav-text">特殊： 方法名、属性名前后添加双下划线。 可重写或调用方法来实现特殊的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setattr-getattr-hasattr-函数用法"><span class="nav-number">9.2.</span> <span class="nav-text">setattr(), getattr(), hasattr() 函数用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#issubclass-和-isinstance-函数-：-检查类型"><span class="nav-number">9.3.</span> <span class="nav-text">issubclass 和 isinstance 函数 ： 检查类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iter-和-reversed-：实现迭代器"><span class="nav-number">9.4.</span> <span class="nav-text">iter 和 reversed ：实现迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器"><span class="nav-number">9.5.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方式创建生成器："><span class="nav-number">9.6.</span> <span class="nav-text">两种方式创建生成器：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块和包"><span class="nav-number">10.</span> <span class="nav-text">模块和包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-sys、OS-、-traceback-三个模块"><span class="nav-number">10.1.</span> <span class="nav-text">常用 sys、OS 、 traceback 三个模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块：-import"><span class="nav-number">10.2.</span> <span class="nav-text">导入模块： import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义模块"><span class="nav-number">10.3.</span> <span class="nav-text">自定义模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的三种方式"><span class="nav-number">10.4.</span> <span class="nav-text">导入模块的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的本质"><span class="nav-number">10.5.</span> <span class="nav-text">导入模块的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建包，导入包"><span class="nav-number">10.6.</span> <span class="nav-text">创建包，导入包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见模块"><span class="nav-number">11.</span> <span class="nav-text">常见模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sys模块包含全部成员-包括变量、函数等"><span class="nav-number">11.1.</span> <span class="nav-text">sys模块包含全部成员 包括变量、函数等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-模块及用法"><span class="nav-number">11.2.</span> <span class="nav-text">os 模块及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-模块"><span class="nav-number">11.3.</span> <span class="nav-text">time 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json-模块"><span class="nav-number">11.4.</span> <span class="nav-text">json 模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">12.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expression-描述一种字符串匹配的模式，检查一个字符串是否含有某个子串，也可从字符串中提取匹配的子串，或对字符串中匹配的子串执行替换操作，可用来开发数据抓取、网络爬虫等"><span class="nav-number">12.1.</span> <span class="nav-text">Regular Expression 描述一种字符串匹配的模式，检查一个字符串是否含有某个子串，也可从字符串中提取匹配的子串，或对字符串中匹配的子串执行替换操作，可用来开发数据抓取、网络爬虫等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-和-frozenset-集合操作"><span class="nav-number">13.</span> <span class="nav-text">set 和 frozenset 集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#set-集合是可变容器，可改变容器中的元素，-frozenset集合，是set的不可变版本，他的元素不可变"><span class="nav-number">13.1.</span> <span class="nav-text">set 集合是可变容器，可改变容器中的元素， frozenset集合，是set的不可变版本，他的元素不可变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frozenset-集合"><span class="nav-number">13.2.</span> <span class="nav-text">frozenset 集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queue-双端队列-模块"><span class="nav-number">13.3.</span> <span class="nav-text">queue (双端队列) 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heapq-堆操作"><span class="nav-number">13.4.</span> <span class="nav-text">heapq 堆操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter-类"><span class="nav-number">13.5.</span> <span class="nav-text">Counter 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#namedtuple-工厂函数功能"><span class="nav-number">13.6.</span> <span class="nav-text">namedtuple 工厂函数功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#itertools模块：生成迭代器"><span class="nav-number">13.7.</span> <span class="nav-text">itertools模块：生成迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#functools-模块："><span class="nav-number">13.8.</span> <span class="nav-text">functools 模块：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tkinter-GUI图形洁面开发"><span class="nav-number">14.</span> <span class="nav-text">Tkinter (GUI图形洁面开发)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GUI-：Graphics-User-Interface-图形用户界面。三要素：输入数据、处理数据、输出数据"><span class="nav-number">14.1.</span> <span class="nav-text">GUI ：Graphics User Interface 图形用户界面。三要素：输入数据、处理数据、输出数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinet-GUI-编程组件及用法"><span class="nav-number">14.2.</span> <span class="nav-text">Tkinet GUI 编程组件及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Place-布局管理器"><span class="nav-number">14.3.</span> <span class="nav-text">Tkinter Place 布局管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-compound-选项使用方法"><span class="nav-number">14.4.</span> <span class="nav-text">Tkinter compound 选项使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Entry-和-Text-控件用法"><span class="nav-number">14.5.</span> <span class="nav-text">Tkinter Entry 和 Text 控件用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Panedwindow-控件"><span class="nav-number">14.6.</span> <span class="nav-text">Tkinter Panedwindow 控件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-输入对话框"><span class="nav-number">14.6.1.</span> <span class="nav-text">Tkinter 输入对话框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-文件对话框创建和使用"><span class="nav-number">14.6.2.</span> <span class="nav-text">Tkinter 文件对话框创建和使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-消息框"><span class="nav-number">14.6.3.</span> <span class="nav-text">Tkinter 消息框</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Canvas-画布完全攻略"><span class="nav-number">14.7.</span> <span class="nav-text">Tkinter Canvas 画布完全攻略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作I-O"><span class="nav-number">15.</span> <span class="nav-text">文件操作I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件基本操作"><span class="nav-number">15.1.</span> <span class="nav-text">文件基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-函数：打开指定文件"><span class="nav-number">15.2.</span> <span class="nav-text">open 函数：打开指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-函数文件打开模式："><span class="nav-number">15.3.</span> <span class="nav-text">open 函数文件打开模式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-是否需要缓冲区"><span class="nav-number">15.4.</span> <span class="nav-text">open()是否需要缓冲区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-函数：-按字节、字符读取文件"><span class="nav-number">15.5.</span> <span class="nav-text">read 函数： 按字节、字符读取文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#close-：-关闭文件"><span class="nav-number">15.6.</span> <span class="nav-text">close ： 关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with-as-用法"><span class="nav-number">15.7.</span> <span class="nav-text">with  as 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文管理器，-python-with-as-底层原理"><span class="nav-number">15.8.</span> <span class="nav-text">上下文管理器， python with as 底层原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库编程"><span class="nav-number">16.</span> <span class="nav-text">数据库编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库API-DB-API"><span class="nav-number">16.1.</span> <span class="nav-text">数据库API(DB API)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发编程-多进程、多线程"><span class="nav-number">17.</span> <span class="nav-text">并发编程(多进程、多线程)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程和线程-区别"><span class="nav-number">17.1.</span> <span class="nav-text">进程和线程 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建线程的两种方式："><span class="nav-number">17.2.</span> <span class="nav-text">创建线程的两种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-线程的生命周日-新建、就绪、运行、阻塞、死亡"><span class="nav-number">17.3.</span> <span class="nav-text">Python 线程的生命周日(新建、就绪、运行、阻塞、死亡)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的新建和就绪状态"><span class="nav-number">17.3.1.</span> <span class="nav-text">线程的新建和就绪状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程"><span class="nav-number">18.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-建立TCP连接"><span class="nav-number">18.1.</span> <span class="nav-text">socket 建立TCP连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程-1"><span class="nav-number">19.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-建立TCP连接-1"><span class="nav-number">19.1.</span> <span class="nav-text">socket 建立TCP连接</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编程基础"><span class="nav-number">1.</span> <span class="nav-text">Python 编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个python"><span class="nav-number">1.1.</span> <span class="nav-text">第一个python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型和运算符"><span class="nav-number">2.</span> <span class="nav-text">变量类型和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、元组、字典、集合"><span class="nav-number">3.</span> <span class="nav-text">列表、元组、字典、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list列表"><span class="nav-number">3.1.</span> <span class="nav-text">list列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple元组"><span class="nav-number">3.2.</span> <span class="nav-text">tuple元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用方法详解"><span class="nav-number">4.</span> <span class="nav-text">字符串常用方法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接-拼接数字"><span class="nav-number">4.1.</span> <span class="nav-text">字符串拼接(+拼接数字)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串大小写转换的三种函数"><span class="nav-number">4.2.</span> <span class="nav-text">字符串大小写转换的三种函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">5.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件语句可分3中形式："><span class="nav-number">5.1.</span> <span class="nav-text">if条件语句可分3中形式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-循环语句"><span class="nav-number">5.2.</span> <span class="nav-text">while 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环用法"><span class="nav-number">5.3.</span> <span class="nav-text">for循环用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和lambda表达式"><span class="nav-number">6.</span> <span class="nav-text">函数和lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"><span class="nav-number">6.1.</span> <span class="nav-text">函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的定义"><span class="nav-number">6.2.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数值传递和引用传递-包括形式参数和实际参数的区别"><span class="nav-number">6.3.</span> <span class="nav-text">函数值传递和引用传递(包括形式参数和实际参数的区别)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数传递机制"><span class="nav-number">6.4.</span> <span class="nav-text">函数参数传递机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数默认参数设置"><span class="nav-number">6.5.</span> <span class="nav-text">函数默认参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域-全局和局部"><span class="nav-number">6.6.</span> <span class="nav-text">变量作用域(全局和局部)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数高级用法"><span class="nav-number">6.7.</span> <span class="nav-text">函数高级用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda-表达式及用法"><span class="nav-number">6.8.</span> <span class="nav-text">lambda 表达式及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">7.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象：-一切皆对象"><span class="nav-number">7.1.</span> <span class="nav-text">面向对象： 一切皆对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类对象的创建和使用"><span class="nav-number">7.2.</span> <span class="nav-text">类对象的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装机制及实现方法"><span class="nav-number">7.3.</span> <span class="nav-text">封装机制及实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承机制及作用"><span class="nav-number">7.4.</span> <span class="nav-text">继承机制及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">7.5.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理机制"><span class="nav-number">8.</span> <span class="nav-text">异常处理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常机制主要依赖try、except、else、finally、raise-五个关键字"><span class="nav-number">8.1.</span> <span class="nav-text">异常机制主要依赖try、except、else、finally、raise 五个关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理机制-1"><span class="nav-number">8.2.</span> <span class="nav-text">异常处理机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#raise-用法"><span class="nav-number">8.3.</span> <span class="nav-text">raise 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-exc-info-获取异常信息"><span class="nav-number">8.4.</span> <span class="nav-text">sys.exc_info(): 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traceback模块：-获取异常信息"><span class="nav-number">8.5.</span> <span class="nav-text">traceback模块： 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义异常类及用法"><span class="nav-number">8.6.</span> <span class="nav-text">自定义异常类及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类特殊成员-属性和方法"><span class="nav-number">9.</span> <span class="nav-text">类特殊成员(属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊：-方法名、属性名前后添加双下划线。-可重写或调用方法来实现特殊的功能"><span class="nav-number">9.1.</span> <span class="nav-text">特殊： 方法名、属性名前后添加双下划线。 可重写或调用方法来实现特殊的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setattr-getattr-hasattr-函数用法"><span class="nav-number">9.2.</span> <span class="nav-text">setattr(), getattr(), hasattr() 函数用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#issubclass-和-isinstance-函数-：-检查类型"><span class="nav-number">9.3.</span> <span class="nav-text">issubclass 和 isinstance 函数 ： 检查类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iter-和-reversed-：实现迭代器"><span class="nav-number">9.4.</span> <span class="nav-text">iter 和 reversed ：实现迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器"><span class="nav-number">9.5.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方式创建生成器："><span class="nav-number">9.6.</span> <span class="nav-text">两种方式创建生成器：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块和包"><span class="nav-number">10.</span> <span class="nav-text">模块和包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-sys、OS-、-traceback-三个模块"><span class="nav-number">10.1.</span> <span class="nav-text">常用 sys、OS 、 traceback 三个模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块：-import"><span class="nav-number">10.2.</span> <span class="nav-text">导入模块： import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义模块"><span class="nav-number">10.3.</span> <span class="nav-text">自定义模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的三种方式"><span class="nav-number">10.4.</span> <span class="nav-text">导入模块的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的本质"><span class="nav-number">10.5.</span> <span class="nav-text">导入模块的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建包，导入包"><span class="nav-number">10.6.</span> <span class="nav-text">创建包，导入包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见模块"><span class="nav-number">11.</span> <span class="nav-text">常见模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sys模块包含全部成员-包括变量、函数等"><span class="nav-number">11.1.</span> <span class="nav-text">sys模块包含全部成员 包括变量、函数等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-模块及用法"><span class="nav-number">11.2.</span> <span class="nav-text">os 模块及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-模块"><span class="nav-number">11.3.</span> <span class="nav-text">time 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json-模块"><span class="nav-number">11.4.</span> <span class="nav-text">json 模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">12.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expression-描述一种字符串匹配的模式，检查一个字符串是否含有某个子串，也可从字符串中提取匹配的子串，或对字符串中匹配的子串执行替换操作，可用来开发数据抓取、网络爬虫等"><span class="nav-number">12.1.</span> <span class="nav-text">Regular Expression 描述一种字符串匹配的模式，检查一个字符串是否含有某个子串，也可从字符串中提取匹配的子串，或对字符串中匹配的子串执行替换操作，可用来开发数据抓取、网络爬虫等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-和-frozenset-集合操作"><span class="nav-number">13.</span> <span class="nav-text">set 和 frozenset 集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#set-集合是可变容器，可改变容器中的元素，-frozenset集合，是set的不可变版本，他的元素不可变"><span class="nav-number">13.1.</span> <span class="nav-text">set 集合是可变容器，可改变容器中的元素， frozenset集合，是set的不可变版本，他的元素不可变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frozenset-集合"><span class="nav-number">13.2.</span> <span class="nav-text">frozenset 集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queue-双端队列-模块"><span class="nav-number">13.3.</span> <span class="nav-text">queue (双端队列) 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heapq-堆操作"><span class="nav-number">13.4.</span> <span class="nav-text">heapq 堆操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter-类"><span class="nav-number">13.5.</span> <span class="nav-text">Counter 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#namedtuple-工厂函数功能"><span class="nav-number">13.6.</span> <span class="nav-text">namedtuple 工厂函数功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#itertools模块：生成迭代器"><span class="nav-number">13.7.</span> <span class="nav-text">itertools模块：生成迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#functools-模块："><span class="nav-number">13.8.</span> <span class="nav-text">functools 模块：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tkinter-GUI图形洁面开发"><span class="nav-number">14.</span> <span class="nav-text">Tkinter (GUI图形洁面开发)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GUI-：Graphics-User-Interface-图形用户界面。三要素：输入数据、处理数据、输出数据"><span class="nav-number">14.1.</span> <span class="nav-text">GUI ：Graphics User Interface 图形用户界面。三要素：输入数据、处理数据、输出数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinet-GUI-编程组件及用法"><span class="nav-number">14.2.</span> <span class="nav-text">Tkinet GUI 编程组件及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Place-布局管理器"><span class="nav-number">14.3.</span> <span class="nav-text">Tkinter Place 布局管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-compound-选项使用方法"><span class="nav-number">14.4.</span> <span class="nav-text">Tkinter compound 选项使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Entry-和-Text-控件用法"><span class="nav-number">14.5.</span> <span class="nav-text">Tkinter Entry 和 Text 控件用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Panedwindow-控件"><span class="nav-number">14.6.</span> <span class="nav-text">Tkinter Panedwindow 控件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-输入对话框"><span class="nav-number">14.6.1.</span> <span class="nav-text">Tkinter 输入对话框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-文件对话框创建和使用"><span class="nav-number">14.6.2.</span> <span class="nav-text">Tkinter 文件对话框创建和使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-消息框"><span class="nav-number">14.6.3.</span> <span class="nav-text">Tkinter 消息框</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Canvas-画布完全攻略"><span class="nav-number">14.7.</span> <span class="nav-text">Tkinter Canvas 画布完全攻略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作I-O"><span class="nav-number">15.</span> <span class="nav-text">文件操作I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件基本操作"><span class="nav-number">15.1.</span> <span class="nav-text">文件基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-函数：打开指定文件"><span class="nav-number">15.2.</span> <span class="nav-text">open 函数：打开指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-函数文件打开模式："><span class="nav-number">15.3.</span> <span class="nav-text">open 函数文件打开模式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-是否需要缓冲区"><span class="nav-number">15.4.</span> <span class="nav-text">open()是否需要缓冲区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-函数：-按字节、字符读取文件"><span class="nav-number">15.5.</span> <span class="nav-text">read 函数： 按字节、字符读取文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#close-：-关闭文件"><span class="nav-number">15.6.</span> <span class="nav-text">close ： 关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with-as-用法"><span class="nav-number">15.7.</span> <span class="nav-text">with  as 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文管理器，-python-with-as-底层原理"><span class="nav-number">15.8.</span> <span class="nav-text">上下文管理器， python with as 底层原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库编程"><span class="nav-number">16.</span> <span class="nav-text">数据库编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库API-DB-API"><span class="nav-number">16.1.</span> <span class="nav-text">数据库API(DB API)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发编程-多进程、多线程"><span class="nav-number">17.</span> <span class="nav-text">并发编程(多进程、多线程)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程和线程-区别"><span class="nav-number">17.1.</span> <span class="nav-text">进程和线程 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建线程的两种方式："><span class="nav-number">17.2.</span> <span class="nav-text">创建线程的两种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-线程的生命周日-新建、就绪、运行、阻塞、死亡"><span class="nav-number">17.3.</span> <span class="nav-text">Python 线程的生命周日(新建、就绪、运行、阻塞、死亡)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的新建和就绪状态"><span class="nav-number">17.3.1.</span> <span class="nav-text">线程的新建和就绪状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程"><span class="nav-number">18.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-建立TCP连接"><span class="nav-number">18.1.</span> <span class="nav-text">socket 建立TCP连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程-1"><span class="nav-number">19.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-建立TCP连接-1"><span class="nav-number">19.1.</span> <span class="nav-text">socket 建立TCP连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pydoc-模块：查看、生成帮助文档"><span class="nav-number">20.</span> <span class="nav-text">pydoc 模块：查看、生成帮助文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#doctest模块：-文档测试"><span class="nav-number">20.1.</span> <span class="nav-text">doctest模块： 文档测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unittest-PyUnit-单元测试框架"><span class="nav-number">20.2.</span> <span class="nav-text">unittest(PyUnit)单元测试框架</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -4101,7 +4266,7 @@ poplib 模块： 收取邮件
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共79.8k字</span>
+  <span class="post-count">博客全站共81.5k字</span>
 </div>
 
 
