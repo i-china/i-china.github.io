@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="iFaithFreedom">
 <meta property="og:description" content="Python">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-27T14:17:29.138Z">
+<meta property="og:updated_time" content="2019-08-28T12:54:11.161Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python">
 <meta name="twitter:description" content="Python">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  51.3k
+                  51.8k
                 </span>
               
 
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  206
+                  209
                 </span>
               
             </div>
@@ -3154,244 +3154,6 @@ http.cookiejar模块：管理cookie
         2. 以CookieJar对象为参数，创建urllib.rquest.HTTPCookieProcessor对象，该对象负责调用CookieJar来管理cookie
         3. 以HTTPCookieProcessor对象为参数，调用urllib.reques.build_opener()函数创建OpenerDirector对象
         4. 使用OpenerDirector对象来发送请求，通过HTTPCookieProcessor调用CookieJar管理cookie
-        [More](http://c.biancheng.net/view/2646.html)
-
-TCP协议、IP协议的关系
-    TCP/IP通信协议是可靠的网络协议，在通信的两端各建立一个socket，形成虚拟的网络链路，建立虚拟的网络链路，两端的程序可通过该链路进行通信。 使用socket对象来代表两端的通信端口并通过socket进行网络通信
-    IP是Internet 的关键协议，全称：Internet Protocol，即Internet协议，简称：IP协议。IP协议负责将消息从一个主机传送到另一个主机，信息被分割成一个个小包
-    TCP：端对端协议，TCP协议让他们之间建立一个虚拟链路，用于发送和接收数据
-    TCP协议负责收集数据包，并按照顺序传送，接收端接收到数据包后再将其正确地还原。TCP协议保证数据包传送无误，采用重发机制，即当一个通信实体发送一个消息给另一个通信实体后，需要接收到的另一个通信实体的确认信息，如没有收到确认信息，则会重发信息
-    只有把TCP和IP两个协议结合，才能保证Internet在复杂的环境下正常运行。</code></pre><h3 id="socket-建立TCP连接"><a href="#socket-建立TCP连接" class="headerlink" title="socket 建立TCP连接"></a>socket 建立TCP连接</h3><pre><code>在使用socket之前，须建立socket对象，通过该类的构造器来创建socket实例：
-    socket.socket(family=AF_INET,type=SOCK_STREAM, proto=0,fileno=None)
-        1.family 参数用于指定网络类型，socket.AF_UNIX：UNIX网络、socket.AF_INET 基于IPv4协议的网络 和socket.AF_INET6 基于IPv6协议的网络 这三个变量
-        2. type参数用于指定网络的Sock类型，支持SOCK_STREAM默认值，创建基于TCP协议的socket、SOCK_DGRAM 创建基于UDP协议的socket 和SOCK_RAW 创建原始socket。常用 SOCK_STREAM和SOCK_DGRAM
-        3. proto参数用于指定协议号， 默认0，可忽略
-        socket 对象提供的常用方法：
-            1. socket.accept： 作为服务端使用的socket调用该方法接收来自客户端的连接
-            2. socket.bind(address)：将该socket绑定到指定address，address可是一个元组，包含IP地址和端口
-            3. socket.close ： 关闭连接，回收资源
-            4. socket.connect(address): 连接远程服务器
-            5. socket.connect_ex(address): 当程序出错时，不抛出异常，返回错误标识符
-            6. socket.listen([backlog]): 服务器使用socket调用该方法进行监听
-            7. socket.makefile(mode=&apos;r&apos;,buffering=None,*,encoding=None,errors=None,newline=None): 创建和该socket关联的文件对象
-
-            8. socket.recv(bufsize[,flags]): 返回值是(bytes,address)元组
-            9. socket.recvmsg(bufsize[,ancbufsize[,flags]]): 不仅接收来自socket的数据，还接收来自socket的辅助数据，返回值是一个长度为4的元组(data.ancdata,msg_flags,address).
-            10. socket.recvmg_into(butters[,nbytes[,flags]]):类socket.recvmsg ，将接收的数据放入buffers中
-            11. socket.recvfrom_into(buffer[,nbytes[,flags]]):将接收到的数据放入buffer中
-            12. socket.recv_into([buffer[,nbytes[,flags]]]): 类recv方法，将接收到的数据放入buffer中
-            13. socket.send(bytes[,flags]): 向socket发送数据，该socket必须与远程socket建立连接，基于TCP协议的网络中发送数据
-            14. socket.sendto(bytes,addresss)：向socket发送数据，没有与远程socket连接，基于UDP协议发送数据
-            15. socket.sendfile(file,offset=0,count=None):将整个文件内容发送出去，直到遇到EOF
-            16. socket.shutdown(how):关闭连接，how用于设置关闭方法
-    TCP通信的服务器端编程的基本步骤：
-        1. 服务器端先创建一个socket对象
-        2. 服务器端socket将自己绑定到指定IP地址和端口
-        3. 服务器端socket调用listen 方法监听网络
-        4. 程序采用循环不断调用socket 的accept方法接收来自客户端的连接
-            // 创建socket对象
-            s = socket.socket()
-            // 将socket 绑定到本机IP地址和端口
-            s.bind(&apos;192.168.0.123&apos;,8888)
-            // 服务器开始监听客户端的连接
-            s.listen()
-            while True:
-                c,addr = s.accept()
-    客户端先创建一个socket对象，将该socket绑定到指定的ip地址和端口号，然后调用connect方法建立与服务器的连接，就可建立一个基于TCP协议的网络连接
-        TCP通信的客户端的基本步骤如下：
-            1. 客户端先创建一个socket对象
-            2. 客户端socket调用connect方法连接到远程服务器
-    socket提供大量方法发送和接收数据：
-        1. 发送数据：使用send方法，注意：sendto方法用于UDP协议的通信
-        2. 接收数据：使用recv_xxx方法
-            import socket
-            s = socket.socket()
-            s.bind((&apos;192.168.1.88&apos;,999))
-            s.listen()
-            while True:
-                c, addr = s.accept()
-                print(c)
-                print(&apos;connect addrss&apos;, addr)
-                c.send(&apos;himessge &apos;.encode(&apos;utf-8&apos;))
-                c.close()
-    从socket中获取服务器发送的数据
-        import socket
-        s = socket.socket()
-        s.connect((&apos;192.168.1.88&apos;,999))
-        print(&apos;--%s--&apos;s.recv(1024).decode(&apos;utf-8&apos;))
-        s.close()</code></pre><h2 id="网络编程-1"><a href="#网络编程-1" class="headerlink" title="网络编程"></a>网络编程</h2><pre><code>计算机网路的功能：
-    1. 资源共享
-    2. 信息传输与集中处理
-    3. 均衡负荷与分布处理
-    4. 总和信息服务
-常见的类型有： 局域网LAN、城域网MAN、广域网WAN。
-通信协议：负责对传输速率、传输代码、代码结构、传输控制步骤、出错控制等指定处理标准。
-    通信协议由三部分组成：
-        1. 语义： 决定双方对话的类型
-        2. 语法： 决定双方对话的格式
-        3. 交换： 决定通信双方的应答关系
-        OSI ： Open System Interconnection ：将网络简化，以模块化的方式来设计网络
-        OSI七层： 物理层、链路层、网络层、传输层、会话层、表示层、应用层。
-    通信协议：是网络通信的基础，IP：Internet Protocol 称为 网际协议，支持网间互联的数据报协议，提供来网间连接的完善功能。TCP：Transmission Control Protocol，传输控制协议，规定一种可靠的数据信息传送服务，可单独使用，功能是互补的，两个协议统称为 TCP/IP 协议
-IP地址和端口号
-    IP地址用于唯一标识网络中的一个通信实体。 IP地址是数字型，是一额32位整数
-    NIC：Internet Network Information Center ： 统一负责全球IP地址的规划和管理，分为 InterNIC、APNIC、RIPE 三个网络信息中心负责IP地址分配。亚太地区通过APNIC，总部设在日本东京大学
-    IP地址分为 A、B、C、D、E五类。每个类别的网络标识和主机标识各有规则：
-        1. A 类： 10.0.0.0 ～ 10.255.255.255
-        2. B 类： 172.16.0.0 ～ 172.31.255.255
-        3. C 类： 192.168.0.0 ～ 192.168.255.255
-        IP地址是一个通信实体，每个通信实体可有多个通信程序同时提供网络服务，还需提供使用端口
-        端口：是一个16位整数，用于将数据交给哪个通信程序处理。端口是应用程序与外界交流的出入口，是一种抽象的软件结构，包括数据结构和 I/O 缓冲区
-        端口分为三类：
-            1. 公认端口(Well Known Port): 端口号为 0～1023，绑定特定的服务
-            2. 注册端口(Registered Port): 端口号为 1024～49151
-            3. 动态和/或私有端口(Dynamic and / or Private Port): 端口号为 49152～65535，是应用程序使用的动态端口
-
-网络编程模块
-    网络模型大致分为四层，各有对应的网络协议提供支持
-        1. 网络接口层： LAN、MAN、WAN
-        2. 网络层： ICMP、IGMP、IP、ARP、RARP
-        3. 传输层： TCP、UDP
-        4. 应用层： SMTP、FTP、DNS、SNMP、NFS、HTTP、TELNET
-    网络层协议主要是IP，是互联网协议的基础，ICMP、IGMP、ARP、RARP等协议是IP协议族的子协议，很少直接基于网络层进行应用程序编程
-    Python标准库中的网络相关模块
-        socket ： 基于传输层TCP、UDP协议进行网络编程的模块
-        asyncore ： socket 模块的异步版，支持基于传输层协议的异步通信
-        asynchat ： asyncore 的增强版
-        cgi ： 基于CGI：Common Gateway Interface，早期动态网站的技术支持
-        email ： E-mail 和MIME消息处理模块
-        ftplib ： 支持FTP协议的客户端模块
-        httplib、http.client ： 支持HTTP协议以及HTTP客户端的模块
-        imaplib ： 支持IMAP4协议的客户端模块
-        mailbox ： 操作不同格式邮箱的模块
-        mailcap ： 支持Mailcap文件
-        nntplib ： NTTP协议
-        smtplib ： SMTP 协议，发送邮件的客户端模块
-        poplib ： 支持POP3协议
-        telnetlib ： 支持TELNET 协议
-        urllib及其子模块： 支持URL处理的模块
-        xmlrpc、xmlrpc.server、xmlrpc.client ：支持XML-RPC协议的服务和客户端模块
-
-urllib.parset 模块：
-    URL：Uniform Resource Locator 对象代表统一资源定位器，指向互联网资源的指针。资源可以是文件、目录、或复杂对象的引用。 URL可由协议名、主机、端口和资源路径组成
-        protocol://host:port/path
-        1. urllib.request:最核心的子模块，包含打开和读取URL的各种函数
-        2. urllib.error ： 包含urllib.request 子模块所引发的各种异常
-        3. urllib.parset ： 解析URL
-        4. urllib.robotparset ： 解析robots.txt 文件
-        通过使用urllib模块可打开任意URl所指向的资源，可完整下载远程页面，与re模块结合使用，可提取页面中的各种信息，即网络爬虫的初步原理
-            urllib.parse 子模块中用于解析URL地址和查询字符串的函数：
-                1. urllib.parse.urlparset(urlstring,scheme=&quot;,allow_fragments=True&quot;):解析URL字符串，返回ParseResult 对象，获取解析出的数据
-                2. urllib.parse.urlunparse(parts): 是上一函数的反向操作，解析结果反向拼接URL地址
-                3. urllib,parse.parse_qs(qs,keep_blank_values=False,strict_parsing=False,encoding=&apos;utf-8&apos;,errors=&apos;replace&apos;):解析查询字符串(application/x-www-forn--=urlencoded 类型的数据)，以dict形式返回解析结果
-                                                                                                        4. urllib.parse.urlencode(query,deseq=False,safe=&apos;&apos;,encoding=None,errors=None,quote_via=quote_plus): 将字典形式或列表形式的请求参数恢复成请求字符串。相当与parse_qs、parse_qsl 的逆函数
-                                                                                                                                                                                                5. urllin.parse.urljoin(base,url,allow_fragments=True): 将一个base_url和另一个资源URL连接成代表绝对地址的URl
-                from urllib.parse import *
-                result = urlparse(&apos;https://www.baidu.com&apos;)
-                print(result)
-                print(&apos;scheme:&apos;, result.scheme,result[0])
-                print(&apos;hostname and port:&apos;, result.netloc,result[1])
-                ...
-                print(result.geturl())
-        ParseResult 各属性与元组索引的对应关系
-                scheme        0        返回URL的scheme                scheme参数
-                netloc        1        网络位置部分主机名和端口    空字符串
-                path        2        资源路径                    空字符串
-                params        3        资源路径的附加参数    
-                query        4        查询字符串
-                fragment    5        Fragment标识符
-                username            用户名                        None
-                password            密码
-                hostname            主机名
-                port                端口                        None
-        urlunparse ： 把一个 ParseResult 对象或元组恢复成URL字符串
-        result = urlunparse((&apos;http&apos;,&apos;www.baidu.com:80&apos;,&apos;index.php&apos;,&apos;text&apos;,&apos;name=hale&apos;,frag))
-        print(result)
-            parse_qs() parse_qsl() ： l代表list，用于解析查询字符串，返回值不同，
-        urljoin 负责将两个URL拼接在一起，返回代表绝对值的URL，可出现三种情况：
-            1. URL只是一个相对路径path
-            2. 被拼接的URl是一个根路径path
-            3. URL是一个绝对的path
-
-urllib.requset 模块读取资源用法
-    urllib.request.urlopen(url,data=None)：用于打开url指定的资源，并从中读取数据，根据url的不同，返回值发生变化，如url是一个HTTP地址，该方法返回一个http.client.HTTPResponse对象
-    from urllib.request import *
-    // 打开URL对应的资源
-    result = urlopen(&apos;http://www.baidu.com/index.php&apos;)
-    // 按字节读取数据
-    data = result.read(333)
-    // 将字节数据恢复成字符串
-    print(data.decode(&apos;utf-8&apos;))
-    // 用context manager 管理打开的URL资源
-    with urlopen(&apos;http://www.baidu.com/index.php&apos;) as f:
-        // 按字节读取数据
-        data = f.read(333)
-        // 将字节数据恢复成字符串
-        print(data.decode(&apos;utf-8&apos;))
-
-    使用urlopen函数时，可通过data属性向被请求的URL发送数据：
-        from urllib.request import * 
-        with urlopen(url=&apos;https://www.baidu.com/index.php&apos;,data=&apos;test&apos;.encode(&apos;utf-8&apos;)) as f:
-            print(f.read().decode(&apos;utf-8&apos;))
-    通过urlopen 函数发送POST请求参数，可通过data 属性来实现：
-        import urllib.parse
-        params = urllib.parse.urlencode({&apos;name&apos;:&apos;hale&apos;,&apos;password&apos;:&apos;password&apos;})
-        params = params.encode(&apos;utf-8&apos;)
-        with urlopen(&apos;https://www.baidu.com/index.php&apos;,data=params) as f:
-            print(f.read().decode(&apos;utf-8&apos;))
-    urllib.request.Request对象的构造函器：
-        urllib.request.Request(url,data=None,headers={},origin_req_host=None,unverifiable=False,method=None)
-            Request 可通过method指定请求方法，也可通过data指定请求方法，可通过 headers 指定请求头
-            from urllib.request import *
-            params = &apos;put request&apos;.encode(&apos;utf-8&apos;)
-            req = Request(url=&apos;https://www.baidu.com/index.php&apos;,data=params,method=&apos;PUT&apos;) 
-            with urlopen(req) as f:
-                print(f.status)
-                print(f.read().decode(&apos;utf-8&apos;))
-    使用Request对象添加请求头
-        // 创建Request对象
-        req = Request(&apos;https://www.baidu.com/index.php&apos;)
-        // 添加请求头
-        req.add_header(&apos;Referer&apos;,&apos;https://www.baidu.com&apos;)
-        with urlopen(req) as f:
-            print(f.status)
-            print(f.read().decode(&apos;utf-8&apos;))
-        通过Request 的add_header 方法添加一个Referer 请求头，
-    实现多线程下载的步骤：
-        from urllib.request import * 
-        import threading
-        class DownUtil:
-                def __init__(self,path,target_file,thread_num):
-                    self.path = path
-                    self.thread_num = thread_rum 
-                    self.threads = []
-                def download(self):
-                    req = Request(url=self.path,method=&apos;GET&apos;)
-                    ...
-
-
-        1. 使用 urlopen 方法打开远程资源
-        2. 获取指定的URL对象所指向资源的大小，通过Content-Length响应头获取
-        3. 计算每个线程应该下载网络资源的哪个部分，从哪个节点开始，到哪个字节结束
-        4. 依次创建并启动多个线程
-            from DownUtil import * 
-            du = DownUtil(&apos;https://www.baidu.com/&apos; + &apos;from/logo.png&apos;,&apos;a.png&apos;,3)
-            du.download()
-            def show_process():
-                print(&apos;ok : %.2f&apos; % du.get_complete_rate())
-                global t
-                if du.get_complete_rate() &lt; 1:
-                    t = threading.Timer(0.1,show_process)
-            t = threading.Timer(0.1,show_process)
-            t.start()
-
-http.cookiejar模块：管理cookie
-    如使用urllib.request 模块来访问被保护页面，维修与服务器之间的sesion，借助于 cookie 管理器
-    使用OpenerDirector 对象来发送请求，步骤：
-        1. 创建 http.cookiejar.CookieJar 对象或其子类的对象
-        2. 以CookieJar对象为参数，创建urllib.rquest.HTTPCookieProcessor对象，该对象负责调用CookieJar来管理cookie
-        3. 以HTTPCookieProcessor对象为参数，调用urllib.reques.build_opener()函数创建OpenerDirector对象
-        4. 使用OpenerDirector对象来发送请求，通过HTTPCookieProcessor调用CookieJar管理cookie
             from urllib.request import *
             import http.cookiejar, urllib.parse
             cookie_jar = http.cookiejar.MozillaCookieJar(&apos;a.txt&apos;)
@@ -3408,7 +3170,7 @@ TCP协议、IP协议的关系
     IP是Internet 的关键协议，全称：Internet Protocol，即Internet协议，简称：IP协议。IP协议负责将消息从一个主机传送到另一个主机，信息被分割成一个个小包
     TCP：端对端协议，TCP协议让他们之间建立一个虚拟链路，用于发送和接收数据
     TCP协议负责收集数据包，并按照顺序传送，接收端接收到数据包后再将其正确地还原。TCP协议保证数据包传送无误，采用重发机制，即当一个通信实体发送一个消息给另一个通信实体后，需要接收到的另一个通信实体的确认信息，如没有收到确认信息，则会重发信息
-    只有把TCP和IP两个协议结合，才能保证Internet在复杂的环境下正常运行。</code></pre><h3 id="socket-建立TCP连接-1"><a href="#socket-建立TCP连接-1" class="headerlink" title="socket 建立TCP连接"></a>socket 建立TCP连接</h3><pre><code>在使用socket之前，须建立socket对象，通过该类的构造器来创建socket实例：
+    只有把TCP和IP两个协议结合，才能保证Internet在复杂的环境下正常运行。</code></pre><h3 id="socket-建立TCP连接"><a href="#socket-建立TCP连接" class="headerlink" title="socket 建立TCP连接"></a>socket 建立TCP连接</h3><pre><code>在使用socket之前，须建立socket对象，通过该类的构造器来创建socket实例：
     socket.socket(family=AF_INET,type=SOCK_STREAM, proto=0,fileno=None)
         1.family 参数用于指定网络类型，socket.AF_UNIX：UNIX网络、socket.AF_INET 基于IPv4协议的网络 和socket.AF_INET6 基于IPv6协议的网络 这三个变量
         2. type参数用于指定网络的Sock类型，支持SOCK_STREAM默认值，创建基于TCP协议的socket、SOCK_DGRAM 创建基于UDP协议的socket 和SOCK_RAW 创建原始socket。常用 SOCK_STREAM和SOCK_DGRAM
@@ -3821,69 +3583,448 @@ if __name__ == &apos;__main__&apos;:
     2. 第二部分：Failed example，显示是哪个测试用例出错了
     3. 第三部分：Expected 显示程序期望的输出结果，即在&quot;&gt;&gt;&gt;命令&quot;的下一行给出的运行结果
     4. 第四部分：Got ，显示程序实际运行产生的输出结果，只有输出结果与期望结果一致，才表明测试用例通过
-可见：为文档注释提供doctest模块，程序只要导入该模块，并调用模块的testmod 函数即可。 testmod 自动提取模块的说明文档的测试用例，并执行这些测试用例，最终生成测试报告。</code></pre><h3 id="unittest-PyUnit-单元测试框架"><a href="#unittest-PyUnit-单元测试框架" class="headerlink" title="unittest(PyUnit)单元测试框架"></a>unittest(PyUnit)单元测试框架</h3><pre><code>PyUnit unittest 是单元测试框架，编写和运行可重复的测试。 PyUnit 是xUnit体系的一个成员，xUnix是众多测试框架的总称。主要用于进行白盒测试和回归测试
-好处： 
-    可以使测试代码与产品代码分离
-    针对某一个类的测试代码只需要进行较少的改动，便于另一个类的测试
-    开源，方便对PyUnit的扩展
+可见：为文档注释提供doctest模块，程序只要导入该模块，并调用模块的testmod 函数即可。 testmod 自动提取模块的说明文档的测试用例，并执行这些测试用例，最终生成测试报告。</code></pre><h3 id="unittest-PyUnit-单元测试框架"><a href="#unittest-PyUnit-单元测试框架" class="headerlink" title="unittest(PyUnit)单元测试框架"></a>unittest(PyUnit)单元测试框架</h3><pre><code>    PyUnit unittest 是单元测试框架，编写和运行可重复的测试。 PyUnit 是xUnit体系的一个成员，xUnix是众多测试框架的总称。主要用于进行白盒测试和回归测试
+    好处： 
+        可以使测试代码与产品代码分离
+        针对某一个类的测试代码只需要进行较少的改动，便于另一个类的测试
+        开源，方便对PyUnit的扩展
 
-特征：
-    1. 使用断言方法判断期望值和实际值的差异，返回bool值
-    2. 测试驱动设备可使用共同的初始化变量或实例
-    3. 测试包结构便于组织和继承运行
+    特征：
+        1. 使用断言方法判断期望值和实际值的差异，返回bool值
+        2. 测试驱动设备可使用共同的初始化变量或实例
+        3. 测试包结构便于组织和继承运行
 
-PyUnit(unittest)用法：
-    通过给定参数执行函数，判断函数的实际输出结果和期望的输出结果是否一致，测试用例提供执行函数和方法， 获取他们的执行结果，然后使用断言方法来判断
-    开发方式称为：测试驱动开发，强调先编写测试用例，然后在编写函数和方法，例：开发A功能的fun_a函数，采用测试驱动开发的步骤：
-    1. 为fun_a 函数编写测试用例，使用大量不同的参数组合来执行fun_a函数，并断言该函数的执行结果与业务期望的执行结果匹配
-    2. 编写、修改fun_a 函数
-    3. 运行fun_a函数的测试用例，如不能完全通过，则重复第2步和第3步，直到fun_a的所有测试用例全部通过
-        开发一个简单的 fk_math.py 程序，包含两个函数，分别用于计算一元一次方程的解和二元一次方程的解
-            def one_equation(a,b):
-                &apos;&apos;&apos;
-                一元一次方程的解
-                返回方程解
-                &apos;&apos;&apos;
-                if a == 0:
-                    raise ValueError(&apos;参数错误&apos;)
-                else:
-                    return b / a
-            def two_equation(a,b,c):
-                &apos;&apos;&apos;
-                一元二次方程 
+    PyUnit(unittest)用法：
+        通过给定参数执行函数，判断函数的实际输出结果和期望的输出结果是否一致，测试用例提供执行函数和方法， 获取他们的执行结果，然后使用断言方法来判断
+        开发方式称为：测试驱动开发，强调先编写测试用例，然后在编写函数和方法，例：开发A功能的fun_a函数，采用测试驱动开发的步骤：
+        1. 为fun_a 函数编写测试用例，使用大量不同的参数组合来执行fun_a函数，并断言该函数的执行结果与业务期望的执行结果匹配
+        2. 编写、修改fun_a 函数
+        3. 运行fun_a函数的测试用例，如不能完全通过，则重复第2步和第3步，直到fun_a的所有测试用例全部通过
+            开发一个简单的 fk_math.py 程序，包含两个函数，分别用于计算一元一次方程的解和二元一次方程的解
+                def one_equation(a,b):
+                    &apos;&apos;&apos;
+                    一元一次方程的解
+                    返回方程解
+                    &apos;&apos;&apos;
+                    if a == 0:
+                        raise ValueError(&apos;参数错误&apos;)
+                    else:
+                        return b / a
+                def two_equation(a,b,c):
+                    &apos;&apos;&apos;
+                    一元二次方程 
 
-                &apos;&apos;&apos;
-                if a == 0:
-                    raise ValueError(&quot;参数错误&quot;)
-                elif b * b - 4 * a * c &lt; 0:
-                    raise ValueError(&apos;方程在有理数范围内无解&apos;)
-                elif b * b - 4 * a * c == 0:
-                    return -b / (2 * a)
-                else:
-                    r1 = (-b + (b * b - 4 * a * c) ** 0.5 ) / 2 /a 
-                    r2 = (-b + (b * b - 4 * a * c) ** 0.5 ) / 2 /a 
-                    return r1, r2
+                    &apos;&apos;&apos;
+                    if a == 0:
+                        raise ValueError(&quot;参数错误&quot;)
+                    elif b * b - 4 * a * c &lt; 0:
+                        raise ValueError(&apos;方程在有理数范围内无解&apos;)
+                    elif b * b - 4 * a * c == 0:
+                        return -b / (2 * a)
+                    else:
+                        r1 = (-b + (b * b - 4 * a * c) ** 0.5 ) / 2 /a 
+                        r2 = (-b + (b * b - 4 * a * c) ** 0.5 ) / 2 /a 
+                        return r1, r2
 
-            unittest要求单元测试类必须继承 unittest.TestCase，该类中的测试方法需要满足：
-                1. 测试方法应该没有返回值
-                2. 测试方法不应该有任何参数
-                3. 测试方法应以test开头
-                    import unittest
-                    from fk_math import * 
+                unittest要求单元测试类必须继承 unittest.TestCase，该类中的测试方法需要满足：
+                    1. 测试方法应该没有返回值
+                    2. 测试方法不应该有任何参数
+                    3. 测试方法应以test开头
+                        import unittest
+                        from fk_math import * 
 
-                    class TestFkMath(unittest.TestCase):
-                        def test_one_equation(self):
-                            self.assertEqual(one_equation(5,9), -1.8)
+                        class TestFkMath(unittest.TestCase):
+                            def test_one_equation(self):
+                                self.assertEqual(one_equation(5,9), -1.8)
 
-                            with self.assertRaises(ValueError):
-                                one_euqation(0,9)
-                        def test_two_equation(self):
-                            r1,r2 = two_equation(1,-3,2)
-                            self.assertCountEqual((r1,r2),(1.0,2.0),&apos;求解出错&apos;)
-                            ...
-                            with self.assertRaises(ValueError):
-                                two_equation(0,9,3)
-                                ...</code></pre>
+                                with self.assertRaises(ValueError):
+                                    one_euqation(0,9)
+                            def test_two_equation(self):
+                                r1,r2 = two_equation(1,-3,2)
+                                self.assertCountEqual((r1,r2),(1.0,2.0),&apos;求解出错&apos;)
+                                ...
+                                with self.assertRaises(ValueError):
+                                    two_equation(0,9,3)
+                                    ...
+
+
+
+
+
+
+            unittest.TestCase内置大量assertXxx方法执行断言：
+                assertEqual(a,b)            a == b
+                assertNotEqual(a,b)            a != b
+                assertTrue(x)                bool(x) is True
+                assertFalse(x)                bool(x) is False
+                assertIsNot(a,b)            a is not b
+                assertIs(a,b)                a is b
+                assertIsNone(x)                x is None
+                assertIsNotNone(x)            x is not None
+                [More](http://c.biancheng.net/view/2679.html)
+            TestCase 包含断言方法
+                assertAlmostEqual(a,b)        round(a-b,7) == 0
+                assertNotAlmostEqual(a,b)    round(a-b,7) != 0
+                assertGreater(a,b)            a &gt; b 
+            TestCase 包含针对特定类型的断言方法
+                assertMultiLineEqual(a,b)    字符串string
+                assertSequenceEqual(a,b)    序列sequence
+                assertListEqual(a,b)        列表list
+                assertTupleEqual(a,b)        元组tuple
+                assertSetEqual(a,b)            集合set 或 frozenset
+                assertDictEqual(a,b)        字典dict
+
+    运行测试
+        两种方式：
+            1. 通过代码调用测试用例，通过调用unittest.main() 运行当前源文件中所有测试用例        
+                if __name__ == &apos;__main__&apos;:
+                    unittest.main()
+            2. 使用unittest 模块运行测试用例，语法：
+                python -m unittest 测试文件
+        测试结果：
+            1. . ：代表测试通过
+            2. F ： 代表失败，F ： failure
+            3. E ： 出错    E ： error
+            4. s ： 跳过该测试    s ： skip
+
+TestSuite 测试包及用法
+    可组织多个测试用例， 还可嵌套测试包，使用测试运行器 TestRunner 来运行该测试包所包含的所有测试用例
+    // 开发一个程序 hello.py
+    def say_hello():
+        return &apos;hi&apos;
+    def add(a,b):
+        return a + b
+    // 为上面程序提供测试类 test_hello.py
+        import unittest
+        from hello improt *
+        class TestHello(unittest.TestCase):
+            def test_say_hell(self):
+                self.assertEqual(say_hello(),&apos;Hello world.&apos;)
+            def test_add(self):
+                self.assertEqual(add(2,1),5)
+                self.assertEqual(add(3,6),7)
+    将 test_fk_math 和 test_hello.py 放在同一目录，可通过TestSuite将他们组织在一起，然后使用TestRunner来运行该测试包
+        import unittest
+        from test_fk_math import TestFkMath
+        test_cases = (TestHello, TestFkMath)
+        def whole_suite():
+            // 创建测试加载器
+            loader = unittest.TestLoader()
+            // 创建测试包
+            suite = unittest.TestSuit()
+            // 遍历所有测试类
+            for test_class in test_cases:
+            // 从测试类中加载测试用例
+                tests = loaders.loadTestsFromTestCase(test_class)
+            // 将测试用例添加到测试包
+                suite.addTests(tests)
+            return suite
+        if __name__ == &apos;__main__&apos;:
+            // 创建测试运行器
+            runner = unittest.TexTestRunner(verbosity=2)
+            runner.run(whole_suite())
+    把测试报告输出到该类文件对象中
+        修改__main__ 部分代码：
+            if __name__ == &apos;__main__&apos;:
+                with open(&apos;fk_test_report.txt&apos;,&apos;a&apos;) as f:
+                    runner = unittest.TextTextRunner(verbosity=2,stream=f)
+                    runner.run(whole_suite())
+
+单元测试setUp 和 tearDown 用法
+    测试用例类：TestCase的子类、测试包TestSuit、测试运行器TestRunner、测试固件TestFixture的概念：
+        1. 测试用例类：是单个的测试单元，负责检查特定输入和对应的输出是否匹配，
+        2. 测试包： 组合多个测试用例， 可嵌套测试包
+        3. 测试运行器：负责组织、运行测试用例，向用户呈现测试结果
+        4. 测试固件： 代表执行一个或多个测试用例所需的准备工作，及相关联的准备操作，包括：创建临时数据库、创建目录、开启服务器进程等。
+        unittest.TestCase包含setUp 和 tearDown 两个方法，其实setUp方法用于初始化测试固件， tearDown 方法用于销毁测试固件。运行每个测试用例以 test_ 开头的方法之前自动执行setUp方法来初始化测试固件，并在每个测试用例结束后自动执行tearDown方法销毁测试固件
+        import unittest
+        from hello import * 
+        class TestHello(unittest.TestCase):
+            def test_say_hello(unittest.TestCase):
+                self.assertEqual(say_hello(),&apos;Hello world&apos;)
+            def test_add(self):
+                self.assertEqual(add(3,5),7)
+            def setUp(self):
+                print(&apos;---- setUp model--- &apos;)
+            def tearDown(self):
+                print(&apos;----tearDown-----&apos;)
+        python -m unittest -v fixture_test.py
+
+unittest跳过测试用例
+    unittest 自动测试每一个测试用例 以test开头的方法，如跳过某个测试用例，通过两种方式：
+        1. 使用 skipXxx 装饰器 跳过测试用例，unittest 提供3个装饰器，分别是 @unittest.skip(reason) , @unittest.skipif(condition,reason), @unittest.skipUnless(condition,reason),其中 skip 代表无条件跳过，skiplf 代表当condition为True时跳过，skipUnless 代表当condition为False时跳过
+        2. 使用TestCase 的skipTest 方法来跳过测试用例
+            import unittest
+            from hello import * 
+            class TestHello(uniitest.TestCase):
+                def test_say_hello(self):
+                    self.assertEqual(say_hello(),&apos;hi hello&apos;)
+                @unittest.skip(say_hello(),&apos;hello world&apos;)
+                def test_add(self):
+                    self.assertEqual(add(3,4),7)
+                    ...
+            @unittest.skip装饰器跳过了test_add 测试方法
+            python -m unittest skip_test.py
+            测试结果中，s 代表跳过第一个测试用例，. 代表第二个测试用例通过
+        可使用TestCase 的skipTest 方法跳过测试用例：
+            import unittest
+            from hello import * 
+            class TestHello(unittest.TestCase):
+                def test_say_hello(self):
+                    self.assertEqual(say_hello(),&apos;hi&apos;)
+                def test_add(self):
+                    self.skipTest(add(3,4),5)
+                    ...
+            python -m unittest -v skip_test.py
+                -v : 生成更详细的测试报告</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Author : Hale Lv</span><br><span class="line">@Created Time : 2019-08-28 12:01:48</span><br><span class="line">@Description :</span><br></pre></td></tr></table></figure>
+
+<h2 id="打包和发布-zipapp-和-PyInstaller"><a href="#打包和发布-zipapp-和-PyInstaller" class="headerlink" title="打包和发布 zipapp 和 PyInstaller"></a>打包和发布 zipapp 和 PyInstaller</h2><pre><code>用于将Python 应用打包为一个 .pyz 文件，无论多少个源文件和依赖包，使用zipapp可将他们大包为一个 .pyz 文件。
+zipapp 模块： 将一个 python模块或多个模块打包为一个Python应用，可发布为Windows 的可执行程序
+
+生成可执行的Python档案包
+    zipapp 是一个可直接运行的模块，将单个python文件或整个目录下的所有文件打包为可执行的档案包
+        python -m zipapp source [options]
+            source ：代表要打包的Python源程序或目录，参数可是单个的pyhton文件，也可是文件夹。        
+            option 选项：
+                -o &lt;output&gt;, --output=&lt;output&gt;: 指定输出档案包的文件名，如不指定该选项，生成的档案包的文件名默认是source 参数值，并加上 .pyz后缀
+                -p &lt;interpreter&gt;, --python=&lt;interpreter&gt; : 指定Python解释器，
+                -m &lt;mainfn&gt;, --main=&lt;mainfn&gt; : 指定Python程序的入口函数，该选项应为： pkg.mod:fn 形式，pkg.mod 是一个档案包中的包或模块，fn是指定模块中的函数，如不指定，默认从模块中的 __main__.py 文件开始执行
+                -c ， --compress ： 指定是否对档案包进行压缩来减少文件的大小，默认不压缩
+                --info ： 用于诊断时显示档案包中的解释器
+                -h ， --help ： 该选项用于显示 zipapp 模块中的帮助信息
+
+    建立一个app 子目录， 包办多个python程序，如：say.py
+            def say(name):
+                return &apos;hi&apos; + name
+        在该目录下开发一个app.py 程序来使用 say 模块：
+            from say import *
+            def main():
+                    print(&apos;start run&apos;)
+                    print(say(&apos;hale&apos;))
+        在命令行中进入该目录(app目录的父目录)：
+            python -m zipapp app -o first.pyz -m &quot;app:main&quot;
+                指定将当前目录下的app子目下的所有Py源文件打包为一个档案包，-o 选项指定生成档案包的文件名为 first.pyz； -m ： 指定使用app.py 模块中的main函数作为程序入口
+            python -m zipapp app -m &quot;app:main&quot;
+                没有-o， 使用默认的输出文件名，生成一个 app.pyz文件</code></pre><h3 id="zipapp-创建独立应用"><a href="#zipapp-创建独立应用" class="headerlink" title="zipapp 创建独立应用"></a>zipapp 创建独立应用</h3><pre><code>如需使用第三方模块和包
+创建独立启动的应用 自带依赖模块和包，执行2个步骤：
+    1. 将应用依赖的模块和包下载到应用目录中
+    2. 使用zipapp将应用和依赖模块一起打包为档案包
+    在app目录中创建一个dbapp子目录，在dbapp中创建一个__main__.py 文件作为程序入口，打包档案包时不需指定入口
+        from exec_select import *
+        query_db()
+    exec_select.py 文件：
+        import mysql.connector
+        def query_db():
+            conn = conn.connector.connect(user=&apos;user&apos;,&apos;passwor&apos;=&apos;pass&apos;,host=&apos;localhost&apos;,port=&apos;3306&apos;,database=&apos;dbname&apos;,use_unicode=True)
+        c = conn.cursor()
+        c.execute(&apos;select * from user_tb where user_id &gt; %s&apos;,(2,))
+        for col in (c.description):
+            print(col[0],end=&apos;\t&apos;)
+        print(&apos;\n-----&apos;)
+        for row in c:
+            print(row)
+            print(row[1] + &apos;--&gt;&apos; + row[2])
+        c.close()
+        conn.close()
+    1.    将dbapp子目录下的应用打包为独立应用：
+        python -m pip install -r requirements.txt --target dbapp
+            使用 pip 安装模块，python -m pip install 表示安装模块， -target 指定要安装到指定目录下， 此处安装到dbapp子目录下。-r 指定安装哪些模块，使用requirements.txt 列出要安装的模块和包 -r 选项支持两个值：
+                1. 直接指定要安装的模块或包
+                2. 使用清单文件指定要安装的模块和包
+        如：pip 模块提示找不到 requirements.txt 文件，需在当前目录下添加一个requirements.txt 文件，在该文件中增加：  mysql-connector-python
+            如模块需要依赖多个模块，则在requirements.txt 文件中定义多行，每行定义一个模块。
+    2.    如pip在dbapp子目录生成 .dist-info 目录，删除即可
+    3.  使用zipap 模块执行打包操作，如dbapp子目录下包含了 __main__.py 文件，则不需指定 -m 选项 
+        python -m zipapp dbapp
+    卸载在python目录下安装的mysql-connector-python 模块：
+        pip uninstall mysql-connector-python</code></pre><h3 id="PyInstaller-安装和使用"><a href="#PyInstaller-安装和使用" class="headerlink" title="PyInstaller 安装和使用"></a>PyInstaller 安装和使用</h3><pre><code>    默认不包含PyInstaller 模块， 需自行安装
+        pip install pyinstaller
+
+PyInstaller生成可执行程序
+    pyinstaller 选项 Python 源文件
+        单文件、多文件，使用pyinstaller 编译作为程序入口的python 程序即可
+        先创建一个app目录，在该目录下创建一个 app.py 文件
+            from say_hello import *
+            def main():
+                print(&apos;start run&apos;)
+                print(say_hello(&apos;hale&apos;))
+            if __name__ == &apos;__main__&apos;:
+                main()
+            进入此app目录，执行：
+                pyinstaller -F app.py 
+                    执行完毕，会生成 dist目录、app.exe 文件
+                    -F 选项： 指定生成单独的EXE 文件， —D ：指定生成一个目录作为程序
+                pyinstaller -D app.py
+                    执行完毕，生成dist目录， 包含大量.dll 文件和 .pyz 文件
+        PyInstaller 支持的常用选项
+            -F， -onefile ：                产生单个的可执行文件
+            -D， --onedir ：                产生一个目录(包含多个文件)作为可执行程序
+            -a， --ascii  ：                不包含Unicode 字符集支持
+            -d， --debug  ：                产生debug 版本的可执行文件
+            -w， --windowed，--noconsolc ： 指定程序运行时不显示命令行窗口(仅对windwos有效)
+            -c， --nowindowed，-console ：    指定命令行窗口运行程序
+            -o DIR， --out=DIR ：            指定spec文件的生成目录，如没指定，默认使用当前目录来生成spec文件
+            -p DIR，--path=NAME    ：            设置python导入模块的路径，可用路径分隔符(win:&apos;,&apos;,unix:&apos;:&apos;来分割多个路径)
+            -n NAME，--name=NAME ：            指定项目的名字 如省略，第一个脚本的主文件名将作为spec的名字
+            -h ：        查看选项的详细信息
+
+    创建带图形的用户界面，可访问数据库的应用
+        在app所在目录创建一个dbapp目录，并在该目录下创建python程序，exec_select.py 负责查询数据， main.py 负责创建图形用户界面来显示查询结果
+            exec_select.py 代码：
+                import mysql.connector
+                def query_db():
+                    conn = mysql.connector.connect(user=&apos;root&apos;,password=&apos;pass&apos;,host=&apos;localhost&apos;,port=&apos;3306&apos;,database=&apos;dbname&apos;,use_unicode=True)
+                    c = conn.cursor()
+                    c.execute(&apos;select * from user_tb where user_id &gt; %s&apos;,(2,))
+                    description = c.description
+                    rows = c.fetchall()
+                    c.close()
+                    conn.close()
+                    return description, rows
+            main.py 文件代码：
+                from exec_select import *
+                from tkinkter import * 
+                def main():
+                    description,rows = query_db()
+                    win = Tk()
+                    win.title(&apos;query db&apos;)
+                    for i, col in enumerate(description):
+                        lb = Button(win,text=col[0],padx=50,pady=0)
+                        lb.grid(row=0,colunm=i)
+                    for i, row  in enumerate(rows):
+                        for j in range(len(row)):
+                            en = Label(win, text=row[j])
+                            en.grid(row=i+1,column=j)
+                    win.mainloop()
+                if __name__ == &apos;__main__&apos;:
+                   main()
+            Pyinstaller -F -w main.py</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Author : Hale Lv</span><br><span class="line">@Created Time : 2019-08-28 15:32:33</span><br><span class="line">@Description :</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据可视化-Matplotlib-Pygal"><a href="#数据可视化-Matplotlib-Pygal" class="headerlink" title="数据可视化 Matplotlib, Pygal"></a>数据可视化 Matplotlib, Pygal</h2><h3 id="Matplotlib"><a href="#Matplotlib" class="headerlink" title="Matplotlib"></a>Matplotlib</h3><pre><code>是Python 2D 绘图库，符号格式的数据，通过Matplotlib 方便制作折线图、柱状图、散点图等各种高质量的数据图
+安装：
+    1. pip install matplotlib
+    2. python -m pip install matplotlib
+python -m pydoc -p 8899        //    文档
+
+Matplotlib plot 函数： 生成折线图
+    给出对应的 x轴、y轴数据， 调用pyplot子模块下的plot函数即可生成简单的折线图
+    如：生成2013年～2019年的销售数据
+        import matplotlib.pyplot as plt
+        x_data = [&apos;2013&apos;,&apos;2014&apos;,&apos;2015&apos;,&apos;2016&apos;,&apos;2017&apos;,&apos;2018&apos;,&apos;2019&apos;]
+        y_data = [123000,1232131,2131421,23532,453,645363,54654645]
+        plt.plot(x_data,y_data)
+        plt.show()
+    plot函数支持创建具有单条折线的折线图，也支持多条折线复式折线图，调用plot函数传入多个分别x轴和y轴数据的list列表即可。
+        import matplotlib.pyplot as plt 
+        x_data = [&apos;2018&apos;,&apos;2019&apos;]
+        y_data = [5555555,666666]
+        y_data1 = [777777,8888888]
+        plt.plot(x_data,y_data,y_data1)
+        plt.show()
+    plot函数可传参数指定折线的样子，如 线宽、颜色、样式等，例：
+        import matplotlib.pyplot as plt
+        x_data = [&apos;2016&apos;,&apos;2017&apos;,&apos;2018&apos;,&apos;2019&apos;]
+        y_data = [100000,200000,300000,400000,500000]
+        y_data1 = [900000,800000,70000,40000,32222]
+        plt.plot(x_data,y_data,color=&apos;red&apos;,linewidth=2.0, linestyle=&apos;--&apos;)
+        plt.plot(x_data,y_data1,color=&apos;blue&apos;,linewidth=3.0,linestyle=&apos;-.&apos;)
+        plt.show()
+            color: 颜色，  linewidth ： 线宽 、 linestyle ： 折线样式
+            linestyle 折线样式，字符串参数值：
+                -  ： 代表实线，默认值
+                -- ： 代表虚线
+                .  ： 代表点线
+                -. :  代表短线、点相同的虚线    
+
+Matplotlib legend  : 为每条折线添加图例
+    对于复式折线图，应为每条折线添加图例，通过legend 函数实现，可传入两个list参数，第一个list参数 handles参数，用于引用折线图赏的每条折线，第二个list参数labels 代表为每条折线所添加的图形
+    为两条折线添加图例：
+        import matplotlib.plot as plt 
+        x_data = [&apos;2018&apos;,&apos;2019&apos;]
+        y_data = [200000,3000000]
+        y_data1 = [30000,500000]
+        ln1 = plt.plot(x_data,y_data,color=&apos;red&apos;,linewidth=2.0, linestyle=&apos;--&apos;)
+        ln2 = plt.plot(x_data,y_data1,color=&apos;gary&apos;,linewidth=3.0,linestyle=&apos;-.&apos;)
+        plt.legend(handler=[ln2,ln1],labels=[&apos;Python&apos;,&apos;PHP&apos;],loc=&apos;lower right&apos;)
+        plt.show()
+loc参数指定图例的添加位置，参数支持的参数值：
+    &apos;base&apos;:     自动选择最佳位置
+    &apos;upper right&apos;: 将图例放在右上角
+    &apos;upper left&apos;:    左上角
+    &apos;lower left&apos;:    左下角
+    &apos;lower right&apos;:    右下角
+    &apos;right&apos;:    右边
+    &apos;center left&apos;:    左边剧中    
+    &apos;center right&apos;:    右边剧中
+    &apos;lower center&apos;:    底部剧中
+    &apos;upper center&apos;: 顶部剧中
+    &apos;center&apos;:    将图例放在中心
+    在程序中修改 Matplotlib 的默认字体，步骤：
+        1. 使用 matplotlib.fnot_manager 子模块下的FontProperties 类加载中文字体
+        2. 在调用legend 函数时通过 prop 属性指定中文字体
+        improt matplotlin.font_manager as fm
+        my_font = fm.FontProperties(fname=&apos;/usr/font/powerline.ttf&apos;)
+        plt.legend(handles=[ln2,ln1], labels=[&apos;你好&apos;,&apos;Python基础&apos;],loc=&apos;lower right&apos;,prop=my_font)
+        使用 legend 函数时可不指定handles参数，只传入labels参数
+            plt.legend(labels=[&apos;Python 中文&apos;,&apos;PHP基础&apos;],loc=&apos;center&apos;,proc=my_font)
+        Matplotlib 可在调用 plot 函数时为每条折线分别传入label参数，
+        import matplotlib.pyplot as plt
+        x = [&apos;2018&apos;,&apos;2019&apos;]
+        y1 = [1233,312321]
+        y2 = [123213214,32131]
+        plt.plot(x,y1,color=&apos;red&apos;,linewidth=2.0,linestyle=&apos;-.&apos;,label=&apos;Python你好&apos;)
+        plt.plot(x,y2,color=&apos;blue&apos;,linewidth=3.0,linestyle=&apos;--&apos;,lebale=&apos;PHP再见&apos;)
+        import matplotlib.font_manager as fm
+        my_font = fm.FontProperties(fname=&apos;font dir&apos;)
+        plt.legend(loc=&apos;best&apos;)
+        plt.show()</code></pre><h3 id="Matplotlib-time-xlabel-ylabel-xticks-yticks-设置坐标轴"><a href="#Matplotlib-time-xlabel-ylabel-xticks-yticks-设置坐标轴" class="headerlink" title="Matplotlib time, xlabel, ylabel , xticks, yticks : 设置坐标轴"></a>Matplotlib time, xlabel, ylabel , xticks, yticks : 设置坐标轴</h3><pre><code>调用 xlabel 、 ylabel 函数设置x轴、y轴，通过title 函数设置整个数据图的标题，调用xticks 、yticks 改变x轴、y轴的刻度值
+    为数据图添加名称、标题、坐标轴刻度值
+    import matplotlib.pyplot as plt
+    x = [&apos;2018&apos;,&apos;2019&apos;]
+    y1 = [111111,2222]
+    y2 = [1233213,3213213213]
+    plt.plot(x,y1,color=&apos;red&apos;,linewidth=2.0,linestyle=&apos;--&apos;,label=&apos;Hi PYthon你好&apos;)
+    plt.plot(x,y2,color=&apos;blue&apos;,linewidth=3.0,linestyle=&apos;-.&apos;,label=&apos;PHP 再见&apos;)
+    import matplotlib.font_manager as fm
+    font = fm.FontProperties(fname=&apos;font dir .ttf&apos;)
+    plt.legend(loc=&apos;best&apos;)
+    plt.xlabel(&apos;年份&apos;)
+    plt.ylabel(&apos;教程销量&apos;)
+    plt.title(&apos;Python 开发指南&apos;)
+    plt.yticks([1000,100000,1000000],[r&apos;挺好&apos;,r&apos;优秀&apos;,r&apos;火爆&apos;)
+    plt.show()
+    如要对x轴、y轴进行更细致的控制，可调用 gca 函数来获取坐标轴信息对象，对坐标轴进行控制
+        对坐标轴的详细控制：
+            import matplotlib.pyplot as plt
+            x = ...
+            plt.yticks([1000,100000,10000],[r&apos;justsoso&apos;,r&apos;good&apos;,r&apos;great&apos;])
+            ax = plt.gca()
+            ax,xaxis.set_ticks_position(&apos;bottom&apos;)
+            ax.yaxis.set_ticks_position(&apos;left&apos;)
+            ax.spines[&apos;right&apos;].set_color(&apos;none&apos;)
+            ax.spines[&apos;top&apos;].set_color(&apos;none&apos;)
+            ax.spines[&apos;buttom&apos;].set_position((&apos;data&apos;,8000))
+            plt.show()
+
+    Matplotlin subplot : 创建子图
+        subplot(nrows,ncols,index,**kwargs) : nrows: 指定将数据区域分为多少行，ncols ：将数据图区域分为多少列，index 指定获取第几个区域。
+        subplot 支持直接传入一个三位数的参数， 第一位数为 nrows 参数，第二位数为 ncols，第三位数为 index 参数
+            import matplotlib.pyplot as plt
+            import numpy as np
+            plt.figure()
+            [More](http://c.biancheng.net/view/2711.html)    
+
+    Matplotlib pie : 绘制饼图
+        [More](http://c.biancheng.net/view/2713.html)
+
+    Matplotlib 绘制柱状图 bar 、barh 函数
+        [More](http://c.biancheng.net/view/2716.html)
+
+    Matplotlib scatter : 绘制散点图
+        [More](http://c.biancheng.net/view/2718.html)    
+
+    Matplotlib contour 、 contourf ： 绘制等高线
+        [More](http://c.biancheng.net/view/2718.html)</code></pre>
       
     </div>
     
@@ -3902,7 +4043,7 @@ PyUnit(unittest)用法：
   <p><span>本文标题:</span><a href="/2019/08/09/Python-Note/">Python</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 <center> Hale Lv </center> 的个人博客"><center> Hale Lv </center></a></p>
   <p><span>发布时间:</span>2019年08月09日 - 18:08</p>
-  <p><span>最后更新:</span>2019年08月27日 - 22:08</p>
+  <p><span>最后更新:</span>2019年08月28日 - 20:08</p>
   <p><span>原始链接:</span><a href="/2019/08/09/Python-Note/" title="Python">http://yoursite.com/2019/08/09/Python-Note/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/09/Python-Note/" aria-label="复制成功！"></i></span>
   </p>
@@ -4205,7 +4346,7 @@ PyUnit(unittest)用法：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编程基础"><span class="nav-number">1.</span> <span class="nav-text">Python 编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个python"><span class="nav-number">1.1.</span> <span class="nav-text">第一个python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型和运算符"><span class="nav-number">2.</span> <span class="nav-text">变量类型和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、元组、字典、集合"><span class="nav-number">3.</span> <span class="nav-text">列表、元组、字典、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list列表"><span class="nav-number">3.1.</span> <span class="nav-text">list列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple元组"><span class="nav-number">3.2.</span> <span class="nav-text">tuple元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用方法详解"><span class="nav-number">4.</span> <span class="nav-text">字符串常用方法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接-拼接数字"><span class="nav-number">4.1.</span> <span class="nav-text">字符串拼接(+拼接数字)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串大小写转换的三种函数"><span class="nav-number">4.2.</span> <span class="nav-text">字符串大小写转换的三种函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">5.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件语句可分3中形式："><span class="nav-number">5.1.</span> <span class="nav-text">if条件语句可分3中形式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-循环语句"><span class="nav-number">5.2.</span> <span class="nav-text">while 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环用法"><span class="nav-number">5.3.</span> <span class="nav-text">for循环用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和lambda表达式"><span class="nav-number">6.</span> <span class="nav-text">函数和lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"><span class="nav-number">6.1.</span> <span class="nav-text">函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的定义"><span class="nav-number">6.2.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数值传递和引用传递-包括形式参数和实际参数的区别"><span class="nav-number">6.3.</span> <span class="nav-text">函数值传递和引用传递(包括形式参数和实际参数的区别)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数传递机制"><span class="nav-number">6.4.</span> <span class="nav-text">函数参数传递机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数默认参数设置"><span class="nav-number">6.5.</span> <span class="nav-text">函数默认参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域-全局和局部"><span class="nav-number">6.6.</span> <span class="nav-text">变量作用域(全局和局部)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数高级用法"><span class="nav-number">6.7.</span> <span class="nav-text">函数高级用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda-表达式及用法"><span class="nav-number">6.8.</span> <span class="nav-text">lambda 表达式及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">7.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象：-一切皆对象"><span class="nav-number">7.1.</span> <span class="nav-text">面向对象： 一切皆对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类对象的创建和使用"><span class="nav-number">7.2.</span> <span class="nav-text">类对象的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装机制及实现方法"><span class="nav-number">7.3.</span> <span class="nav-text">封装机制及实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承机制及作用"><span class="nav-number">7.4.</span> <span class="nav-text">继承机制及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">7.5.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理机制"><span class="nav-number">8.</span> <span class="nav-text">异常处理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常机制主要依赖try、except、else、finally、raise-五个关键字"><span class="nav-number">8.1.</span> <span class="nav-text">异常机制主要依赖try、except、else、finally、raise 五个关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理机制-1"><span class="nav-number">8.2.</span> <span class="nav-text">异常处理机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#raise-用法"><span class="nav-number">8.3.</span> <span class="nav-text">raise 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-exc-info-获取异常信息"><span class="nav-number">8.4.</span> <span class="nav-text">sys.exc_info(): 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traceback模块：-获取异常信息"><span class="nav-number">8.5.</span> <span class="nav-text">traceback模块： 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义异常类及用法"><span class="nav-number">8.6.</span> <span class="nav-text">自定义异常类及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类特殊成员-属性和方法"><span class="nav-number">9.</span> <span class="nav-text">类特殊成员(属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊：-方法名、属性名前后添加双下划线。-可重写或调用方法来实现特殊的功能"><span class="nav-number">9.1.</span> <span class="nav-text">特殊： 方法名、属性名前后添加双下划线。 可重写或调用方法来实现特殊的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setattr-getattr-hasattr-函数用法"><span class="nav-number">9.2.</span> <span class="nav-text">setattr(), getattr(), hasattr() 函数用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#issubclass-和-isinstance-函数-：-检查类型"><span class="nav-number">9.3.</span> <span class="nav-text">issubclass 和 isinstance 函数 ： 检查类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iter-和-reversed-：实现迭代器"><span class="nav-number">9.4.</span> <span class="nav-text">iter 和 reversed ：实现迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器"><span class="nav-number">9.5.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方式创建生成器："><span class="nav-number">9.6.</span> <span class="nav-text">两种方式创建生成器：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块和包"><span class="nav-number">10.</span> <span class="nav-text">模块和包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-sys、OS-、-traceback-三个模块"><span class="nav-number">10.1.</span> <span class="nav-text">常用 sys、OS 、 traceback 三个模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块：-import"><span class="nav-number">10.2.</span> <span class="nav-text">导入模块： import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义模块"><span class="nav-number">10.3.</span> <span class="nav-text">自定义模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的三种方式"><span class="nav-number">10.4.</span> <span class="nav-text">导入模块的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的本质"><span class="nav-number">10.5.</span> <span class="nav-text">导入模块的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建包，导入包"><span class="nav-number">10.6.</span> <span class="nav-text">创建包，导入包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见模块"><span class="nav-number">11.</span> <span class="nav-text">常见模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sys模块包含全部成员-包括变量、函数等"><span class="nav-number">11.1.</span> <span class="nav-text">sys模块包含全部成员 包括变量、函数等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-模块及用法"><span class="nav-number">11.2.</span> <span class="nav-text">os 模块及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-模块"><span class="nav-number">11.3.</span> <span class="nav-text">time 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json-模块"><span class="nav-number">11.4.</span> <span class="nav-text">json 模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">12.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expression-描述一种字符串匹配的模式，检查一个字符串是否含有某个子串，也可从字符串中提取匹配的子串，或对字符串中匹配的子串执行替换操作，可用来开发数据抓取、网络爬虫等"><span class="nav-number">12.1.</span> <span class="nav-text">Regular Expression 描述一种字符串匹配的模式，检查一个字符串是否含有某个子串，也可从字符串中提取匹配的子串，或对字符串中匹配的子串执行替换操作，可用来开发数据抓取、网络爬虫等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-和-frozenset-集合操作"><span class="nav-number">13.</span> <span class="nav-text">set 和 frozenset 集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#set-集合是可变容器，可改变容器中的元素，-frozenset集合，是set的不可变版本，他的元素不可变"><span class="nav-number">13.1.</span> <span class="nav-text">set 集合是可变容器，可改变容器中的元素， frozenset集合，是set的不可变版本，他的元素不可变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frozenset-集合"><span class="nav-number">13.2.</span> <span class="nav-text">frozenset 集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queue-双端队列-模块"><span class="nav-number">13.3.</span> <span class="nav-text">queue (双端队列) 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heapq-堆操作"><span class="nav-number">13.4.</span> <span class="nav-text">heapq 堆操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter-类"><span class="nav-number">13.5.</span> <span class="nav-text">Counter 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#namedtuple-工厂函数功能"><span class="nav-number">13.6.</span> <span class="nav-text">namedtuple 工厂函数功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#itertools模块：生成迭代器"><span class="nav-number">13.7.</span> <span class="nav-text">itertools模块：生成迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#functools-模块："><span class="nav-number">13.8.</span> <span class="nav-text">functools 模块：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tkinter-GUI图形洁面开发"><span class="nav-number">14.</span> <span class="nav-text">Tkinter (GUI图形洁面开发)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GUI-：Graphics-User-Interface-图形用户界面。三要素：输入数据、处理数据、输出数据"><span class="nav-number">14.1.</span> <span class="nav-text">GUI ：Graphics User Interface 图形用户界面。三要素：输入数据、处理数据、输出数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinet-GUI-编程组件及用法"><span class="nav-number">14.2.</span> <span class="nav-text">Tkinet GUI 编程组件及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Place-布局管理器"><span class="nav-number">14.3.</span> <span class="nav-text">Tkinter Place 布局管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-compound-选项使用方法"><span class="nav-number">14.4.</span> <span class="nav-text">Tkinter compound 选项使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Entry-和-Text-控件用法"><span class="nav-number">14.5.</span> <span class="nav-text">Tkinter Entry 和 Text 控件用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Panedwindow-控件"><span class="nav-number">14.6.</span> <span class="nav-text">Tkinter Panedwindow 控件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-输入对话框"><span class="nav-number">14.6.1.</span> <span class="nav-text">Tkinter 输入对话框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-文件对话框创建和使用"><span class="nav-number">14.6.2.</span> <span class="nav-text">Tkinter 文件对话框创建和使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-消息框"><span class="nav-number">14.6.3.</span> <span class="nav-text">Tkinter 消息框</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Canvas-画布完全攻略"><span class="nav-number">14.7.</span> <span class="nav-text">Tkinter Canvas 画布完全攻略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作I-O"><span class="nav-number">15.</span> <span class="nav-text">文件操作I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件基本操作"><span class="nav-number">15.1.</span> <span class="nav-text">文件基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-函数：打开指定文件"><span class="nav-number">15.2.</span> <span class="nav-text">open 函数：打开指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-函数文件打开模式："><span class="nav-number">15.3.</span> <span class="nav-text">open 函数文件打开模式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-是否需要缓冲区"><span class="nav-number">15.4.</span> <span class="nav-text">open()是否需要缓冲区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-函数：-按字节、字符读取文件"><span class="nav-number">15.5.</span> <span class="nav-text">read 函数： 按字节、字符读取文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#close-：-关闭文件"><span class="nav-number">15.6.</span> <span class="nav-text">close ： 关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with-as-用法"><span class="nav-number">15.7.</span> <span class="nav-text">with  as 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文管理器，-python-with-as-底层原理"><span class="nav-number">15.8.</span> <span class="nav-text">上下文管理器， python with as 底层原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库编程"><span class="nav-number">16.</span> <span class="nav-text">数据库编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库API-DB-API"><span class="nav-number">16.1.</span> <span class="nav-text">数据库API(DB API)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发编程-多进程、多线程"><span class="nav-number">17.</span> <span class="nav-text">并发编程(多进程、多线程)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程和线程-区别"><span class="nav-number">17.1.</span> <span class="nav-text">进程和线程 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建线程的两种方式："><span class="nav-number">17.2.</span> <span class="nav-text">创建线程的两种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-线程的生命周日-新建、就绪、运行、阻塞、死亡"><span class="nav-number">17.3.</span> <span class="nav-text">Python 线程的生命周日(新建、就绪、运行、阻塞、死亡)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的新建和就绪状态"><span class="nav-number">17.3.1.</span> <span class="nav-text">线程的新建和就绪状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程"><span class="nav-number">18.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-建立TCP连接"><span class="nav-number">18.1.</span> <span class="nav-text">socket 建立TCP连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程-1"><span class="nav-number">19.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-建立TCP连接-1"><span class="nav-number">19.1.</span> <span class="nav-text">socket 建立TCP连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pydoc-模块：查看、生成帮助文档"><span class="nav-number">20.</span> <span class="nav-text">pydoc 模块：查看、生成帮助文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#doctest模块：-文档测试"><span class="nav-number">20.1.</span> <span class="nav-text">doctest模块： 文档测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unittest-PyUnit-单元测试框架"><span class="nav-number">20.2.</span> <span class="nav-text">unittest(PyUnit)单元测试框架</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-编程基础"><span class="nav-number">1.</span> <span class="nav-text">Python 编程基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个python"><span class="nav-number">1.1.</span> <span class="nav-text">第一个python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量类型和运算符"><span class="nav-number">2.</span> <span class="nav-text">变量类型和运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表、元组、字典、集合"><span class="nav-number">3.</span> <span class="nav-text">列表、元组、字典、集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#list列表"><span class="nav-number">3.1.</span> <span class="nav-text">list列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tuple元组"><span class="nav-number">3.2.</span> <span class="nav-text">tuple元组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字典"><span class="nav-number">3.3.</span> <span class="nav-text">字典</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串常用方法详解"><span class="nav-number">4.</span> <span class="nav-text">字符串常用方法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接-拼接数字"><span class="nav-number">4.1.</span> <span class="nav-text">字符串拼接(+拼接数字)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串大小写转换的三种函数"><span class="nav-number">4.2.</span> <span class="nav-text">字符串大小写转换的三种函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number">5.</span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件语句可分3中形式："><span class="nav-number">5.1.</span> <span class="nav-text">if条件语句可分3中形式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while-循环语句"><span class="nav-number">5.2.</span> <span class="nav-text">while 循环语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环用法"><span class="nav-number">5.3.</span> <span class="nav-text">for循环用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数和lambda表达式"><span class="nav-number">6.</span> <span class="nav-text">函数和lambda表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用"><span class="nav-number">6.1.</span> <span class="nav-text">函数是执行特定任务的一段代码，通过一段代码定义成函数，并为该函数指定一个函数名，可多次调用。可代码复用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数的定义"><span class="nav-number">6.2.</span> <span class="nav-text">函数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数值传递和引用传递-包括形式参数和实际参数的区别"><span class="nav-number">6.3.</span> <span class="nav-text">函数值传递和引用传递(包括形式参数和实际参数的区别)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数传递机制"><span class="nav-number">6.4.</span> <span class="nav-text">函数参数传递机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数默认参数设置"><span class="nav-number">6.5.</span> <span class="nav-text">函数默认参数设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量作用域-全局和局部"><span class="nav-number">6.6.</span> <span class="nav-text">变量作用域(全局和局部)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数高级用法"><span class="nav-number">6.7.</span> <span class="nav-text">函数高级用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lambda-表达式及用法"><span class="nav-number">6.8.</span> <span class="nav-text">lambda 表达式及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">7.</span> <span class="nav-text">类和对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象：-一切皆对象"><span class="nav-number">7.1.</span> <span class="nav-text">面向对象： 一切皆对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类对象的创建和使用"><span class="nav-number">7.2.</span> <span class="nav-text">类对象的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装机制及实现方法"><span class="nav-number">7.3.</span> <span class="nav-text">封装机制及实现方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承机制及作用"><span class="nav-number">7.4.</span> <span class="nav-text">继承机制及作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">7.5.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理机制"><span class="nav-number">8.</span> <span class="nav-text">异常处理机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异常机制主要依赖try、except、else、finally、raise-五个关键字"><span class="nav-number">8.1.</span> <span class="nav-text">异常机制主要依赖try、except、else、finally、raise 五个关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异常处理机制-1"><span class="nav-number">8.2.</span> <span class="nav-text">异常处理机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#raise-用法"><span class="nav-number">8.3.</span> <span class="nav-text">raise 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sys-exc-info-获取异常信息"><span class="nav-number">8.4.</span> <span class="nav-text">sys.exc_info(): 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#traceback模块：-获取异常信息"><span class="nav-number">8.5.</span> <span class="nav-text">traceback模块： 获取异常信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义异常类及用法"><span class="nav-number">8.6.</span> <span class="nav-text">自定义异常类及用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类特殊成员-属性和方法"><span class="nav-number">9.</span> <span class="nav-text">类特殊成员(属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊：-方法名、属性名前后添加双下划线。-可重写或调用方法来实现特殊的功能"><span class="nav-number">9.1.</span> <span class="nav-text">特殊： 方法名、属性名前后添加双下划线。 可重写或调用方法来实现特殊的功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setattr-getattr-hasattr-函数用法"><span class="nav-number">9.2.</span> <span class="nav-text">setattr(), getattr(), hasattr() 函数用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#issubclass-和-isinstance-函数-：-检查类型"><span class="nav-number">9.3.</span> <span class="nav-text">issubclass 和 isinstance 函数 ： 检查类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iter-和-reversed-：实现迭代器"><span class="nav-number">9.4.</span> <span class="nav-text">iter 和 reversed ：实现迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成器"><span class="nav-number">9.5.</span> <span class="nav-text">生成器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方式创建生成器："><span class="nav-number">9.6.</span> <span class="nav-text">两种方式创建生成器：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块和包"><span class="nav-number">10.</span> <span class="nav-text">模块和包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用-sys、OS-、-traceback-三个模块"><span class="nav-number">10.1.</span> <span class="nav-text">常用 sys、OS 、 traceback 三个模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块：-import"><span class="nav-number">10.2.</span> <span class="nav-text">导入模块： import</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义模块"><span class="nav-number">10.3.</span> <span class="nav-text">自定义模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的三种方式"><span class="nav-number">10.4.</span> <span class="nav-text">导入模块的三种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入模块的本质"><span class="nav-number">10.5.</span> <span class="nav-text">导入模块的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建包，导入包"><span class="nav-number">10.6.</span> <span class="nav-text">创建包，导入包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见模块"><span class="nav-number">11.</span> <span class="nav-text">常见模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sys模块包含全部成员-包括变量、函数等"><span class="nav-number">11.1.</span> <span class="nav-text">sys模块包含全部成员 包括变量、函数等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#os-模块及用法"><span class="nav-number">11.2.</span> <span class="nav-text">os 模块及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#time-模块"><span class="nav-number">11.3.</span> <span class="nav-text">time 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#json-模块"><span class="nav-number">11.4.</span> <span class="nav-text">json 模块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式"><span class="nav-number">12.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Regular-Expression-描述一种字符串匹配的模式，检查一个字符串是否含有某个子串，也可从字符串中提取匹配的子串，或对字符串中匹配的子串执行替换操作，可用来开发数据抓取、网络爬虫等"><span class="nav-number">12.1.</span> <span class="nav-text">Regular Expression 描述一种字符串匹配的模式，检查一个字符串是否含有某个子串，也可从字符串中提取匹配的子串，或对字符串中匹配的子串执行替换操作，可用来开发数据抓取、网络爬虫等</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-和-frozenset-集合操作"><span class="nav-number">13.</span> <span class="nav-text">set 和 frozenset 集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#set-集合是可变容器，可改变容器中的元素，-frozenset集合，是set的不可变版本，他的元素不可变"><span class="nav-number">13.1.</span> <span class="nav-text">set 集合是可变容器，可改变容器中的元素， frozenset集合，是set的不可变版本，他的元素不可变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#frozenset-集合"><span class="nav-number">13.2.</span> <span class="nav-text">frozenset 集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queue-双端队列-模块"><span class="nav-number">13.3.</span> <span class="nav-text">queue (双端队列) 模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heapq-堆操作"><span class="nav-number">13.4.</span> <span class="nav-text">heapq 堆操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counter-类"><span class="nav-number">13.5.</span> <span class="nav-text">Counter 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#namedtuple-工厂函数功能"><span class="nav-number">13.6.</span> <span class="nav-text">namedtuple 工厂函数功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#itertools模块：生成迭代器"><span class="nav-number">13.7.</span> <span class="nav-text">itertools模块：生成迭代器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#functools-模块："><span class="nav-number">13.8.</span> <span class="nav-text">functools 模块：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tkinter-GUI图形洁面开发"><span class="nav-number">14.</span> <span class="nav-text">Tkinter (GUI图形洁面开发)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GUI-：Graphics-User-Interface-图形用户界面。三要素：输入数据、处理数据、输出数据"><span class="nav-number">14.1.</span> <span class="nav-text">GUI ：Graphics User Interface 图形用户界面。三要素：输入数据、处理数据、输出数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinet-GUI-编程组件及用法"><span class="nav-number">14.2.</span> <span class="nav-text">Tkinet GUI 编程组件及用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Place-布局管理器"><span class="nav-number">14.3.</span> <span class="nav-text">Tkinter Place 布局管理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-compound-选项使用方法"><span class="nav-number">14.4.</span> <span class="nav-text">Tkinter compound 选项使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Entry-和-Text-控件用法"><span class="nav-number">14.5.</span> <span class="nav-text">Tkinter Entry 和 Text 控件用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Panedwindow-控件"><span class="nav-number">14.6.</span> <span class="nav-text">Tkinter Panedwindow 控件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-输入对话框"><span class="nav-number">14.6.1.</span> <span class="nav-text">Tkinter 输入对话框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-文件对话框创建和使用"><span class="nav-number">14.6.2.</span> <span class="nav-text">Tkinter 文件对话框创建和使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tkinter-消息框"><span class="nav-number">14.6.3.</span> <span class="nav-text">Tkinter 消息框</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tkinter-Canvas-画布完全攻略"><span class="nav-number">14.7.</span> <span class="nav-text">Tkinter Canvas 画布完全攻略</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件操作I-O"><span class="nav-number">15.</span> <span class="nav-text">文件操作I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件基本操作"><span class="nav-number">15.1.</span> <span class="nav-text">文件基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-函数：打开指定文件"><span class="nav-number">15.2.</span> <span class="nav-text">open 函数：打开指定文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-函数文件打开模式："><span class="nav-number">15.3.</span> <span class="nav-text">open 函数文件打开模式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#open-是否需要缓冲区"><span class="nav-number">15.4.</span> <span class="nav-text">open()是否需要缓冲区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-函数：-按字节、字符读取文件"><span class="nav-number">15.5.</span> <span class="nav-text">read 函数： 按字节、字符读取文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#close-：-关闭文件"><span class="nav-number">15.6.</span> <span class="nav-text">close ： 关闭文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#with-as-用法"><span class="nav-number">15.7.</span> <span class="nav-text">with  as 用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上下文管理器，-python-with-as-底层原理"><span class="nav-number">15.8.</span> <span class="nav-text">上下文管理器， python with as 底层原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库编程"><span class="nav-number">16.</span> <span class="nav-text">数据库编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库API-DB-API"><span class="nav-number">16.1.</span> <span class="nav-text">数据库API(DB API)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发编程-多进程、多线程"><span class="nav-number">17.</span> <span class="nav-text">并发编程(多进程、多线程)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程和线程-区别"><span class="nav-number">17.1.</span> <span class="nav-text">进程和线程 区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建线程的两种方式："><span class="nav-number">17.2.</span> <span class="nav-text">创建线程的两种方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-线程的生命周日-新建、就绪、运行、阻塞、死亡"><span class="nav-number">17.3.</span> <span class="nav-text">Python 线程的生命周日(新建、就绪、运行、阻塞、死亡)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程的新建和就绪状态"><span class="nav-number">17.3.1.</span> <span class="nav-text">线程的新建和就绪状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程"><span class="nav-number">18.</span> <span class="nav-text">网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#socket-建立TCP连接"><span class="nav-number">18.1.</span> <span class="nav-text">socket 建立TCP连接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pydoc-模块：查看、生成帮助文档"><span class="nav-number">19.</span> <span class="nav-text">pydoc 模块：查看、生成帮助文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#doctest模块：-文档测试"><span class="nav-number">19.1.</span> <span class="nav-text">doctest模块： 文档测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unittest-PyUnit-单元测试框架"><span class="nav-number">19.2.</span> <span class="nav-text">unittest(PyUnit)单元测试框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包和发布-zipapp-和-PyInstaller"><span class="nav-number">20.</span> <span class="nav-text">打包和发布 zipapp 和 PyInstaller</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zipapp-创建独立应用"><span class="nav-number">20.1.</span> <span class="nav-text">zipapp 创建独立应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PyInstaller-安装和使用"><span class="nav-number">20.2.</span> <span class="nav-text">PyInstaller 安装和使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据可视化-Matplotlib-Pygal"><span class="nav-number">21.</span> <span class="nav-text">数据可视化 Matplotlib, Pygal</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Matplotlib"><span class="nav-number">21.1.</span> <span class="nav-text">Matplotlib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Matplotlib-time-xlabel-ylabel-xticks-yticks-设置坐标轴"><span class="nav-number">21.2.</span> <span class="nav-text">Matplotlib time, xlabel, ylabel , xticks, yticks : 设置坐标轴</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -4266,7 +4407,7 @@ PyUnit(unittest)用法：
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共81.5k字</span>
+  <span class="post-count">博客全站共82k字</span>
 </div>
 
 
