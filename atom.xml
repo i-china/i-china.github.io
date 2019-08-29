@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-26T15:02:01.076Z</updated>
+  <updated>2019-08-29T14:00:46.239Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Socket</title>
+    <link href="http://yoursite.com/2019/08/29/Socket-Note/"/>
+    <id>http://yoursite.com/2019/08/29/Socket-Note/</id>
+    <published>2019-08-29T13:58:04.000Z</published>
+    <updated>2019-08-29T14:00:46.239Z</updated>
+    
+    <content type="html"><![CDATA[<center> iFaithFreedom </center><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Author : Hale Lv</span><br><span class="line">@Created Time : 2019-08-29 21:26:32</span><br><span class="line">@Description :</span><br></pre></td></tr></table></figure><h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><pre><code>socket： 套接字，通信技术就是两台联网的计算机之间交换数据的技术。    原意是插座，是计算机之间进行通信的一种约定或一种方式。 通过socket，计算机可接收、可发送数据        典型应用：web服务器和浏览器：浏览器获取用户输入的URL，向服务器发起请求，服务器分析接收到的URL，将对应的网页内容返回给浏览器，浏览器再经过解析和渲染，将文字、图片、视频元素呈现给用户    为了表示和区分已经打开的文件，Linux给每个文件分配一个ID整数，被称为：文件描述符File Descriptor如：        0： 输入文件 stdin，键盘    1:    输出文件 stdout ，显示器        网络连接也是一个文件，也有文件描述符            socket() 创建网络连接，打开一个网络文件，返回值即文件描述符。有文件描述符，即可使用普通的文件操作函数来传输数据，如：                read() ：读取从远程计算机传来的数据                write()：向远程计算机写入数据    Windows 系统中的socket         Windows：文件句柄                Liunx ： 文件描述符</code></pre><h3 id="套接字的类型，socket的类型"><a href="#套接字的类型，socket的类型" class="headerlink" title="套接字的类型，socket的类型"></a>套接字的类型，socket的类型</h3><pre><code>有很多如：DARPA Internet 地址： Internet套接字、 本地节点的路径名：Unix套接字，CCITT X.25地址：X.25套接字等。Internet 套接字：最常用、具有代表性Internet套接字的数据传输方式：    1. 流格式套接字 SOCK_STREAM        流格式套接字：Stream Sockets 也叫&quot;面向连接的套接字&quot;，使用SOCK_STREAM 表示        SOCK_STREAM： 是一种可靠、双向的通信流数据。可准确无误到达另一台计算机，可损坏或丢失、可重新发送        SOCK_STREAM 的特征：            1. 数据在传输过程中不会消失            2. 数据是按照顺序传输的            3. 数据的发送和接收不是同步的。也成 不存在数据边界            使用TCP协议 The Transmission Control Protocol，传输控制协议，TCP控制数据按照顺序到达并且没有错误            IP Internet Protocol 网络协议，控制数据如何从源头到达目的地，即路由    2. 数据报格式套接字 SOCK_DGRAM        数据报格式套接字 Datagram Sockets 也叫 无连接的套接字，使用SOCK_DGRAM表示            只管传输数据，不做数据校验，如损坏或丢失，不补救，无法重传。        SOCK_DGRAM 的特征：            1. 强调快速传输而非传输顺序            2. 传输的数据肯跟丢失或损坏            3. 限制每次传输的数据大小            4. 数据的发送和接收是同步的，存在数据边界        SCOK_DGRAM：是一种不可靠、不按传序传递的、以追求速度为目的的套接字            使用UDP协议 User Datagram Protocol 用户数据报协议</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt; iFaithFreedom &lt;/center&gt;
+    
+    </summary>
+    
+      <category term="Socket" scheme="http://yoursite.com/categories/Socket/"/>
+    
+    
+      <category term="Socket" scheme="http://yoursite.com/tags/Socket/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac</title>
