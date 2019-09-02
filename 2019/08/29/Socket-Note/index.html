@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="iFaithFreedom">
 <meta property="og:description" content="iFaithFreedom">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-31T12:44:57.562Z">
+<meta property="og:updated_time" content="2019-09-02T13:30:15.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Socket">
 <meta name="twitter:description" content="iFaithFreedom">
@@ -388,7 +388,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  3.3k
                 </span>
               
 
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  12
                 </span>
               
             </div>
@@ -501,7 +501,113 @@
 
 TCP/IP协议族
     协议： Protocol 是网络通信过程中的约定或合同，双方必须都遵守才能正常收发数据。 协议是一种规范，通信双方需使用同一协议才能通信，
-    TCP/IP模型包含 TCP、IP、UDP、Telnet、FTP、SMTP等</code></pre>
+
+    TCP/IP模型包含 TCP、IP、UDP、Telnet、FTP、SMTP等
+    TCP/UDP:![SOCKET](http://c.biancheng.net/uploads/allimg/190126/1-1Z126104435N0.gif)
+开放式系统 Open System
+    以多个标准为依据设计的系统称为开放式系统</code></pre><h4 id="IP、MAC和端口号-网络通信中确认身份信息的三要素"><a href="#IP、MAC和端口号-网络通信中确认身份信息的三要素" class="headerlink" title="IP、MAC和端口号 - 网络通信中确认身份信息的三要素"></a>IP、MAC和端口号 - 网络通信中确认身份信息的三要素</h4><pre><code>IP地址
+    是 Internet Protocol Address ，网际协议地址
+Mac地址 
+    是 Media Access Control Address , 媒体访问控制地址，称为局域网地址LAN Address，以太网地址 Ethernet Address 或 物理地址Physical Address
+端口号
+    Port Number 为每个网路程序分配一个独一无二的端口号
+    是一个虚拟的、逻辑上的概念</code></pre><h3 id="Linux-下的Socket-演示程序"><a href="#Linux-下的Socket-演示程序" class="headerlink" title="Linux 下的Socket 演示程序"></a>Linux 下的Socket 演示程序</h3><pre><code>服务器端代码server.cpp:
+    #include &lt;stdio.h&gt;
+    #include &lt;string.h&gt;
+    #include &lt;stdlib.h&gt;
+    ...
+    int main() {
+        int serv_sock = socket(AF_INET,SOCK_STREAM,IPPROPT_TCP);
+        struct sockaddr_in serv_addr;
+
+    }
+...
+[SOCKET CPP](http://c.biancheng.net/view/2128.html)</code></pre><h3 id="WSAStartup-函数以及DLL的加载"><a href="#WSAStartup-函数以及DLL的加载" class="headerlink" title="WSAStartup() 函数以及DLL的加载"></a>WSAStartup() 函数以及DLL的加载</h3><pre><code>[More](http://c.biancheng.net/view/2130.html)</code></pre><h3 id="Socket-函数用法：创建套接字"><a href="#Socket-函数用法：创建套接字" class="headerlink" title="Socket() 函数用法：创建套接字"></a>Socket() 函数用法：创建套接字</h3><pre><code>Linux 下的Socket函数
+使用&lt;sys/socket.h&gt; 头文件中socket函数创建套接字，原型为：
+int socket(int af, int type, int protocol);
+    1. af: 地址族 Address Family， IP地址类型，常用AF_INET：表示IPv4地址 和 AF_INET6：表示IPv6地址，
+    2. type 为数据传输方式/套接字类型，常用： SOCK_STREAM 流格式套接字/面向连接套接字 和 SOCK_DGRAM 数据套接字/无连接的套接字
+    3. protocol 表示传输协议，常用： IPPROTO_TCP 和 IPPROTO_UDP
+TCP：
+    int tcp_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+UDP:
+    int udp_socket = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+将 protocol的值设为0， 系统可自动推演出使用的协议：
+    int tcp_socket = socekt(AF_INET, SOCK_STREAM, 0)    // TCP
+    int udp_socket = socket(AF_INET, SOCK_DGRAM,  0)    // UDP
+
+bind() 和 connect()函数：绑定套接字并建立连接
+    使用 bind函数将套接字与特定的IP地址和端口绑定起来，
+    bind 函数原型：
+        int bind(int sock, struct sockaddr * addr, socklen_t addrlen);    //linux
+        int bind(SOCKET sock, const struct sockaddr * addr, int addrlen);    // windows
+        [More](http://c.biancheng.net/view/2344.html)
+
+listen accept : 让套接字进入监听状态并响应客户端请求
+    listen 函数：让套接字进入被监听状态，原型：
+        int listen(int sock, int backlog);    //linux
+        int listen(SOCKET sock, int backlog);    // windows
+            sock: 进入监听状态的套接字， backlog： 请求队列的最大长度
+
+[More](http://c.biancheng.net/view/2345.html)</code></pre><h4 id="send-recv-和write-read-发送数据和接收数据"><a href="#send-recv-和write-read-发送数据和接收数据" class="headerlink" title="send()/recv()和write()/read(): 发送数据和接收数据"></a>send()/recv()和write()/read(): 发送数据和接收数据</h4><pre><code>Linux 下数据的接收和发送
+    [More](http://c.biancheng.net/view/2346.html)        </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Author : Hale Lv</span><br><span class="line">@Created Time : 2019-09-02 09:45:17</span><br><span class="line">@Description :</span><br></pre></td></tr></table></figure>
+
+<h2 id="图解TCP数据报结构以及三次握手"><a href="#图解TCP数据报结构以及三次握手" class="headerlink" title="图解TCP数据报结构以及三次握手"></a>图解TCP数据报结构以及三次握手</h2><pre><code>TCP： Transmission Control Protocol，传输控制协议。 一种面向连接的、可靠的、基于字节流的通信协议，数据在传输前要建立连接，完毕后要断开连接
+客户端在收发数据前要使用connect 函数和服务器建立连接，建立连接的目的是保证IP地址、端口、物理链路等正确无误，为数据的传输开辟通道
+TCP建立连接时要传输三个数据包，俗称：三次握手 Three-way Handshaking ：
+    [Shake 1]套接字A： &quot;你好，套接字B，我这里有数据包传给你，建立连接吧&quot;
+    [Shake 2]套接字B：&quot;好的，这边已经准备就绪&quot;
+    [Shake 3]套接字C：&quot;谢谢你受理我的请求&quot;
+    TCP三次握手:![三次握手](http://c.biancheng.net/uploads/allimg/190219/1155315343-0.jpg)
+    图片中带阴影的字段说明：
+        1. 序号： Seq： Sequence Number ： 序号占32位，用来识别从计算机A发送到计算机B的数据包的序号，计算机发送数据时对此进行标记
+        2. 确认号：Ack：Acknowledge Number： 确认号占32位， 客户端和服务器端都可以发送， Ack=Seq+1
+        3. 标志位： 每个标志位占用1Bit， 共有6个，分别为：URG、ACK、PSH、RST、SYN、FIN，具体含义：
+            URG： 紧急指针urgent pointer 有效
+            ACK： 确认序号有效
+            PSH： 接收方应该尽快将这个报文交给应用层
+            RST： 重置连接
+            SYN： 建立一个连接
+            FIN： 断开一个连接
+            Seq 是 Sequence 的缩写，表示序列； Ack 是 Acknowledeg 缩写，表示确认； SYN 是 Synchronous 的缩写， 愿意是 同步的， 表示建立同步连接； FIN是Finish的缩写，表示完成
+
+    连接的建立(三次握手)
+        使用Connect 建立连接
+
+        Three-hand: ![Hands](http://c.biancheng.net/uploads/allimg/190219/1155312401-1.jpg &quot;Three-Hands&quot;)
+        客户端调用socket 函数创建套接字后，因没建立连接，所以套接字处于CLOSED状态，服务器调用listen函数后，套接字进入LISTEN状态，开始监听客户端请求
+        客户端开始发起请求：
+            1. 当客户端调用connect 函数后，TCP协议会组建一个数据包，并设置SYN标志位，表示该数据包用来建立同步连接的，同时生成一个随机数字1000， 填充 序号Seq 字段，表示该数据包的序号。完成这些工作，开始想服务器端发送数据包，客户端进入SYN-SEND状态
+            2. 服务器端收到数据包，检测到已经设置了SYN标志位， 检测到是客户端发来的建立连接的请求包，服务器也组建一个数据包， 并设置SYN和ACK标志位，SYN表示该数据包用来建立连接，ACK用来确认收到刚才客户端发送的数据包
+            服务器生成一个随机数2000，填充 序号 Seq 字段，2000 和客户端数据包没有关系
+            服务器将数据包发出，进入SYN-RECV状态
+            3. 客户端收到数据包，检测到已经设置 SYN 和ACK 标志位， 检测到服务器发来的 确认包， 客户端检测 确认号 Ack 字段，看值是否为1000+1，如是说明连接成功
+            客户端将数据包发出，进入ESTABLISED状态，表示连接已经成功建立
+            4. 服务器端收到数据包，检测到已经设置ACk标志位，知道是客户端发来的 确认包，服务器会检测 确认号Ack字段， 看值是否为2000+1，如是说明连接建立成功，服务器进入ESTABLISED状态
+            至此，客户端和服务器都进入ESTABLISED状态，连接建立成功，接下可收发数据
+    最后的说明：
+        三次握手的关键是要确认对方收到了自己的数据包，目标就是通过 确认号 Ack 字段实现的，计算机会记录下自己发送的数据包序号Seq，待收到对方的数据包后，检测 确认号Ack字段，看Ack = Seq + 1 是否成立， 如成立说明对方正确收到了自己的数据包</code></pre><h3 id="TCP数据的传输过程"><a href="#TCP数据的传输过程" class="headerlink" title="TCP数据的传输过程"></a>TCP数据的传输过程</h3><pre><code>Ack 号  = Seq号 + 传递的字节数 + 1
+重传超时事件 RTO ， Retransmission Time Out
+重传次数</code></pre><h3 id="TCP四次握手断开连接"><a href="#TCP四次握手断开连接" class="headerlink" title="TCP四次握手断开连接"></a>TCP四次握手断开连接</h3><pre><code>[More](http://c.biancheng.net/view/2353.html)</code></pre><h4 id="shotdown-函数：-优雅地断开TCP连接"><a href="#shotdown-函数：-优雅地断开TCP连接" class="headerlink" title="shotdown 函数： 优雅地断开TCP连接"></a>shotdown 函数： 优雅地断开TCP连接</h4><pre><code>[More](http://c.biancheng.net/view/2354.html)</code></pre><h3 id="Socket-实现文件传输"><a href="#Socket-实现文件传输" class="headerlink" title="Socket 实现文件传输"></a>Socket 实现文件传输</h3><pre><code>Client 从Server 下载一个文件并保存到本地
+需注意：
+    1. 文件大小不确定该，调用一次write /send 函数不能完成文件内容的发送，接收数据也同样
+    解决方案： 可使用while 循环：
+        int nCount;
+        while(nCount = fread(buffer, 1, BUF_SIZE, fp)) &gt; 0 {
+            send(sock, buffer, nCount, 0);
+        }    
+        // Client
+        int nCount;
+        while((nCount = recv(clntSock, buffer, BUF_SIZE, 0)) &gt; 0 ) {
+            fwrite(buffer, nCount, 1, fp);
+        } 
+        [More](http://c.biancheng.net/view/2355.html)</code></pre><h3 id="网络数据的大小端问题"><a href="#网络数据的大小端问题" class="headerlink" title="网络数据的大小端问题"></a>网络数据的大小端问题</h3><pre><code>        大端序和小端序
+
+        网络字节序转换函数
+
+gethostbyname: 通过域名获取IP地址
+    通过域名获取IP地址
+    [More](http://c.biancheng.net/view/2359.html)</code></pre>
       
     </div>
     
@@ -520,7 +626,7 @@ TCP/IP协议族
   <p><span>本文标题:</span><a href="/2019/08/29/Socket-Note/">Socket</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 <center> Hale Lv </center> 的个人博客"><center> Hale Lv </center></a></p>
   <p><span>发布时间:</span>2019年08月29日 - 21:08</p>
-  <p><span>最后更新:</span>2019年08月31日 - 20:08</p>
+  <p><span>最后更新:</span>2019年09月02日 - 21:09</p>
   <p><span>原始链接:</span><a href="/2019/08/29/Socket-Note/" title="Socket">http://yoursite.com/2019/08/29/Socket-Note/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/29/Socket-Note/" aria-label="复制成功！"></i></span>
   </p>
@@ -819,7 +925,7 @@ TCP/IP协议族
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket"><span class="nav-number">1.</span> <span class="nav-text">Socket</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#套接字的类型，socket的类型"><span class="nav-number">1.1.</span> <span class="nav-text">套接字的类型，socket的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI-网络七层模型"><span class="nav-number">1.2.</span> <span class="nav-text">OSI 网络七层模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket"><span class="nav-number">1.</span> <span class="nav-text">Socket</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#套接字的类型，socket的类型"><span class="nav-number">1.1.</span> <span class="nav-text">套接字的类型，socket的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI-网络七层模型"><span class="nav-number">1.2.</span> <span class="nav-text">OSI 网络七层模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IP、MAC和端口号-网络通信中确认身份信息的三要素"><span class="nav-number">1.2.1.</span> <span class="nav-text">IP、MAC和端口号 - 网络通信中确认身份信息的三要素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-下的Socket-演示程序"><span class="nav-number">1.3.</span> <span class="nav-text">Linux 下的Socket 演示程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WSAStartup-函数以及DLL的加载"><span class="nav-number">1.4.</span> <span class="nav-text">WSAStartup() 函数以及DLL的加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Socket-函数用法：创建套接字"><span class="nav-number">1.5.</span> <span class="nav-text">Socket() 函数用法：创建套接字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#send-recv-和write-read-发送数据和接收数据"><span class="nav-number">1.5.1.</span> <span class="nav-text">send()/recv()和write()/read(): 发送数据和接收数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图解TCP数据报结构以及三次握手"><span class="nav-number">2.</span> <span class="nav-text">图解TCP数据报结构以及三次握手</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP数据的传输过程"><span class="nav-number">2.1.</span> <span class="nav-text">TCP数据的传输过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP四次握手断开连接"><span class="nav-number">2.2.</span> <span class="nav-text">TCP四次握手断开连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shotdown-函数：-优雅地断开TCP连接"><span class="nav-number">2.2.1.</span> <span class="nav-text">shotdown 函数： 优雅地断开TCP连接</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Socket-实现文件传输"><span class="nav-number">2.3.</span> <span class="nav-text">Socket 实现文件传输</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络数据的大小端问题"><span class="nav-number">2.4.</span> <span class="nav-text">网络数据的大小端问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -880,7 +986,7 @@ TCP/IP协议族
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共87.8k字</span>
+  <span class="post-count">博客全站共94.7k字</span>
 </div>
 
 
