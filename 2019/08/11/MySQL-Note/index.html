@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="iFaithFreedom">
 <meta property="og:description" content="MySQL">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-02T13:33:47.055Z">
+<meta property="og:updated_time" content="2019-09-03T13:20:20.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL">
 <meta name="twitter:description" content="MySQL">
@@ -391,7 +391,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6.7k
+                  13.3k
                 </span>
               
 
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  26
+                  51
                 </span>
               
             </div>
@@ -690,7 +690,318 @@ LONGBLOB(M)
         `id` int(11) DEFAULT NULL,
         `name` varchar(100) DEFAULT NULL,
         `salary` float DEFAULT NULL
-    )ENGINE=InnoDB DEFAULT CHARSET=gb2312</code></pre>
+    )ENGINE=InnoDB DEFAULT CHARSET=gb2312</code></pre><h3 id="MySQl-修改数据表-ALTER-TABLE"><a href="#MySQl-修改数据表-ALTER-TABLE" class="headerlink" title="MySQl 修改数据表 ALTER TABLE"></a>MySQl 修改数据表 ALTER TABLE</h3><pre><code>修改表指修改数据库中已经存在的数据表的结构。使用 ALTER TABLE 修改。修改表的操作有：修改表名、修改字段数据类型或字段名、增加和删除字段、修改字段的排列位置、更改表的存储引擎、删除表的外键约束等
+    ALTER TABLE &lt;表名&gt; [修改选项]
+        选项：
+            {
+                ADD COLUMN &lt;列名&gt; &lt;类型&gt;    |
+                CHANGE COLUMN &lt;旧列名&gt; &lt;新列名&gt; &lt;新列类型&gt;    |
+                ALTER COLUMN &lt;列名&gt; { SET DEFAULT &lt;默认值&gt; | DROP DEFAULT }    |
+                MODIFY COLUMN &lt;列名&gt; &lt;类型&gt;    |
+                DROP COLUMN &lt;列名&gt;    |
+                RENAME TO &lt;新表名&gt;
+            }
+添加字段
+    ALTER  TABLE  &lt;表名&gt; ADD &lt;新字段名&gt; &lt;数据类型&gt;  [约束调教] [FIRST|AFTER 已存在的字段名];
+        新字段名为要添加的字段的名称
+修改字段数据类型
+    修改字段的数据类型即把字段的数据类型转换成另一种数据类型
+    ALTER TABLE &lt;表明&gt; MODIFY &lt;字段名&gt; &lt;数据类型&gt;
+删除字段
+    ALTER TABLE &lt;表名&gt; DROP &lt;字段名&gt;;
+修改字段名称
+    ALTER TABLE  &lt;表名&gt;  CHANGE  &lt;旧字段名&gt;  &lt;新字段名&gt; &lt;新数据类型&gt;;
+        :CHANGE 可只修改数据类型，实现和MODIFY同样的效果，将SQL中的新字段名 和 旧字段名设置为相同的名称，只改变 数据类型
+修改表名
+    ALTER TABLE &lt;旧表名&gt; RENAME &lt;TO&gt; &lt;新表名&gt;;
+        :TO 为可选参数</code></pre><h3 id="删除数据表-DROP-TABLE"><a href="#删除数据表-DROP-TABLE" class="headerlink" title="删除数据表 DROP TABLE"></a>删除数据表 DROP TABLE</h3><pre><code>DROP TABLE [IF EXISTS] &lt;表名&gt; [, &lt;表名1&gt; , &lt;表名2&gt; ] ...
+    1. 表名： 被删除的表名，可同时删除多个表
+    2. 表被删除时，所有表数据和表定义会被取消
+    3. 表被删除时，权限不会自动被删除
+    4. IF EXISTS 在删除前判断删除的表是否存在
+删除表
+    DROP TABLE test_tb;</code></pre><h3 id="MYSQL-INSERT-：-插入数据"><a href="#MYSQL-INSERT-：-插入数据" class="headerlink" title="MYSQL INSERT ： 插入数据"></a>MYSQL INSERT ： 插入数据</h3><pre><code>有两种语法：
+    1. INSERT ... VALUES 语句
+        INSERT INTO &lt;表名&gt; [ &lt;列名1&gt; [,...&lt;列名n&gt;]] VALUES (值1) [...,(值n)];
+            ： 表名 ：指定被操作的表名
+            ： 列名： 指定需要插入数据的列名，如向表中所有列插入数据，可省略列名
+            ： VALUES 或 VALUE 子句： 要插入的数据清单顺序要和列的顺序相对应
+    2. INSERT ... SET 语句
+        INSERT INTO &lt;表名&gt; SET &lt;列名&gt; = &lt;值1&gt;, &lt;列名2&gt; = &lt;值2&gt;, ...    
+    ：INSERT 。。。VALUES 可向表中插入一行或多行数据
+    ：INSERT。。 VALUES 可指定插入行中每列的值，也可指定部分列的值
+    ：INSERT。。。SELECT 可向表中插入其他表的数据
+    ：INSERT 。。。SET可向表中插入部分列的值
+    ：INSERT。。。VALUES可一次插入多条数据
+使用INSERT INTO 。。。FROM 语句复制表数据</code></pre><h3 id="MYSQL-UPDATE-：-修改数据-更新数据"><a href="#MYSQL-UPDATE-：-修改数据-更新数据" class="headerlink" title="MYSQL UPDATE ： 修改数据|更新数据"></a>MYSQL UPDATE ： 修改数据|更新数据</h3><pre><code>UPDATE &lt;表名&gt; SET 字段1=值 1 [，字段 2 = 值 2.。。] [ WHERE 子句] [ORDER BY 子句] [LIMIT 子句]
+    ： 表名： 指定要更新的表名称
+    ： SET 子句： 指定表中要修改的列名以及其值
+    ： WHERE 子句： 限定表中要修改的行，如不指定，修改所有行
+    ： ORDER BY： 限定表中的行被修改的次序
+    ： LIMIT 子句： 限定被修改的行数</code></pre><h3 id="MYSQL-DELETE-：-删除数据"><a href="#MYSQL-DELETE-：-删除数据" class="headerlink" title="MYSQL DELETE ： 删除数据"></a>MYSQL DELETE ： 删除数据</h3><pre><code>DELETE FORM &lt;表名&gt; [WHERE 子句] [ORDER BY 子句] [LIMIT 子句]
+    ： 表名； 指定要删除的表名
+    ： ORDER BY ： 按照子句中指定的顺序进行删除
+    ： WHERE 子句： 为删除操作限定删除条件，如省略，则删除素有行
+    ： LIMIT 子句： 被删除行的最大值
+不使用WHERE条件的时候，将删除所有数据</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Author : Hale Lv</span><br><span class="line">@Created Time : 2019-09-03 09:14:58</span><br><span class="line">@Description :</span><br></pre></td></tr></table></figure>
+
+<h2 id="MYSQL-主键-PRIMARY-KEY"><a href="#MYSQL-主键-PRIMARY-KEY" class="headerlink" title="MYSQL 主键 PRIMARY KEY"></a>MYSQL 主键 PRIMARY KEY</h2><pre><code>主键PRIMARY KEY 完整称呼为： 主键约束。 是一个列或列的组合，其值能唯一地标识表中的每一行， 这样的一列或多列成为表的主键，可强制表的实体完整性
+选取设置主键约束的字段
+    需遵守的规则：
+        1. 每个表只能定义一个主键
+        2. 主键值必须是唯一标识表中的每一行，不能为NULL，即表中不能存在两行数据有相同的主键值
+        3. 一个列名只能在复合主键列表中出现一次
+        4. 复合主键不能包含不必要的多余列。 
+在创建表时设置主键约束
+    &lt;字段名&gt; &lt;数据类型&gt; PRIMARY KEY [默认值]
+    在定义完所有列之后，指定主键的语法格式：
+        [CONSTRAINT] &lt;约束名&gt; | PRIMARY KEY [字段名]
+在创建表时设置复合主键
+    PRIMARY KEY [字段1，字段2，。。。字段n]
+在修改表时添加主键约束
+    ALTER TABLE &lt;数据表名&gt; ADD PRIMARY KEY(&lt;列名&gt;);</code></pre><h3 id="MYSQL-外键约束-FOREIGN-KEY"><a href="#MYSQL-外键约束-FOREIGN-KEY" class="headerlink" title="MYSQL 外键约束 FOREIGN KEY"></a>MYSQL 外键约束 FOREIGN KEY</h3><pre><code>外键约束用来在 两个表之间建立连接，可是一列或多列， 一个表可有一个或多个外键
+外键对应的参照完整性，一个表的外键可是空值，如不为空，则每个外键的值必须等于另一个表中主键的某个值
+作用：保持数据的一致性、完整性，如部门表 tb_dept 的主键是 id， 员工表 tb_emp中有一个键 deptID 与 这个 id 关联
+    主表(父表)： 对于两个具有关联关系的表而言，相关联字段中主键所在的表就是主表
+    从表(子表)： 对于两个具有关联关系的表而言，相关联字段中外键所在的表就是从表
+选取设置MYSQL外键约束的字段
+    定义外键，需遵守的规则：
+        1. 父表存在与数据库中，或是当前正在创建的表，父表与子表是同一个表，这样的表称为 自参照表， 结构称为 自参照完整性
+        2. 必须为父表定义主键
+        3. 主键不能包含空值，允许外键中出现空值
+        4. 在父表的表名后指定列名或列名的组合，这个列或列名的组合必须是父表的主键或候选键
+        5. 外键中列的树木必须和父表的主键中列的数目相同
+        6. 外键中列的数据类型必须和父表主键中对应的数据类型相同
+在创建表时设置外键约束
+    在数据表中是创建外键使用 FOREIGN KEY 关键字
+        [CONSTRAINT &lt;外键名&gt;] FOREIGN KEY 字段名 [,字段名2,...] REFERENCES &lt;主表名&gt; 主键列1 [, 主键列2,...]
+        :外键名 为定义的外键约束的名称，不能有相同名称的外键；字段名表示子表需要添加外键约束的字段列； 主表名即被子表外键所依赖的表的名称；主键列表示主表中定义的主键列或列组合
+在修改表时添加外键约束
+    ALTER TABLE &lt;数据表名&gt; ADD CONSTRAINT &lt;索引名&gt; FOREIGN KEY(列名) REFERENCES &lt;主键名&gt; (&lt;列名&gt;);
+删除外键约束
+    删除外键，解除主表和从表间的关联关系
+    ALTER TABLE &lt;表名&gt; DROP FOREIGN KEY &lt;外键约束名&gt;;</code></pre><h3 id="MYSQL-唯一约束-UNIQUE-KEY"><a href="#MYSQL-唯一约束-UNIQUE-KEY" class="headerlink" title="MYSQL 唯一约束 UNIQUE KEY"></a>MYSQL 唯一约束 UNIQUE KEY</h3><pre><code>要求该列唯一，允许为空，但只能出现一个空值，唯一约束可确保一列或几列不出现重复值
+在创建表时设置唯一约束
+    &lt;字段名&gt; &lt;数据类型&gt; UNIQUE
+UNIQUE 和 PRIMARY KEY 的区别： 一个表可有多个字段声明为UNIQUE，但只能有一个PRIMARY KEY 声明；声明为PAIMARY KEY的列不允许有空值，UNIQUE的字段允许空值的存在
+在修改表时添加唯一约束
+    ALTER TABLE &lt;数据表名&gt; ADD CONSTRAINT &lt;唯一约束名&gt; UNIQUE(&lt;列名&gt;);
+删除唯一约束
+    ALTER TABLE &lt;表名&gt; DROP INDEX &lt;唯一约束名&gt;;</code></pre><h3 id="MYSQL检查约束-CHECK"><a href="#MYSQL检查约束-CHECK" class="headerlink" title="MYSQL检查约束 CHECK"></a>MYSQL检查约束 CHECK</h3><pre><code>选取设置检查约束的字段
+    CHECK &lt;表达式&gt;
+        ：表达式指SQL，用于指定需要检查的限定条件
+    若将CHECK约束子句置于某个列的定义之后，这种约束称为基于列的CHECK 约束
+    在更新表数据的时候，系统检查更新后的数据行是否满足CHECK约束中的限定条件
+在创建表时设置检查约束
+    CHECK (&lt;检查约束&gt;)
+在修改表时添加检查约束
+    ALTER TABLE tb_emp ADD CONSTRAINT &lt;检查约束名&gt; CHECK(&lt;检查约束&gt;)
+删除检查约束    
+    ALTER TABLE &lt;数据表名&gt; DROP CONSTRAINT &lt;检查约束名&gt;;</code></pre><h3 id="默认值-DEFAULT"><a href="#默认值-DEFAULT" class="headerlink" title="默认值 DEFAULT"></a>默认值 DEFAULT</h3><pre><code>完整称呼为： 默认值约束 DEFAULT Constraint，默认值约束用来指定某列的默认值
+在创建表时设置默认值约束
+    &lt;字段名&gt; &lt;数据类型&gt; DEFAULT &lt;默认值&gt;;
+在修改表时添加默认值约束
+    ALTER TABLE &lt;数据表名&gt; CHANGE COLUMN &lt;字段名&gt; &lt;数据类型&gt; DEFAULT &lt;默认值&gt;;
+删除默认值约束
+    ALTER TABLE &lt;数据表名&gt; CHANGE COLUMN &lt;字段名&gt; &lt;字段名&gt; &lt;数据类型&gt; DEFAULT NULL;</code></pre><h3 id="MYSQL-非空约束-NOT-NULL"><a href="#MYSQL-非空约束-NOT-NULL" class="headerlink" title="MYSQL 非空约束 NOT NULL"></a>MYSQL 非空约束 NOT NULL</h3><pre><code>可通过 CREATE TABLE 或 ALTER TABLE 实现，在表中某个列的定义后加上关键字 NOT NULL 作为限定词，来约束该列的取值不能为空
+在创建表时设置非空约束
+    &lt;字段名&gt; &lt;数据类型&gt; NOT NULL;
+在修改表时添加非空约束
+    ALTER TABLE &lt;数据表名&gt; CHANGE COLUMN &lt;字段名&gt; &lt;字段名&gt; &lt;数据类型&gt; NOT NULL;
+删除非空约束
+    ALTER TABLE &lt;数据表名&gt; CHANGE COLUMN &lt;字段名&gt; &lt;字段名&gt; &lt;数据类型&gt; NOT NULL;</code></pre><h3 id="MYSQL-查看表中的约束"><a href="#MYSQL-查看表中的约束" class="headerlink" title="MYSQL 查看表中的约束"></a>MYSQL 查看表中的约束</h3><pre><code>使用 SHOW  CREATE TABLE 查看表约束
+SHOW CREATE TABLE &lt;数据表名&gt;;</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Author : Hale Lv</span><br><span class="line">@Created Time : 2019-09-03 10:50:13</span><br><span class="line">@Description :</span><br></pre></td></tr></table></figure>
+
+<h2 id="MYSQL-查询数据表"><a href="#MYSQL-查询数据表" class="headerlink" title="MYSQL 查询数据表"></a>MYSQL 查询数据表</h2><pre><code>指从一张表的数据中查询所需要的数据，主要有查询所有字段、查询指定字段、查询指定记录、查询空值、多条件的查询、对查询结果进行排序等
+MySQL SELECT 基本语法
+    SELECT { * | &lt;字段列名&gt;}
+    [        
+        FROM &lt;表1&gt; , &lt;表2&gt; ...
+        [
+            WHERE &lt;表达式&gt;
+            [ GROUP By &lt;group by definition&gt;
+                [
+                    HAVING &lt;expression&gt; [{&lt;operator&gt; &lt;expression&gt;}...]
+                ]
+                [
+                    ORDER BY &lt;order by definition&gt;
+                ]
+                [ 
+                    LIMIT [&lt;offset&gt;,] &lt;row count&gt;
+                ]
+            ]
+        ]
+    ]
+        1. { * | &lt;字段列名&gt; } 包含星号通配符的字段列表，表示查询的字段，字段列至少包含一个字段名称，如要查询多个，要用逗号隔开
+        2. FROM &lt;表1&gt;,&lt;表2&gt;...， 表1，2表示查询数据的来源，可单个可多个
+        3. WHERE 子句是可选项，将限定查询行必须满足的查询条件
+        4. GROUP BY &lt;字段&gt; ，该子句告诉MYSQL，如何显示查询出来的数据，并按照指定的字段分组
+        5. [ ORDER BY &lt;字段&gt; ], 该子句告诉MYSQL 按顺序显示查询出来的数据，升序ASC 降序DESC
+        6. [LIMIT[&lt;offset&gt;,]&lt;row count&gt;] ,每次西芹是查询出来的数据条数
+    使用 *  查询表中的全部内容
+        使用星号 * 通配符查询所有字段
+            SELECT * FROM 表名;
+    查询表中指定的字段
+        SELECT &lt;列名&gt; FROM &lt;表名&gt;;
+        SELECT &lt;字段名1&gt;, &lt;字段名2&gt;, &lt;字段名n&gt; FROM &lt;表名&gt;;</code></pre><h3 id="MYSQL-DISTINCT-：-去重，过滤重复数据"><a href="#MYSQL-DISTINCT-：-去重，过滤重复数据" class="headerlink" title="MYSQL DISTINCT ： 去重，过滤重复数据"></a>MYSQL DISTINCT ： 去重，过滤重复数据</h3><pre><code>SELECT DISTINCT &lt;字段名&gt; FROM &lt;表名&gt;;</code></pre><h3 id="MYSQL-AS-设置别名"><a href="#MYSQL-AS-设置别名" class="headerlink" title="MYSQL AS :设置别名"></a>MYSQL AS :设置别名</h3><pre><code>&lt;表名&gt; [AS] &lt;别名&gt;;
+    : 表名： 数据中存储的数据表的名称
+    ：别名： 查询时指定的表的新名称
+    ： AS ：可选参数
+    为表取别名时，保证不能与数据库中的其他表的名称冲突
+    显示的列名称很长或名称不直观，可指定列的别名，替换名字或表达式
+&lt;列名&gt; [AS] &lt;列别名&gt;
+    ： 列名 ： 为表中字段定义的名称
+    ： 列别名： 字段新的名称
+    ： AS ： 可选参数</code></pre><h3 id="MYSQL-LIMIT-：-限制查询结果的记录条数"><a href="#MYSQL-LIMIT-：-限制查询结果的记录条数" class="headerlink" title="MYSQL LIMIT ： 限制查询结果的记录条数"></a>MYSQL LIMIT ： 限制查询结果的记录条数</h3><pre><code>返回第一行或前几行，用 MYSQL LIMIT 子句
+&lt;LIMIT&gt; [ &lt;位置偏移量&gt;, ] &lt;行数&gt;
+LIMIT接受一个或两个数字参数，参数必须是一个整数常量，如给定两个，第一个参数指定第一个返回记录行的偏移量，第二个参数指定返回记录行的最大数目
+第一个参数 位置偏移量 指示 MYSQL 从哪行开始显示，如不指定，从表中的第一条记录开始，第二个参数 行数 指示 返回的记录条数
+如指定返回记录的开始位置，则返回结果为从 位置偏移量 参数开始的指定行数， 行数 参数指定返回的记录条数
+返回第一行时，位置偏移量为0， 因此， LIMIT 1，1 返回第2行，而不是1行</code></pre><h3 id="MYSQL-ORDER-BY-：-对查询结果进行排序"><a href="#MYSQL-ORDER-BY-：-对查询结果进行排序" class="headerlink" title="MYSQL ORDER BY ： 对查询结果进行排序"></a>MYSQL ORDER BY ： 对查询结果进行排序</h3><pre><code>ORDER BY 子句主要将结果集中的数据按照一定的顺序进行排序
+ORDER BY { &lt;列名&gt; | &lt;表达式&gt; | &lt;位置&gt; } [ASC | DESC]
+    ： 列名： 指定用于排序的列， 可指定多个列，列名之间用逗号隔开
+    ： 表达式 指定用于排序的表达式
+    ： 位置： 用于排序的列在SELECT 语句结果集中的额位置，通常是一个正整数
+    ： ASC|DESC ： ASC表示 升序 DESC 表示 降序
+ORDER BY 注意：
+    1. ORDER BY 子句中可以包含子查询
+    2. 当排序的值中存在空值时，将该空值作为最小值来对待
+    3. 指定多个列进行排序时，按照从左到右依次进行排序
+    4. 如没有进行排序，根据插入到数据表中的顺序显示</code></pre><h3 id="MYSQL-WHERE-：-条件查询"><a href="#MYSQL-WHERE-：-条件查询" class="headerlink" title="MYSQL WHERE ： 条件查询"></a>MYSQL WHERE ： 条件查询</h3><pre><code>使用 WHERE 子句指定查询条件，从FROM子句的中间结果选取适当的数据行，达到过滤的效果
+WHERE &lt;查询条件&gt;  { &lt;判定运算1&gt; , &lt;判定运算2&gt;,...}
+    判定结果取值为： TRUE 、FALSE、UNKNOWN
+    分类：
+        1. &lt;表达式1&gt; {=|&lt;|&lt;=|&gt;|&gt;=|&lt;==&gt;|&lt;&gt;|! = } &lt;表达式2&gt;
+        2. &lt;表达式2&gt; [NOT] LIKE  &lt;表达式2&gt;
+        3. &lt;表达式1&gt; [NOT][REGEXP|RLIKE] &lt;表达式2&gt;
+        4. &lt;表达式1&gt; [NOT] BETWEEN &lt;表达式2&gt; AND &lt;表达式3&gt;
+        5. &lt;表达式1&gt; IS [NOT] NULL
+单一条件的查询语句
+    查询一个指定列的具体值
+多条件的查询语句
+    使用AND操作符限定只有满足所有查询条件的记录才会被返回
+使用LIKE的模糊查询
+    &lt;表达式1&gt; {NOT} LIKE &lt;表达式2&gt;
+        一种模式匹配，使用运算符LIKE设置过滤条件，使用通配符进行匹配运算，而不是判断是否相等进行比较
+        匹配运算对象可以是 CHAR、 VARCHAR、TEXT、DATETIME等数据类型，返回结果是TRUE 或FALSE
+    MYSQL支持的通配符：
+        1. 百分号 % 是一种通配符，可表示任何字符串，字符串可出现任意次
+            需注意：
+                默认不区分大小写， 如要区分大小写，需更换字符集的校对规则
+                百分号不匹配空值
+                百分号可代表搜索模式中给定位置的0个、1个或多个字符
+                在搜索模式的最后附加一个百分号
+        2. 下划线 _    通配符，只匹配单个字符，不是多个，也不是0个字符
+日期字段作为条件的查询语句
+    以日期字段作为条件，使用比较运算符设置查询条件，也可使用 BETWEEN AND 运算符查询某个范围内的值</code></pre><h3 id="MYSQL-常用运算符"><a href="#MYSQL-常用运算符" class="headerlink" title="MYSQL 常用运算符"></a>MYSQL 常用运算符</h3><pre><code>MYSQL支持的4种运算符：
+    1.  算术运算法： 加、减、乘、除
+    2， 比较运算符：大于、小于、等于、不等于等等
+    3.  逻辑运算符： 与、或、非、异或等，返回值为布尔值
+    4.  位运算符 ： 按位与、按位或、按位取反、按位异或、按位左移、按位右移等，位运算必须将数据转换为二进制
+[More](http://c.biancheng.net/view/2561.html)</code></pre><h2 id="MYSQL-INNER-JOIN-：内连接查询"><a href="#MYSQL-INNER-JOIN-：内连接查询" class="headerlink" title="MYSQL INNER JOIN ：内连接查询"></a>MYSQL INNER JOIN ：内连接查询</h2><pre><code>内连接是通过查询中设置连接条件的方式， 移除查询结果集中某些数据行的交叉连接，利用条件表达式来消除交叉连接的某些数据行
+使用 INNER JOIN 连接两张表，使用 ON 子句来设置连接条件，如没有条件， INNER JOIN 和 CROSS JOIN 是等同的，可互换。
+SELECT &lt;列名1,列名2,...&gt; FROM &lt;表名1&gt; INNER JOIN &lt;表名2&gt; [ON子句]
+    ： 列名1，列名2，。。。： 需要检索的列名
+    ： 表名1 表名2  ： 进行内连接的两张表的表名
+    内连接是系统默认的表连接，在FROM子句后可省略INNER关键字，使用内连接，FROM子句中的额ON子句可用来设置连接表的条件
+    在FROM子句中可在多个表之间连续使用INNER JOIN或JOIN，可同时实现多个表的内连接</code></pre><h3 id="MYSQL-LEFT-RIGHT-JOIN-：-外连接查询"><a href="#MYSQL-LEFT-RIGHT-JOIN-：-外连接查询" class="headerlink" title="MYSQL LEFT / RIGHT JOIN ： 外连接查询"></a>MYSQL LEFT / RIGHT JOIN ： 外连接查询</h3><pre><code>内连接是在交叉连接的结果集上返回满足条件的记录； 而外查询先将连接的表分为基表和参考表，再以基表为依据返回满足和不满足条件的记录
+外连接注重两张表之间的关系，按照表的顺序，可分为 左外连接 和 右外连接
+左外连接称为 左连接，  在 FROM 子句中使用 LEFT OUTER JOIN 或 LEFT JOIN，用于接收该关键字左表即基表的所有行，这些行与该关键字右表即参考表中的行进行匹配，左表中的每一行及右表中的符合条件的行
+左外连接的结果集中，除匹配行外，还包活左表中有但右表中不匹配的行，从右表中选择的行的值被设置为NULL， 即左外连接的结果集汇中的NULL值表示右表中没有找到与左表享福的记录
+右外连接称为 右连接，在FROM子句中使用RIGHT OUTER JOIN或RIGHT JOIN， 与左外连接相反，右表中有左表中不匹配的行，从左表中选择的值设置为NULL</code></pre><h3 id="MYSQL-子查询"><a href="#MYSQL-子查询" class="headerlink" title="MYSQL 子查询"></a>MYSQL 子查询</h3><pre><code>子查询是指一个查询语句嵌套另一个查询语句内部的查询，在SELECT 子句中先计算子查询，子查询结果作为外层另一个查询的过滤条件，查询可基于一个表或多个表
+子查询中常用的操作符有 ANY(SOME) 、ALL、IN、EXISTS
+子查询可添加到 SELECT、UPDATE、DELETE中，可进行多层嵌套，子查询可使用比较运算符，如&lt;,&lt;=,&gt; =&gt; ,!=等</code></pre><h4 id="子查询中常用的运算符"><a href="#子查询中常用的运算符" class="headerlink" title="子查询中常用的运算符"></a>子查询中常用的运算符</h4><pre><code>1. IN 子查询
+    判断一个给定值是否存在于子查询的结果集中
+        &lt;表达式&gt; [NOT] IN &lt;子查询&gt;
+            ： 表达式： 用于指定表达式，当表达式与子查询返回的结果集中的某个值相等时，返回TRUE，如使用关键值 NOT， 返回的值正好相反
+            ： 子查询： 用于指定子查询，只能返回一列数据，可使用SELECT语句实现查询的多层嵌套
+2. 比较运算符子查询
+    用于对表达式的值和子查询返回的值进行比较运算
+        &lt;表达式&gt; { = | &lt; | &gt; | &gt;= | &lt;= | &lt;=&gt; | != }    { ALL | SOME | ANY } &lt;子查询&gt;
+3. EXISTS 子查询
+    用于判断子查询的结果集是否为空，
+        EXISTS &lt;子查询&gt;
+[More](http://c.biancheng.net/view/2566.html)</code></pre><h2 id="MYSQL-GROUP-BY-：-分组查询"><a href="#MYSQL-GROUP-BY-：-分组查询" class="headerlink" title="MYSQL GROUP BY ： 分组查询"></a>MYSQL GROUP BY ： 分组查询</h2><pre><code>将结果集中的数据行根据选择列的值进行逻辑分组，能汇总表内容的子集，实现对每个组而不是整个结果集进行整合
+GROUP BY { &lt;列名&gt; | &lt;表达式&gt; | &lt;位置&gt; } [ ASC | DESC ]
+    ：列名： 指定用于分组的列，可指定多个列
+    ： 表达式： 指定用于分组的表达式，通常与聚合函数一起使用
+    ： 位置： 用于分组的选择列在SELECT 语句结果集中的位置，是一个整数
+    ： ASC | DESC ： 必须位于对应的列名、表达式、列的位置之后
+    需注意：
+        1. 可包含任意数目的列，可对分组进行嵌套，为数据分组提供更细致的控制
+        2. 每个列都必须是检索列或有效的表达式，不能是聚合函数
+        3. SELECT语句中的每个列都必须是GROUP BY 子句中给出
+        4. 用于分组的列中包含有NULL值，则NULL将作为一个单独的分组返回，如列中存在多个NULL值， 则将这些NULL值所在行分为一组</code></pre><h3 id="MYSQL-HAVING-：-指定过滤条件"><a href="#MYSQL-HAVING-：-指定过滤条件" class="headerlink" title="MYSQL HAVING ： 指定过滤条件"></a>MYSQL HAVING ： 指定过滤条件</h3><pre><code>在结果集中规定包含哪些分组和排除哪些分组
+    HAVING &lt;条件&gt;
+    HAVING 和 WHERE 子句相似，HAVING子句支持WHERE子句中素有的操作符和语法，差异：
+        1. WHERE 子句主要过滤数据行， HAVING子句用于过滤分组，集HAVING子句基于分组的聚合值而不是特定行的值来过滤数据，主要过滤分组
+        2. WHERE子句不可以包含聚合函数，HAVING子句的条件可包含聚合函数
+        3. HAVING子句是在数据分组后进行过滤， WHERE子句会在数据分组前进行过滤，WHERE子句排除的行不包含在分组中，会影响HAVING子句基于这些值过滤的分组</code></pre><h3 id="MYSQL-REGEXP-正则表达式查询"><a href="#MYSQL-REGEXP-正则表达式查询" class="headerlink" title="MYSQL REGEXP : 正则表达式查询"></a>MYSQL REGEXP : 正则表达式查询</h3><pre><code>    用来被检索或替换符合某个模式的文本内容，根据指定的匹配模式匹配文中符合要求的特殊字符串
+    REGEXP操作符常用的匹配列表
+    ^ ： 匹配文本的开始字符 
+    $ ： 结束字符
+    . ： 任何单个字符
+    * ： 0个或者 多个在它前面的字符
+    + ： 1次个或多次
+    &lt;字符串&gt; ：匹配包含指定字符的文本 
+    [字符集合] ： 字符集合中的一个字符
+    [^]    ： 不在括号中的任何字符
+    {n,} ： 匹配前面的字符串至少n次
+    {n,m} ： 至少n次，至多m次
+查询以特定字符或字符串开头的记录
+    字符 ^ 匹配以特定字符或字符串开头的文本
+查询以特定字符或字符串结尾的记录
+    字符 $ </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Author : Hale Lv</span><br><span class="line">@Created Time : 2019-09-03 15:21:40</span><br><span class="line">@Description :</span><br></pre></td></tr></table></figure>
+
+<h2 id="MYSQL-视图"><a href="#MYSQL-视图" class="headerlink" title="MYSQL 视图"></a>MYSQL 视图</h2><pre><code>视图是一个虚拟表，内容由查询定义。同真实表一样， 视图包含一系列带有名称的列和行数据，但视图不是数据库真实存储的数据表
+视图是一个、多个表或者视图中导出的表， 包含一系列带有名称的数据列和若干条数据行
+视图和数据库的区别：
+    1. 视图不是数据库中真实的表，而是一张虚拟表，其结构和数据是建立在对数据中真实表的查询基础上的
+    2. 存储在数据库中的查询操作SQL语句定义了视图的内容，列数据和行数据来自于视图查询所引用的实际表， 引用视图时动态生成这些数据
+    3. 视图没有实际的物理记录，不是以数据集的形式存储在数据库中，对应的数据实际上是存储在视图所引用的真实表中
+    4. 视图是数据的窗口，而表是内容。表是实际数据的存放单位， 视图是以不同的显示方式展示数据，数据源是实际表
+    5. 视图是查看数据表的一种方法，可查询数据表中某些字段构成的数据
+    6. 视图的建立和删除只影响视图本身，不影响对应的基本表
+视图的优点：
+    1. 定制用户数据，聚集特定的数据
+    2. 简化数据操作
+    3. 提高基表数据的安全性
+    4. 共享所需数据
+    5. 更改数据格式
+    6. 重用SQL语句
+使用视图注意的点：
+    1. 创建视图需要足够的权限
+    2. 数目没有限制
+    3. 可以嵌套，即从其他视图中检索数据的查询来创建视图
+    4. 视图可以和表一起使用
+    5. 视图不包含数据，必须执行查询中所需的任何一个检索操作。 </code></pre><h3 id="创建视图-CREATE-VIEW"><a href="#创建视图-CREATE-VIEW" class="headerlink" title="创建视图 CREATE VIEW"></a>创建视图 CREATE VIEW</h3><pre><code>CREATE VIEW &lt;视图名&gt; AS &lt;SELECT语句&gt;
+    ：视图名 ： 指定视图的名称，必须唯一
+    ：SELECT语句： 指定创建视图的SELECT语句，可用于查询多个基础表或源视图
+存在的限制：
+    1. 权限问题，基础表和其他视图的相关权限
+    2. SELECT 语句不能引用系统或用户变量
+    3. SELECT语句不能包含FROM子句汇中的子查询
+    4. SELECT 语句不能引用预处理语句参数
+创建基于单表的视图
+    在单个数据表上创建视图
+创建基于多表的视图
+    在两个以上的表中创建视图
+查询视图
+    应用方面：
+        使用视图重新格式化检索出的数据
+        使用视图简化复杂的表连接
+        使用视图过滤数据            
+    DESCRIBE 视图名；</code></pre><h3 id="修改视图-ALTER-VIEW"><a href="#修改视图-ALTER-VIEW" class="headerlink" title="修改视图 ALTER VIEW"></a>修改视图 ALTER VIEW</h3><pre><code>ALTER VIEW &lt;视图名&gt; AS &lt;SELECT语句&gt;
+    ：视图名： 指定视图名称，必须唯一
+    ： SELECT 语句： 指定创建视图的SELECT语句，可用于查询多个基础比或源视图
+修改视图名称
+    将视图删除，创建视图，命名为新视图</code></pre><h3 id="删除视图-DROP-VIEW"><a href="#删除视图-DROP-VIEW" class="headerlink" title="删除视图 DROP VIEW"></a>删除视图 DROP VIEW</h3><pre><code>DROP VIEW &lt;视图名1&gt; [,&lt;视图名2&gt;,...]
+    : 视图名：指定要删除的视图名， DROP VIEW可一次删除多个视图</code></pre><h2 id="MYSQL-自定义函数-CREATE-FUNCTION"><a href="#MYSQL-自定义函数-CREATE-FUNCTION" class="headerlink" title="MYSQL 自定义函数 CREATE FUNCTION"></a>MYSQL 自定义函数 CREATE FUNCTION</h2><pre><code>自定义函数于存储过程之间的区别：
+    1. 不能拥有输出参数，因为自定义函数自身就是输出参数，存储过程可以拥有输出参数
+    2. 必须包含一条RETURN 语句， 不允许包含于存储过程中
+    3. 可直接对自定义函数进行调用而不需要使用CALL 语句， 而对存储过程的调用需使用CALL语句
+创建并使用自定义函数
+    CREATE FUCTION &lt;函数名&gt; </code></pre>
       
     </div>
     
@@ -709,7 +1020,7 @@ LONGBLOB(M)
   <p><span>本文标题:</span><a href="/2019/08/11/MySQL-Note/">MySQL</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 <center> Hale Lv </center> 的个人博客"><center> Hale Lv </center></a></p>
   <p><span>发布时间:</span>2019年08月11日 - 13:08</p>
-  <p><span>最后更新:</span>2019年09月02日 - 21:09</p>
+  <p><span>最后更新:</span>2019年09月03日 - 21:09</p>
   <p><span>原始链接:</span><a href="/2019/08/11/MySQL-Note/" title="MySQL">http://yoursite.com/2019/08/11/MySQL-Note/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/11/MySQL-Note/" aria-label="复制成功！"></i></span>
   </p>
@@ -897,7 +1208,7 @@ LONGBLOB(M)
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -907,8 +1218,8 @@ LONGBLOB(M)
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/hello.html">
-                  <span class="site-state-item-count">29</span>
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -919,7 +1230,7 @@ LONGBLOB(M)
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1012,7 +1323,7 @@ LONGBLOB(M)
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TODO-LIST"><span class="nav-number">1.</span> <span class="nav-text">TODO LIST</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number"></span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的存储结构"><span class="nav-number">0.1.</span> <span class="nav-text">数据库的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#物理数据包括："><span class="nav-number">0.1.0.1.</span> <span class="nav-text">物理数据包括：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#逻辑数据描述"><span class="nav-number">0.1.0.2.</span> <span class="nav-text">逻辑数据描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库涉及的技术"><span class="nav-number">1.</span> <span class="nav-text">数据库涉及的技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语言"><span class="nav-number">2.</span> <span class="nav-text">SQL语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库的优势"><span class="nav-number">3.</span> <span class="nav-text">数据库的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-客户端和服务器端工具集"><span class="nav-number">4.</span> <span class="nav-text">MySQL 客户端和服务器端工具集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number"></span> <span class="nav-text">创建数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL查看或显示数据库（SHOW-DATABASES语句）"><span class="nav-number">1.</span> <span class="nav-text">MySQL查看或显示数据库（SHOW DATABASES语句）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-修改数据库：-ALTER-DATABASE"><span class="nav-number">2.</span> <span class="nav-text">MYSQL 修改数据库： ALTER DATABASE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据库-DROP-DATABASES"><span class="nav-number">3.</span> <span class="nav-text">删除数据库 DROP DATABASES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择数据库"><span class="nav-number">4.</span> <span class="nav-text">选择数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储引擎详解"><span class="nav-number">5.</span> <span class="nav-text">存储引擎详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-SHOW-ENGINES，查看系统支持的引擎类型"><span class="nav-number">5.1.</span> <span class="nav-text">使用 SHOW ENGINES，查看系统支持的引擎类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何选择MYSQL存储引擎"><span class="nav-number">6.</span> <span class="nav-text">如何选择MYSQL存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MYSQL-默认存储引擎"><span class="nav-number">6.1.</span> <span class="nav-text">MYSQL 默认存储引擎</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见数据类型"><span class="nav-number"></span> <span class="nav-text">常见数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整数类型"><span class="nav-number">1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小数类型-FLOAT、DOUBLE、-DECIMAL"><span class="nav-number">2.</span> <span class="nav-text">小数类型 FLOAT、DOUBLE、 DECIMAL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期和时间类型"><span class="nav-number">3.</span> <span class="nav-text">日期和时间类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串类型"><span class="nav-number">4.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制类型"><span class="nav-number">5.</span> <span class="nav-text">二进制类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-数据表增删改查"><span class="nav-number"></span> <span class="nav-text">MYSQL 数据表增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据表-CREATE-TABLE"><span class="nav-number">1.</span> <span class="nav-text">创建数据表 CREATE TABLE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在指定数据库中创建表"><span class="nav-number">1.1.</span> <span class="nav-text">在指定数据库中创建表</span></a></li></ol></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#TODO-LIST"><span class="nav-number">1.</span> <span class="nav-text">TODO LIST</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number"></span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据库的存储结构"><span class="nav-number">0.1.</span> <span class="nav-text">数据库的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#物理数据包括："><span class="nav-number">0.1.0.1.</span> <span class="nav-text">物理数据包括：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#逻辑数据描述"><span class="nav-number">0.1.0.2.</span> <span class="nav-text">逻辑数据描述</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库涉及的技术"><span class="nav-number">1.</span> <span class="nav-text">数据库涉及的技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL语言"><span class="nav-number">2.</span> <span class="nav-text">SQL语言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库的优势"><span class="nav-number">3.</span> <span class="nav-text">数据库的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL-客户端和服务器端工具集"><span class="nav-number">4.</span> <span class="nav-text">MySQL 客户端和服务器端工具集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建数据库"><span class="nav-number"></span> <span class="nav-text">创建数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL查看或显示数据库（SHOW-DATABASES语句）"><span class="nav-number">1.</span> <span class="nav-text">MySQL查看或显示数据库（SHOW DATABASES语句）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-修改数据库：-ALTER-DATABASE"><span class="nav-number">2.</span> <span class="nav-text">MYSQL 修改数据库： ALTER DATABASE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据库-DROP-DATABASES"><span class="nav-number">3.</span> <span class="nav-text">删除数据库 DROP DATABASES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择数据库"><span class="nav-number">4.</span> <span class="nav-text">选择数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储引擎详解"><span class="nav-number">5.</span> <span class="nav-text">存储引擎详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-SHOW-ENGINES，查看系统支持的引擎类型"><span class="nav-number">5.1.</span> <span class="nav-text">使用 SHOW ENGINES，查看系统支持的引擎类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何选择MYSQL存储引擎"><span class="nav-number">6.</span> <span class="nav-text">如何选择MYSQL存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MYSQL-默认存储引擎"><span class="nav-number">6.1.</span> <span class="nav-text">MYSQL 默认存储引擎</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见数据类型"><span class="nav-number"></span> <span class="nav-text">常见数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整数类型"><span class="nav-number">1.</span> <span class="nav-text">整数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小数类型-FLOAT、DOUBLE、-DECIMAL"><span class="nav-number">2.</span> <span class="nav-text">小数类型 FLOAT、DOUBLE、 DECIMAL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期和时间类型"><span class="nav-number">3.</span> <span class="nav-text">日期和时间类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串类型"><span class="nav-number">4.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制类型"><span class="nav-number">5.</span> <span class="nav-text">二进制类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-数据表增删改查"><span class="nav-number"></span> <span class="nav-text">MYSQL 数据表增删改查</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建数据表-CREATE-TABLE"><span class="nav-number">1.</span> <span class="nav-text">创建数据表 CREATE TABLE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在指定数据库中创建表"><span class="nav-number">1.1.</span> <span class="nav-text">在指定数据库中创建表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQl-修改数据表-ALTER-TABLE"><span class="nav-number">2.</span> <span class="nav-text">MySQl 修改数据表 ALTER TABLE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除数据表-DROP-TABLE"><span class="nav-number">3.</span> <span class="nav-text">删除数据表 DROP TABLE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-INSERT-：-插入数据"><span class="nav-number">4.</span> <span class="nav-text">MYSQL INSERT ： 插入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-UPDATE-：-修改数据-更新数据"><span class="nav-number">5.</span> <span class="nav-text">MYSQL UPDATE ： 修改数据|更新数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-DELETE-：-删除数据"><span class="nav-number">6.</span> <span class="nav-text">MYSQL DELETE ： 删除数据</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-主键-PRIMARY-KEY"><span class="nav-number"></span> <span class="nav-text">MYSQL 主键 PRIMARY KEY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-外键约束-FOREIGN-KEY"><span class="nav-number">1.</span> <span class="nav-text">MYSQL 外键约束 FOREIGN KEY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-唯一约束-UNIQUE-KEY"><span class="nav-number">2.</span> <span class="nav-text">MYSQL 唯一约束 UNIQUE KEY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL检查约束-CHECK"><span class="nav-number">3.</span> <span class="nav-text">MYSQL检查约束 CHECK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值-DEFAULT"><span class="nav-number">4.</span> <span class="nav-text">默认值 DEFAULT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-非空约束-NOT-NULL"><span class="nav-number">5.</span> <span class="nav-text">MYSQL 非空约束 NOT NULL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-查看表中的约束"><span class="nav-number">6.</span> <span class="nav-text">MYSQL 查看表中的约束</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-查询数据表"><span class="nav-number"></span> <span class="nav-text">MYSQL 查询数据表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-DISTINCT-：-去重，过滤重复数据"><span class="nav-number">1.</span> <span class="nav-text">MYSQL DISTINCT ： 去重，过滤重复数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-AS-设置别名"><span class="nav-number">2.</span> <span class="nav-text">MYSQL AS :设置别名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-LIMIT-：-限制查询结果的记录条数"><span class="nav-number">3.</span> <span class="nav-text">MYSQL LIMIT ： 限制查询结果的记录条数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-ORDER-BY-：-对查询结果进行排序"><span class="nav-number">4.</span> <span class="nav-text">MYSQL ORDER BY ： 对查询结果进行排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-WHERE-：-条件查询"><span class="nav-number">5.</span> <span class="nav-text">MYSQL WHERE ： 条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-常用运算符"><span class="nav-number">6.</span> <span class="nav-text">MYSQL 常用运算符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-INNER-JOIN-：内连接查询"><span class="nav-number"></span> <span class="nav-text">MYSQL INNER JOIN ：内连接查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-LEFT-RIGHT-JOIN-：-外连接查询"><span class="nav-number">1.</span> <span class="nav-text">MYSQL LEFT / RIGHT JOIN ： 外连接查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-子查询"><span class="nav-number">2.</span> <span class="nav-text">MYSQL 子查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#子查询中常用的运算符"><span class="nav-number">2.1.</span> <span class="nav-text">子查询中常用的运算符</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-GROUP-BY-：-分组查询"><span class="nav-number"></span> <span class="nav-text">MYSQL GROUP BY ： 分组查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-HAVING-：-指定过滤条件"><span class="nav-number">1.</span> <span class="nav-text">MYSQL HAVING ： 指定过滤条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MYSQL-REGEXP-正则表达式查询"><span class="nav-number">2.</span> <span class="nav-text">MYSQL REGEXP : 正则表达式查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-视图"><span class="nav-number"></span> <span class="nav-text">MYSQL 视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建视图-CREATE-VIEW"><span class="nav-number">1.</span> <span class="nav-text">创建视图 CREATE VIEW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改视图-ALTER-VIEW"><span class="nav-number">2.</span> <span class="nav-text">修改视图 ALTER VIEW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除视图-DROP-VIEW"><span class="nav-number">3.</span> <span class="nav-text">删除视图 DROP VIEW</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL-自定义函数-CREATE-FUNCTION"><span class="nav-number"></span> <span class="nav-text">MYSQL 自定义函数 CREATE FUNCTION</span></a></li></div>
             
 
           </div>
@@ -1029,7 +1340,7 @@ LONGBLOB(M)
     <h3 class="widget-title"> Hale's 标签云 </h3>
     <div id="myCanvasContainer" class="widget tagcloud">
         <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Error/">Error</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/">Golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/">Life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/">Socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Design/">Design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Error/">Error</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/">Golang</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Laravel/">Laravel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Life/">Life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket/">Socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -1073,7 +1384,7 @@ LONGBLOB(M)
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共94.7k字</span>
+  <span class="post-count">博客全站共101.5k字</span>
 </div>
 
 
